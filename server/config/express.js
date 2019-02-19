@@ -1,4 +1,4 @@
-var path = require('path'),  
+ var path = require('path'),
     express = require('express'), 
     mongoose = require('mongoose'),
     morgan = require('morgan'),
@@ -22,15 +22,21 @@ module.exports.init = function() {
   
   /**TODO
   Serve static files */
-   
+   app.use(express.static('client'))
     
 console.log("dirset it "+__dirname)
   /**TODO 
   Use the listings router for requests to the api */
+    app.use('/api/listings', listingsRouter)
 
 
   /**TODO
   Go to homepage for all routes not specified */
-    
+    app.get('/', function(req, res){ //app.use(function(req, res){
+            //res.sendfile('./client', './client/index.html');
+           
+            res.sendfile('./client/index.html');
+
+            });
   return app;
 };  
