@@ -25,6 +25,9 @@ module.exports.init = function() {
    app.use(express.static('client'))
     
 console.log("dirset it "+__dirname)
+    app.use(express.static('client'))
+
+
   /**TODO 
   Use the listings router for requests to the api */
     app.use('/api/listings', listingsRouter)
@@ -35,7 +38,7 @@ console.log("dirset it "+__dirname)
     app.get('/', function(req, res){ //app.use(function(req, res){
             //res.sendfile('./client', './client/index.html');
            
-            res.sendfile('./client/index.html');
+            res.sendfile('./client/home.html');
 
             });
   return app;
