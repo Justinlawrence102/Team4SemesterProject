@@ -16,6 +16,7 @@
     overflow: hidden;
     border-style: solid;
     border-color:skyblue; 
+  
   }
   
   /* Style the links inside the navigation bar */
@@ -48,3 +49,154 @@
     text-decoration: none;
     font-size: 17px;
   }
+
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 3.0vw;
+    font-weight: bold;
+    color: #09090a;
+  }
+
+  .top-right {
+ 
+    position: absolute;
+    top: 8px;
+    right: 16px;
+
+    font-size: 3.0vw;
+    font-weight: bold;
+    color: #09090a;
+  }
+
+
+  /* blog*/
+  .blogHeader {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+
+  .blogHeaderText{
+
+    padding-top:10px;
+    position: relative;
+    text-align: center;
+    color: black;
+    max-width: 80%;
+    height: auto;
+  }
+
+  .entrySample1 {
+    border-style: ridge;
+    padding-bottom: 10%;
+  
+  }
+
+
+  .pagination {
+    display: inline-block;
+    margin-left:30px;
+   
+  }
+  
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+
+/* signup form*/
+  input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  input[type=tel], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type=tel], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type=datetime-local], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  input[type=email], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+.containerPersonalInfo {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.containerListInfo {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.containerComments {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+
+.containerLogin {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+

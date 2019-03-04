@@ -30,6 +30,81 @@
       
 </div>
 
+
+<div class = submitForms>
+    <form action="#">
+
+        <div class="containerPersonalInfo"> 
+
+<h3>Personal information </h3>
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" name="firstname" placeholder="Your name..">
+  
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+      <label for="usremail">Email</label>
+      <input type="email" id="email" name="email" placeholder="Your email..">
+  
+  
+
+
+      <label for="tphone">Phone Number</label>
+      <input type="tel" id = "telphone" name="usrtel" placeholder="(XXX)-XXX XXXX">
+</div>
+
+<div class="containerListInfo"> 
+<h3>Listing Information</h3>
+      <label for="departure">Departure</label>
+      <select id="departure" name="dept">
+        <option value="Miami International">MIA</option>
+        <option value="Gainesville Airport">GNV</option>
+        <option value="Orlando International">ORL</option>
+      </select>
+
+      
+      <label for="departure-date">Departure date</label>
+      <input type="datetime-local" name="dept-date">
+
+      <label for="destination">Destination</label>
+      <select id="departure" name="dept">
+        <option value="Miami International">MIA</option>
+        <option value="Gainesville Airport">GNV</option>
+        <option value="Orlando International">ORL</option>
+      </select>
+
+           
+      <label for="return-date">Return date</label>
+      <input type="datetime-local" name="ret-date">
+
+   <label for="quantity">Number of people</label>
+      <input type="number" name="quantity" min="1" max="5">
+
+
+   <label for="return-date"> Max budget</label>
+      <input type="number" name="quantity" min="50" max="1000">
+      
+      
+       </div>
+      <div class="containerComments"> 
+<h3>Additional comments</h3>
+      <textarea id="comments" name="comments" placeholder="Write something.." style="height:100px; width:300px;"></textarea>
+    </div>
+      
+
+   
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+  
+
+
+
+
+
+
+
     
     </body>
   </html>
