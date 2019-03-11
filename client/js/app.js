@@ -3,3 +3,5 @@ angular.module('requests', []);
 
 /* register the application and inject all the necessary dependencies */
 var app = angular.module('travelAgencyApp', ['requests']);
+
+console.log('here')
