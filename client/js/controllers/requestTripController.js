@@ -1,22 +1,32 @@
 angular.module('requests').controller('RequestController', ['$scope', 'Requests',
   function($scope, Requests) {
-                                                            $scope.name = undefined;
-                                                            $scope.travelDates = undefined;
+                                                            $scope.firstName = undefined;
+                                                            $scope.lastName = undefined;
+                                                            $scope.email = undefined;
+                                                            $scope.tphone = undefined;
+                                                            $scope.returnDate = undefined;
+                                                            $scope.departDate = undefined;
+                                                            $scope.numPeople = undefined;
                                                             $scope.budget = undefined;
-                                                            $scope.numTravelers = undefined;
                                                             $scope.notes = undefined;
+                                                            console.log('test '+$scope.firstName);
+
     /* Get all the listings, then bind it to the scope */
-    Requests.getAll().then(function(response) {
-      $scope.requests = response.data;
-                           
-                        
-    }, function(error) {
-      console.log('Unable to retrieve listings:', error);
-    });
+//    Requests.getAll().then(function(response) {
+//      $scope.requests = response.data;
+//
+//
+//    }, function(error) {
+//      console.log('Unable to retrieve listings:', error);
+//    });
 
 
     $scope.submitRequest = function() {
-      console.log('adding new request from user')
+      console.log('adding request for '+$scope.firstName+' '+$scope.lastName);
+      var newRequest = {firstName: $scope.firstName, lastName: $scope.lastName, email: $scope.email, tphone: $scope.tphone, returnDate: $scope.returnDate, departDate: $scope.departDate, numPeople: $scope.numPeople, budget: $scope.budget, notes: $scope.notes};
+                                                            
+      Requests.create(newRequest).then(function(response) {
+      });
     };
 
   }
