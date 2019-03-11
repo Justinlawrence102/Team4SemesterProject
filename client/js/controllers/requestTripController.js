@@ -23,6 +23,10 @@ angular.module('requests').controller('RequestController', ['$scope', 'Requests'
 
     $scope.submitRequest = function() {
       console.log('adding request for '+$scope.firstName+' '+$scope.lastName);
+      var newRequest = {firstName: $scope.firstName, lastName: $scope.lastName, email: $scope.email, tphone: $scope.tphone, returnDate: $scope.returnDate, departDate: $scope.departDate, numPeople: $scope.numPeople, budget: $scope.budget, notes: $scope.notes};
+                                                            
+      Requests.create(newRequest).then(function(response) {
+      });
     };
 
   }

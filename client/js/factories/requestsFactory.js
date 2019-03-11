@@ -4,8 +4,9 @@ angular.module('requests', []).factory('Requests', function($http) {
       return $http.get('http://localhost:8080/api/listings');
     },
 	
-	create: function(listing) {
-      return $http.post('http://localhost:8080/api/listings', listing)
+	create: function(Newrequest) {
+                                       console.log('submitting post: '+Newrequest.firstName)
+      return $http.post('http://localhost:8080/api/requests', Newrequest)
     },
 
     delete: function(id) {
