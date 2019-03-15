@@ -33,9 +33,28 @@
         </header>
         
 	<div class="blogHeader">
-	
-	  <center><img src="homeHeader.jpg" alt="blogHeader" style="max-width: 80%; height: auto; padding-top:10px;"></center>
-              
+
+    <div class="bg-img">
+
+      <div class="headerContainer">
+        <H4>Where would you like to go?</H4>
+
+        <h5>Destination</h5>
+          <select id="destination" name="dest">
+          <option value="Miami International">MIA</option>
+            <option value="Gainesville Airport">GNV</option>
+            <option value="Orlando International">ORL</option>
+          </select>
+
+          <h5>Departure date</h5>
+          <input type="date" name="dept-date" ng-model="departDate">
+
+
+          <center> <input type="submitTrip" value="Go!"  ng-click="#"></center>
+  
+
+      </div>
+              </div>
   
         <center><div class="blogHeaderText">
             <p>
@@ -113,14 +132,6 @@
           <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
       </div>
     </div>
-
-
-
-
-
-
-
-
 
 
 

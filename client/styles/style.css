@@ -210,7 +210,7 @@
   background-color: #f2f2f2
 }
 
-
+/*login page*/
 .containerLogin {
   box-sizing: content-box;
   margin-top:30px;
@@ -220,6 +220,7 @@
   height: 50%;
   padding: 20px;  
   background-color: #f2f2f2
+
 }
 
   input[type=login] {
@@ -233,6 +234,61 @@
     border-radius: 4px;
     cursor: pointer;
   }
+  
+ 
+ 
+/*header image with header form */
 
+.bg-img {
+  /* The image used */
+  background-image: url("../homeHeader.jpg");
 
+  min-height: 300px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+  .headerContainer {
+  position: absolute;
+  right: 0;
+  margin: 15px;
+  margin-top:5px;
+  max-width: 100%;
+  padding: 16px;
+  background-color: white;
+  color: black;
+  padding-bottom: 5px;
+  opacity: 0.9;
+  }
+
+  
+  
+    input[type=submitTrip] {
+    width: 30%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;  
+	margin-left: auto;
+  margin-right: auto;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  
+  
+  
+  
+    input[type=date], select {
+    width: 70%;
+    padding: 12px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
 
