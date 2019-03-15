@@ -4,12 +4,12 @@ var mongoose = require('mongoose'),
 
 /* Create your schema */
 var clientSubmissionSchema = new Schema({
-	firstname: {type: String, required: true, index: true},
-	lastname: {type: String, required: true, index: true},
+	firstName: {type: String, required: true, index: true},
+	lastName: {type: String, required: true, index: true},
 	email: {type: String, required: true},
 	tphone: {type: Number, required:true},
-	returnDate:{type: Date, required:true},
-	departDate:{type: Date, required:true},
+	returnDate:{type: Date, required:false},
+	departDate:{type: Date, required:false},
 	numPeople:{type: Number, required:true},
 	notes:{type: String},
 	created_at: Date,
@@ -21,6 +21,7 @@ var clientSubmissionSchema = new Schema({
 /* create a 'pre' function that adds the updated_at (and created_at if not already there) property */
 
 clientSubmissionSchema.pre('save', function(next) {
+                           console.log("at model saving")
   var currentTime = new Date;
   this.updated_at = currentTime;
   if(!this.created_at)

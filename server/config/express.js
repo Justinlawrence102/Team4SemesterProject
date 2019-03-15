@@ -4,7 +4,7 @@
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     config = require('./config'),
-    listingsRouter = require('../routes/listings.server.routes');
+    tripRequestRouter = require('../routes/tripRequest.server.routes.js');
 
 module.exports.init = function() {
   //connect to database
@@ -30,7 +30,7 @@ console.log("dirset it "+__dirname)
 
   /**TODO 
   Use the listings router for requests to the api */
-    app.use('/api/listings', listingsRouter)
+    app.use('/api/requests', tripRequestRouter)
 
 
   /**TODO
