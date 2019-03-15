@@ -1,7 +1,7 @@
 
 /* Dependencies */
 var mongoose = require('mongoose'), 
-    Listing = require('../models/listings.server.model.js');
+    ClientSubmtion = require('../models/tripRequest.server.model.js');
 
 /*
   In this file, you should use Mongoose queries in order to retrieve/add/remove/update listings.
@@ -14,7 +14,20 @@ var mongoose = require('mongoose'),
 console.log("running!")
 /* Create a listing */
 exports.create = function(req, res) {
+    /* Instantiate a trip request */
+    var tripRequest = new ClientSubmtion(req.body);
+    
+    /* Then save the listing */
+    tripRequest.save(function(err) {
+                        console.log("at controller saving")
 
+                 if(err) {
+                 console.log(err);
+                 res.status(400).send(err);
+                 } else {
+                 res.json(tripRequest);
+                 }
+                 });
 };
 
 /* Show the current listing */
