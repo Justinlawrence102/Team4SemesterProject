@@ -5,12 +5,12 @@ angular.module('requests', []).factory('Requests', function($http) {
     },
 	
 	create: function(Newrequest) {
-                                       console.log('submitting post: '+Newrequest.firstName)
-      return $http.post('http://localhost:8080/api/requests', Newrequest)
+                                       console.log('submitting post from factory: '+Newrequest.firstName)
+      return $http.post('/api/requests', Newrequest)
     },
 
     delete: function(id) {
-            return $http.delete('http://localhost:8080/api/listings/'+ id);
+            return $http.delete('/api/listings/'+ id);
 	   /**TODO
         return result of HTTP delete method
        */

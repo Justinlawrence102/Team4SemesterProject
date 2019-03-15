@@ -28,15 +28,33 @@
     </div>
 
     <div class="main">
-   
+	<header>
+        <h1 align = "center">Welcome to Bochitto Travel!</h1>
+        </header>
+        
+	<div class="blogHeader">
 
-        <div class="blogHeader">
+    <div class="bg-img">
+
+      <div class="headerContainer">
+        <H4>Where would you like to go?</H4>
+
+        <h5>Destination</h5>
+          <select id="destination" name="dest">
+          <option value="Miami International">MIA</option>
+            <option value="Gainesville Airport">GNV</option>
+            <option value="Orlando International">ORL</option>
+          </select>
+
+          <h5>Departure date</h5>
+          <input type="date" name="dept-date" ng-model="departDate">
+
+
+          <center> <input type="submitTrip" value="Go!"  ng-click="#"></center>
   
-  
-            <center><img src="homeHeader.jpg" alt="blogHeader" style="max-width: 80%; height: auto; padding-top:10px;"></center>
-            
-            <div class="centered">Welcome to Bochitto Travel!</div>
-  
+
+      </div>
+              </div>
   
         <center><div class="blogHeaderText">
             <p>
@@ -114,14 +132,6 @@
           <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
       </div>
     </div>
-
-
-
-
-
-
-
-
 
 
 
