@@ -30,7 +30,6 @@
       
 </div>
 
-
 <div class = "submitForms" ng-controller="RequestController" >
  <!--   <form action="#">  -->
 
@@ -46,9 +45,6 @@
       <label for="usremail">Email</label>
       <input type="email" id="email" name="email" placeholder="Your email.." ng-model="email">
   
-  
-
-
       <label for="tphone">Phone Number</label>
       <input type="tel" id = "telphone" name="usrtel" placeholder="(XXX)-XXX XXXX" ng-model="tphone">
 </div>
@@ -63,44 +59,45 @@
       </select>
 
       
-      <label for="departure-date">Departure date</label>
-      <input type="datetime-local" name="dept-date" ng-model="departDate">
+        <label for="departure-date">Departure date</label>
+        <input type="datetime-local" name="dept-date" ng-model="departDate">
 
-      <label for="destination">Destination</label>
-      <select id="departure" name="dept">
+        <label for="destination">Destination</label>
+        <select id="departure" name="dept">
         <option value="Miami International">MIA</option>
-        <option value="Gainesville Airport">GNV</option>
-        <option value="Orlando International">ORL</option>
-      </select>
+          <option value="Gainesville Airport">GNV</option>
+          <option value="Orlando International">ORL</option>
+        </select>
 
            
-      <label for="return-date">Return date</label>
-      <input type="datetime-local" name="ret-date" ng-model="returnDate">
+        <label for="return-date">Return date</label>
+        <input type="datetime-local" name="ret-date" ng-model="returnDate">
 
-   <label for="quantity">Number of people</label>
-      <input type="number" name="quantity" min="1" max="5" ng-model="numPeople">
+        <label for="quantity">Number of people</label>
+        <input type="number" name="quantity" min="1" max="5" ng-model="numPeople">
 
 
-   <label for="return-date"> Max budget</label>
-      <input type="number" name="quantity" min="50" max="1000" ng-model="budget">
+        <label for="return-date"> Max budget</label>
+        <input type="number" name="quantity" min="50" max="1000" ng-model="budget">
       
-      
+
        </div>
+
+
       <div class="containerComments"> 
-<h3>Additional comments</h3>
-      <textarea id="comments" name="comments" placeholder="Write something.." style="height:100px; width:300px;" ng-model="notes"></textarea>
-    </div>
+        <h3>Additional comments</h3>
+        <textarea id="comments" name="comments" placeholder="Write something.." style="height:100px; width:300px;" ng-model="notes"></textarea>
+      </div>
       
 
    
 
-      <input type="submit" value="Submit" ng-click="submitRequest()">
+     <center> <input type="submit" value="Submit" ng-click="submitRequest()"></center>
    <!-- </form>  -->
    {{firstName}}
 
   </div>
   
-
 
 
 
