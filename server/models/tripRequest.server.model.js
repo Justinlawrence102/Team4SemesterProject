@@ -19,6 +19,7 @@ var clientSchema = new Schema({
 			destination: {type: String},
 			returnDate:{type: Date},
 			departDate:{type: Date},
+            budget:{type: Number},
 			numPeople:{type: Number},
 			notes:{type: String},
 	}]
