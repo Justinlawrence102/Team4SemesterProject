@@ -52,7 +52,7 @@
 <div class="containerListInfo">
 <h3>Listing Information</h3>
       <label for="departure">Departure</label>
-      <select id="departure" name="dept">
+      <select id="departure" name="dept" ng-model="origin" >
         <option value="Miami International">MIA</option>
         <option value="Gainesville Airport">GNV</option>
         <option value="Orlando International">ORL</option>
@@ -64,7 +64,7 @@
         <input type="date" name="dept-date" ng-model="departDate">
 
         <label for="destination">Destination</label>
-        <select id="departure" name="dept">
+        <select id="departure" name="dept" ng-model="destination">
         <option value="Miami International">MIA</option>
           <option value="Gainesville Airport">GNV</option>
           <option value="Orlando International">ORL</option>
@@ -96,7 +96,6 @@
 
      <center> <input type="submit" value="Submit" ng-click="submitRequest()"></center>
    <!-- </form>  -->
-   {{firstName}}
 
   </div>
   

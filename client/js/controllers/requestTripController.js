@@ -2,6 +2,8 @@ angular.module('requests').controller('RequestController', ['$scope', 'Requests'
   function($scope, Requests) {
                                                             $scope.firstName = undefined;
                                                             $scope.lastName = undefined;
+                                                            $scope.origin = undefined;
+                                                            $scope.destination = undefined;
                                                             $scope.email = undefined;
                                                             $scope.tphone = undefined;
                                                             $scope.returnDate = undefined;
@@ -23,7 +25,7 @@ angular.module('requests').controller('RequestController', ['$scope', 'Requests'
 
     $scope.submitRequest = function() {
       console.log('adding request for '+$scope.firstName+' '+$scope.lastName);
-      var newRequest = {firstName: $scope.firstName, lastName: $scope.lastName, email: $scope.email, tphone: $scope.tphone, returnDate: $scope.returnDate, departDate: $scope.departDate, numPeople: $scope.numPeople, budget: $scope.budget, notes: $scope.notes};
+     var newRequest = {origin: $scope.origin, destination: $scope.destination, returnDate: $scope.returnDate, departDate: $scope.departDate, numPeople: $scope.numPeople, budget: $scope.budget, notes: $scope.notes};
                                                             
       Requests.create(newRequest).then(function(response) {
       });

@@ -9,7 +9,8 @@ var tripRequest = require('../controllers/tripRequest.server.controller.js'),
  */
 router.route('/')
   .get(tripRequest.list)
-  .post(tripRequest.create);
+  .put(tripRequest.update);
+ // .post(tripRequest.create);
 
 
 /*
