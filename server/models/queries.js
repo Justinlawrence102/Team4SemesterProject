@@ -45,7 +45,7 @@ client1.save(function(err){
 });
 
 
-// queries to find a an entry and add new trip
+// queries to find a an entry and add new trip if username is provided. This can also be any unique field in collection
 
 var newTrip = {
         origin: "Miami",
