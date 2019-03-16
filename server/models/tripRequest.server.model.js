@@ -31,7 +31,9 @@ var clientSchema = new Schema({
 
 /* create a 'pre' function that adds the updated_at (and created_at if not already there) property */
 
+
 clientSchema.pre('save', function(next) {
+                           console.log("at model saving")
   var currentTime = new Date;
   this.updated_at = currentTime;
   if(!this.created_at)
@@ -54,4 +56,5 @@ var client = mongoose.model('clients', clientSchema)
 /* Export the model to make it avaiable to other parts of your Node application */
 
 module.exports = client;
+
 
