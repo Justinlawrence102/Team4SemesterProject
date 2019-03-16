@@ -2,7 +2,7 @@
 var mongoose = require('mongoose'), 
     Schema = mongoose.Schema;
 
-/* Create your schema */
+/* Create a new schema */
 
 var clientSchema = new Schema({
 
@@ -13,16 +13,16 @@ var clientSchema = new Schema({
 	email: {type: String, required: true, required: true},
 	tphone: {type: Number},
 	tripCount: {type:Number, default: 0},
-	trips:{
-		trip0:{
+	trips:[{
+
 			origin: {type: String},
 			destination: {type: String},
 			returnDate:{type: Date},
 			departDate:{type: Date},
 			numPeople:{type: Number},
 			notes:{type: String},
-		},
-	},
+	}]
+	,
 	created_at: Date,
 	updated_at: Date
 },{ collection: 'users' });

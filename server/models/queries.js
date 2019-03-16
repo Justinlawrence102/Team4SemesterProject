@@ -11,14 +11,7 @@ var fs = require('fs'),
 
 mongoose.connect(config.db.uri, {useMongoClient: true});
 
-mongooseDynamic.addSchemaField(client, "trips.trip1",{
-        origin: {type: String, Default:"Great"},
-        destination: {type: String, Default: "one"},
-        returnDate:{type: Date},
-        departDate:{type: Date},
-        numPeople:{type: Number},
-        notes:{type: String},
-        });
+
 //query to create a new listing
 
 var client1 = new client({
@@ -29,29 +22,17 @@ var client1 = new client({
         email: "k.oyibo@ufl.edu",
         tphone: 3520000000,
 
-        trips:{
-                trip0:{
-                        origin: "Orlando",
-                        destination: "Houston",
-                        returnDate:3/14/2019,
-                        departDate:3/14/2019,
-                        numPeople:4,
-                        notes:"I like tomatoes",
-                        created_at: new Date,
-                        updated_at: new Date   
-                },
-                trip1:{
-                        origin: "Orlando",
-                        destination: "Houston",
-                        returnDate:3/14/2019,
-                        departDate:3/14/2019,
-                        numPeople:4,
-                        notes:"I like apples",
-                        created_at: new Date,
-                        updated_at: new Date 
-                }
+        trips: [{
+                origin: "Orlando",
+                destination: "Houston",
+                returnDate:3/14/2019,
+                departDate:3/14/2019,
+                numPeople:4,
+                notes:"I like tomatoes",
+                created_at: new Date,
+                updated_at: new Date   
 
-        },
+        }],
         created_at: new Date,
         updated_at: new Date
 
@@ -62,3 +43,26 @@ client1.save(function(err){
 
         if (err) throw(err);
 });
+
+
+// queries to find a an entry and add new trip if username is provided. This can also be any unique field in collection
+
+var newTrip = {
+        origin: "Miami",
+        destination: "Pitts",
+        returnDate:3/14/2019,
+        departDate:3/14/2019,
+        numPeople:4,
+        notes:"I love bananas",
+        created_at: new Date,
+        updated_at: new Date
+}
+
+client.findOneAndUpdate(
+    {username: "ken1234"},
+    {$push: {trips: newTrip}},
+    {safe: true, upsert: true},
+    function(err, model) {
+        console.log(err);
+    }
+);
