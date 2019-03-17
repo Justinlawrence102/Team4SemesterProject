@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <title>Project</title>
+</head>
+<body ng-app="travelAgencyApp">
+  <div class="container" style="margin-top: 20px" ng-controller="RequestController">
+    <div class="row">
+        
+        <img src="bochitto.jpeg" alt="Logo" style="float:left;width:200px;height:150px;">
+        <img src="travel.jpg" alt="header" style="float:right;width:300px;height:150px;padding:10px;">
+
+    </div>
+
+    <div class="topnav">
+        <a href="home.html">Home</a>
+        <a href="#contact">Contact</a>
+        <a href="about.html">About Me</a>
+        <a href="specials.html">Specials</a>
+        <a href= "blogs.html">Blog Posts</a>
+        <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
+        
+        <div class="login">
+            <a class="active" href="triprequest.html">Trip Request</a>
+            <a href="login.html">Login</a>
+            <a href="signup.html">Sign Up</a>
+        </div>
+    </div>
+      
+</div>
+
+<div class = "submitForms" ng-controller="RequestController" >
+ <!--   <form action="#">  -->
+
+
+
+<div class="containerListInfo">
+<h3>Listing Information</h3>
+      <label for="departure">Departure</label>
+      <select id="departure" name="dept" ng-model="origin" >
+        <option value="Miami International">MIA</option>
+        <option value="Gainesville Airport">GNV</option>
+        <option value="Orlando International">ORL</option>
+      </select>
+
+      
+        <label for="departure-date">Departure date</label>
+        <input type="date" name="dept-date" ng-model="departDate">
+
+        <label for="destination">Destination</label>
+        <select id="departure" name="dept" ng-model="destination">
+        <option value="Miami International">MIA</option>
+          <option value="Gainesville Airport">GNV</option>
+          <option value="Orlando International">ORL</option>
+        </select>
+
+           
+        <label for="return-date">Return date</label>
+
+        <input type="date" name="ret-date" ng-model="returnDate">
+
+        <label for="quantity">Number of people</label>
+        <input type="number" name="quantity" min="1" max="5" ng-model="numPeople">
+
+
+        <label for="return-date"> Max budget</label>
+        <input type="number" name="quantity" min="50" max="1000" ng-model="budget">
+      
+
+       </div>
+
+
+      <div class="containerComments"> 
+        <h3>Additional comments</h3>
+        <textarea id="comments" name="comments" placeholder="Write something.." style="height:100px; width:300px;" ng-model="notes"></textarea>
+      </div>
+      
+
+   
+
+     <center> <input type="submit" value="Submit" ng-click="submitRequest()"></center>
+   <!-- </form>  -->
+
+  </div>
+  
+
+
+
+
+
+  <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+  <script src="js/app.js"></script>
+
+  <script src="js/factories/requestsFactory.js"></script>
+  <script src="js/controllers/requestTripController.js"></script>
+
+    </body>
+  </html>
