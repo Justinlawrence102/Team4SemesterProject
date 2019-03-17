@@ -4,9 +4,11 @@
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     config = require('./config'),
+    jwt = require('jsonwebtoken'),
     tripRequestRouter = require('../routes/tripRequest.server.routes.js');
 
 module.exports.init = function() {
+
   //connect to database
   mongoose.connect(config.db.uri);
 
@@ -15,6 +17,9 @@ module.exports.init = function() {
 
   //enable request logging for development debugging
   app.use(morgan('dev'));
+
+   //set the jwt secret key
+  app.set('secretKey', 'Team$4');
 
   //body parsing middleware 
   app.use(bodyParser.json());

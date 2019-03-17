@@ -6,10 +6,13 @@
   "author": "Team 4",
   "license": "N/A",
   "dependencies": {
-    "body-parser": "^1.14.1",
-    "express": "^4.13.3",
-    "mongoose": "^4.2.9",
-    "morgan": "^1.6.1",
+    "bcrypt": "^3.0.4",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.0",
+    "mongoose": "^4.13.18",
+    "morgan": "^1.9.1",
     "request": "^2.67.0"
   },
   "devDependencies": {
