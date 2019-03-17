@@ -20,9 +20,8 @@ exports.createTrip = function(req, res) {
     var tripRequest = {
           email: req.body.email,
           origin: req.body.origin,
-          destination: req.body.destination,
-          returnDate: req.body.returnDate,
           departDate: req.body.departDate,
+          stops: req.body.stops,
           numPeople: req.body.numPeople,
           budget: req.body.budget,
           notes:req.body.notes

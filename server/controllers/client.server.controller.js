@@ -9,13 +9,14 @@ var mongoose = require('mongoose'),
 create new user
 */
 
-export.createUser = function(req, res, next){
+exports.createUser = function(req, res, next){
 
 	if (client.findOne({username: req.username})){
+        console.log('ERROR DUCPLICATE NAME')
 		throw '"Username"'+req.username+'"is already taken';
 	}
 
-	const user = new Client(
+	const user = new client(
 		username: req.body.username,
 		password: req.body.password,
 		firstname: req.body.firstname,
@@ -37,7 +38,7 @@ export.createUser = function(req, res, next){
 /*
 	authentication for when a user logs in
 */
-export.authenticate = function(req, res, next){
+exports.authenticate = function(req, res, next){
 	client.findOne({username:req.body.email}, function(err, UserInfo){
 		if (err){
 			console.log(err);
