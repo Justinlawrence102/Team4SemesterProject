@@ -7,19 +7,22 @@ var tripRequest = require('../controllers/tripRequest.server.controller.js'),
   These method calls are responsible for routing requests to the correct request handler.
   Take note that it is possible for different controller functions to handle requests to the same route.
  */
+console.log("getting her server routes")
 router.route('/')
-  .get(tripRequest.list)
-  .put(tripRequest.update);
- // .post(tripRequest.create);
+  //.get(tripRequest.list)
+//  .put(tripRequest.update);
+  .post(tripRequest.createTrip);
 
 
 /*
   The ':' specifies a URL parameter. 
  */
-router.route('/:listingId')
-  .get(tripRequest.read)
-  .put(tripRequest.update)
-  .delete(tripRequest.delete);
+console.log("getting her server routes later on")
+
+//router.route('/:listingId')
+//  .get(tripRequest.read)
+//  .put(tripRequest.update)
+//  .delete(tripRequest.delete);
 
 /*
   The 'router.param' method allows us to specify middleware we would like to use to handle 
@@ -34,6 +37,6 @@ router.route('/:listingId')
   It will then pass control to the routing function specified above, where it will either 
   get, update, or delete that specific listing (depending on the HTTP verb specified)
  */
-router.param('tripRequestId', tripRequest.listingByID);
+//router.param('tripRequestId', tripRequest.listingByID);
 
 module.exports = router;
