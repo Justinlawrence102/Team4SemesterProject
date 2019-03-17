@@ -1,8 +1,14 @@
 
 /* Dependencies */
-var mongoose = require('mongoose'), 
-    ClientSubmtion = require('../models/tripRequest.server.model.js');
-
+var fs = require('fs'),
+        mongoose = require('mongoose'),
+        client = require('../models/tripRequest.server.model.js'),
+        trip = require('../models/tripRequest.server.model.js'),
+        recommendation = require('../models/tripRequest.server.model.js'),
+        special = require('../models/tripRequest.server.model.js'),
+        admin = require('../models/tripRequest.server.model.js'),
+        adminNotes = require('../models/tripRequest.server.model.js'),
+        config = require('../config/config.js');
 /*
   In this file, you should use Mongoose queries in order to retrieve/add/remove/update listings.
   On an error you should send a 404 status code, as well as the error message. 
