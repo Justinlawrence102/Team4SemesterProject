@@ -19,21 +19,32 @@ var fs = require('fs'),
  */
 console.log("running!")
 /* Create a listing */
-exports.create = function(req, res) {
+exports.update = function(req, res) {
     /* Instantiate a trip request */
     var tripRequest = new ClientSubmtion(req.body);
-    
-    /* Then save the listing */
-    tripRequest.save(function(err) {
-                        console.log("at controller saving")
-
-                 if(err) {
-                 console.log(err);
-                 res.status(400).send(err);
-                 } else {
-                 res.json(tripRequest);
-                 }
-                 });
+    var newTrip = {
+    origin: req.body.origin,
+    destination: req.body.destination,
+    returnDate:req.body.returnDate,
+    departDate:req.body.departDate,
+    buget: req.body.buget,
+    numPeople:req.body.numPeople,
+    notes:req.body.notes,
+    created_at: new Date,
+    updated_at: new Date
+    }
+    /* Then save the listing, appending it to the origianl account name */
+    console.log("here, at the serverController "+newTrip.origin)
+    ClientSubmtion.findOneAndUpdate(
+                                    {username: "ken1234"},
+                                    {$push: {trips: newTrip}},
+                                    {safe: true, upsert: true},
+                                    function(err, model) {
+                                    console.log("ERROR adding new trip")
+                                    console.log(err);
+                                    }
+                                    );
+    res.json(newTrip)
 };
 
 /* Show the current listing */
@@ -42,12 +53,6 @@ exports.read = function(req, res) {
  
 };
 
-/* Update a listing */
-exports.update = function(req, res) {
-    /** TODO **/
-  /* Replace the article's properties with the new properties found in req.body */
-  /* Save the article */
-};
 
 /* Delete a listing */
 exports.delete = function(req, res) {

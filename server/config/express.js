@@ -11,6 +11,7 @@ module.exports.init = function() {
 
   //connect to database
   mongoose.connect(config.db.uri);
+  mongoose.set('useFindAndModify', false);
 
   //initialize app
   var app = express();
