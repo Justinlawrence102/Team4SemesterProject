@@ -2,12 +2,7 @@
 /* Dependencies */
 var fs = require('fs'),
         mongoose = require('mongoose'),
-        client = require('../models/tripRequest.server.model.js'),
         trip = require('../models/tripRequest.server.model.js'),
-        recommendation = require('../models/tripRequest.server.model.js'),
-        special = require('../models/tripRequest.server.model.js'),
-        admin = require('../models/tripRequest.server.model.js'),
-        adminNotes = require('../models/tripRequest.server.model.js'),
         config = require('../config/config.js');
 /*
   In this file, you should use Mongoose queries in order to retrieve/add/remove/update listings.
@@ -19,9 +14,20 @@ var fs = require('fs'),
  */
 console.log("running!")
 /* Create a listing */
-exports.create = function(req, res) {
+exports.createTrip = function(req, res) {
     /* Instantiate a trip request */
-    var tripRequest = new ClientSubmtion(req.body);
+    var tripRequest = new trip(
+      
+          email: req.body.email,
+          origin: req.body.origin,
+          destination: req.body.destination,
+          returnDate: req.body.returnDate,
+          departDate: req.body.departDate,
+          numPeople: req.body.numPeople,
+          budget: req.body.budget,
+          notes:req.body.notes,
+
+      );
     
     /* Then save the listing */
     tripRequest.save(function(err) {
@@ -36,46 +42,5 @@ exports.create = function(req, res) {
                  });
 };
 
-/* Show the current listing */
-exports.read = function(req, res) {
-  /* send back the listing as json from the request */
- 
-};
 
-/* Update a listing */
-exports.update = function(req, res) {
-    /** TODO **/
-  /* Replace the article's properties with the new properties found in req.body */
-  /* Save the article */
-};
 
-/* Delete a listing */
-exports.delete = function(req, res) {
-  /** TODO **/
-  /* Remove the article */
-};
-
-/* Retreive all the directory listings, sorted alphabetically by listing code */
-exports.list = function(req, res) {
-    
-  /** TODO **/
-  /* Your code here */
-};
-
-/* 
-  Middleware: find a listing by its ID, then pass it to the next request handler. 
-
-  Find the listing using a mongoose query, 
-        bind it to the request object as the property 'listing', 
-        then finally call next
- */
-exports.listingByID = function(req, res, next, id) {
-  Listing.findById(id).exec(function(err, listing) {
-    if(err) {
-      res.status(400).send(err);
-    } else {
-      req.listing = listing;
-      next();
-    }
-  });
-};
