@@ -18,7 +18,7 @@ console.log("running!")
 exports.createTrip = function(req, res) {
     /* Instantiate a trip request */
     var tripRequest = {
-          email: req.body.email,
+          userName: req.body.userName,
           origin: req.body.origin,
           departDate: req.body.departDate,
           stops: req.body.stops,
@@ -26,9 +26,10 @@ exports.createTrip = function(req, res) {
           budget: req.body.budget,
           notes:req.body.notes
     }
-    
+    var tripRequests = new trip(req.body);
+
     /* Then save the listing */
-    tripRequest.save(function(err) {
+    tripRequests.save(function(err) {
                         console.log("at controller saving")
 
                  if(err) {
