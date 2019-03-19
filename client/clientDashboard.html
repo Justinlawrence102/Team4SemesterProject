@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="styles/style.css">
   <title>Project</title>
 </head>
-<body ng-app="Project">
+<body ng-app="travelAgencyApp">
   <div class="container" style="margin-top: 20px">
     <div class="row1">
         
@@ -14,7 +14,7 @@
 
   </div>
 
-    <div class="topnav">
+    <div class="topnav" >
         <a href="home.html">Home</a>
         <a href="contact.html">Contact</a>
         <a href="about.html">About Me</a>
@@ -32,7 +32,7 @@
         </div>
     </div>
 
-    <div class = "dashboard">
+    <div class = "dashboard" ng-controller="TripRequestController">
         <h1>Dashboard</h1>
         <div class = "dashboardNav">
             <h2>My Trips</h2>
@@ -45,7 +45,7 @@
                         <th>Number of People</th>
                         <th></th>
                         </tr>
-                        <tr ng-repeat="request in requests | filter:searchData | orderBy:'departDate'"> <!--Orders search results by date-->
+                        <tr ng-repeat="request in userRequest | filter:searchData | orderBy:'departDate'"> <!--Orders search results by date-->
                             <th>{{request.departDate}}</th> 
                             <th>{{request.origin}}</th> 
                             <th>{{request.stops}}</th>
@@ -62,11 +62,6 @@
                 <a href = "accountSettings.html">Account Settings</a>
         </div>
     </div>
-      
-
-    <script src="js/app.js"></script>
-    <script src="js/controllers/requestTripController.js"></script>
-    <script src="js/factories/TriprequestsFactory.js"></script>
 
     <div class="siteAnchor">
 
@@ -78,5 +73,11 @@
   
       </div>
     
+    
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <script src="js/app.js"></script>
+    
+    <script src="js/factories/tripRequestsFactory.js"></script>
+    <script src="js/controllers/requestTripController.js"></script>
     </body>
   </html>

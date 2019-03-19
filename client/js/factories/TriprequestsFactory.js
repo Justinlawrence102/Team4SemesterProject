@@ -4,6 +4,10 @@ angular.module('requests', []).factory('Requests', function($http) {
      create: function(Newrequest) {
          return $http.post('/api/requests', Newrequest)
         },
+     getAll: function() {
+       return $http.get('/api/requests');
+       },
+
   };
 
   return methods;

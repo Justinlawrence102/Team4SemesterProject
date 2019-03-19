@@ -9,7 +9,7 @@ angular.module('requests').controller('TripRequestController', ['$scope', 'Reque
                                                             $scope.budget = undefined;
                                                             $scope.notes = undefined;
 
-
+console.log('at controller')
     $scope.submitRequest = function() {
                                                                 console.log('adding request with budget: '+$scope.budget+'num people: '+$scope.numPeople);
                                                             
@@ -18,6 +18,13 @@ angular.module('requests').controller('TripRequestController', ['$scope', 'Reque
       Requests.create(newRequest).then(function(response) {
       });
     };
+                                                                
+  Requests.getAll().then(function(response) {
+     console.log('trying to get all trips')
+     $scope.userRequest = response.data;
+     }, function(error) {
+        console.log('Unable to retrieve trip request:', error);
+      });
 
   }
 ]);

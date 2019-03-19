@@ -1,5 +1,6 @@
 /* Dependencies */
 var tripRequest = require('../controllers/tripRequest.server.controller.js'),
+clientDashbaord = require('../controllers/clientDashboard.server.controller.js'),
     express = require('express'), 
     router = express.Router();
 
@@ -10,7 +11,8 @@ var tripRequest = require('../controllers/tripRequest.server.controller.js'),
 console.log("getting her server routes")
 router.route('/')
 
-  .post(tripRequest.createTrip);
+  .post(tripRequest.createTrip)
+.get(clientDashbaord.list);
 
 //router.route('/:listingId')
 //  .get(tripRequest.read)

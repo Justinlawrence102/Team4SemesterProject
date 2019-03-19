@@ -38,7 +38,6 @@ console.log("dirset it "+__dirname)
   Use the listings router for requests to the api */
     app.use('/api/requests', tripRequestRouter)
 
-
   /**TODO
   Go to homepage for all routes not specified */
     app.get('/', function(req, res){ //app.use(function(req, res){
