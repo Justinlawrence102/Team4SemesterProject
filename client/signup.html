@@ -7,12 +7,12 @@
 </head>
 <body ng-app="travelAgencyApp">
   <div class="container" style="margin-top: 20px" ng-controller="RequestController">
-    <div class="row1">
+    <div class="row">
         
-      <img src="bochitto2.jpg" alt="Logo" style="float:left;width:200px;height:100px;margin-left:50px;">
-  
+        <img src="bochitto.jpeg" alt="Logo" style="float:left;width:200px;height:150px;">
+        <img src="travel.jpg" alt="header" style="float:right;width:300px;height:150px;padding:10px;">
 
-  </div>
+    </div>
 
     <div class="topnav">
         <a href="home.html">Home</a>
@@ -21,7 +21,7 @@
         <a href="specials.html">Specials</a>
         <a href= "blogs.html">Blog Posts</a>
         <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
-        <a href = "clientDashboard.html">Client Dashboard</a>
+        
         <div class="login">
             <a href="triprequest.html">Trip Request</a>
             <a href="login.html">Login</a>
@@ -62,22 +62,20 @@
 
       <label for="pword2">Confirm Password</label>
       <input type="password" id="pword2" name="confirmPassword" placeholder="Your password.." ng-model="#">
-
-
-
-
-
 </div>
 
      <center> <input type="submit" value="Submit" ng-click="submitRequest()"></center>
-   <!-- </form>  -->
 
- 
+
+     <div class="siteAnchor">
+
+      <p style="float: left;">Copyright © 2019 Bochitto Travel</p>
   
-
-
-
-
+  
+      <p style="float:right;">Questions? Contact us at bochittotravel@test.com</p>
+  
+      </div>
+   <!-- </form>  -->
 
   <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
   <script src="js/app.js"></script>

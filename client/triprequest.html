@@ -6,8 +6,8 @@
   <title>Project</title>
 </head>
 <body ng-app="travelAgencyApp">
-  <div class="container" style="margin-top: 20px" ng-controller="RequestController">
-    <div class="row1">
+  <div class="container" style="margin-top: 20px" ng-controller="TripRequestController">
+    <div class="row">
         
       <img src="bochitto2.jpg" alt="Logo" style="float:left;width:200px;height:100px;margin-left:50px;">
   
@@ -30,7 +30,7 @@
       
 </div>
 
-<div class = "submitForms" ng-controller="RequestController" >
+<div class = "submitForms" ng-controller="TripRequestController" >
  <!--   <form action="#">  -->
 
 
@@ -61,11 +61,11 @@
         <input type="date" name="ret-date" ng-model="returnDate">
 
         <label for="quantity">Number of people</label>
-        <input type="number" name="quantity" min="1" max="5" ng-model="numPeople">
+        <input type="number" name="quantity" ng-model="numPeople">
 
 
         <label for="return-date"> Max budget</label>
-        <input type="number" name="quantity" min="50" max="1000" ng-model="budget">
+        <input type="number" name="quantity" ng-model="budget">
       
 
        </div>
@@ -77,10 +77,18 @@
       </div>
       
 
-   
 
      <center> <input type="submit" value="Submit" ng-click="submitRequest()"></center>
    <!-- </form>  -->
+
+   <div class="siteAnchor">
+
+    <p style="float: left;">Copyright © 2019 Bochitto Travel</p>
+
+
+    <p style="float:right;">Questions? Contact us at bochittotravel@test.com</p>
+
+    </div>
 
   </div>
   
@@ -92,7 +100,7 @@
   <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
   <script src="js/app.js"></script>
 
-  <script src="js/factories/requestsFactory.js"></script>
+  <script src="js/factories/tripRequestsFactory.js"></script>
   <script src="js/controllers/requestTripController.js"></script>
 
     </body>

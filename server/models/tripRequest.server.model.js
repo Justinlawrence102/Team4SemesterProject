@@ -7,7 +7,7 @@ var mongoose = require('mongoose'),
 */
 var tripSchema = new Schema({
 
-	email:{type: String, required: true},
+	userName:{type: String, required: true},
 	origin: {type: String},
 	destination: {type: String},
 	returnDate:{type: Date},
@@ -15,10 +15,20 @@ var tripSchema = new Schema({
 	numPeople:{type: Number},
 	budget:{type: Number},
 	notes:{type: String},
-}, {collection: 'trips'});
+});
 
 
 /* Use your schema to instantiate a Mongoose model */
+tripSchema.pre('save', function(next) {
+        console.log("at model saving")
+        var currentTime = new Date;
+        this.updated_at = currentTime;
+        if(!this.created_at)
+                           {
+                           this.created_at = currentTime;
+                           }
+                           next();
+                           });
 
 var trip = mongoose.model('trip', tripSchema);
 
