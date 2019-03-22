@@ -1,4 +1,4 @@
-angular.module('requests', []).factory('clientDashboard', function($http) {
+angular.module('requests', []).factory('Requests', function($http) {
   var methods = {
 	
     getAll: function() {

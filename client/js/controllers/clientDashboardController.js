@@ -1,5 +1,4 @@
-angular.module('clientDashboard').controller('clientDashboardController', ['$scope', 'TripRequests',
-  function($scope, TripRequests) {
+angular.module('requests').controller('clientDashboardController', ['$scope', 'Requests',  function($scope, Requests) {
                                                             $scope.userName = "testingUser";
                                                             $scope.origin = undefined;
                                                             $scope.departDate = undefined;
@@ -10,12 +9,15 @@ angular.module('clientDashboard').controller('clientDashboardController', ['$sco
                                                             $scope.notes = undefined;
                                                                 console.log('getting here')
 
-    TripRequests.getAll().then(function(response) {
-                           console.log('trying to get all trups')
-        $scope.userRequest = response.data;
-            }, function(error) {
-            console.log('Unable to retrieve trip request:', error);
-    });
-
+                                                                    Requests.getAll().then(function(response) {
+                                                                                           console.log('trying to get all trips')
+                                                                                           $scope.userRequest = response.data;
+                                                                                           }, function(error) {
+                                                                                           console.log('Unable to retrieve trip request:', error);
+                                                                                           });
+                                                                    $scope.editTrip = function() {
+                                                                    console.log('editing listing')
+                                                                    };
+ 
   }
 ]);

@@ -17,14 +17,7 @@ console.log('at controller')
                                                             
       Requests.create(newRequest).then(function(response) {
       });
-    };
-                                                                
-  Requests.getAll().then(function(response) {
-     console.log('trying to get all trips')
-     $scope.userRequest = response.data;
-     }, function(error) {
-        console.log('Unable to retrieve trip request:', error);
-      });
+    };                                                     
 
   }
 ]);
