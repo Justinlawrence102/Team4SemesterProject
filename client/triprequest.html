@@ -1,97 +1,164 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles/style.css">
   <title>Project</title>
 </head>
+
 <body ng-app="travelAgencyApp">
   <div class="container" style="margin-top: 20px" ng-controller="TripRequestController">
     <div class="row">
-        
+
       <img src="bochitto2.jpg" alt="Logo" style="float:left;width:200px;height:100px;margin-left:50px;">
-  
-  </div>
+
+    </div>
 
     <div class="topnav">
-        <a href="home.html">Home</a>
-        <a href="#contact">Contact</a>
-        <a href="about.html">About Me</a>
-        <a href="specials.html">Specials</a>
-        <a href= "blogs.html">Blog Posts</a>
-        <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
-        <a href = "clientDashboard.html">Client Dashboard</a>
-        <div class="login">
-            <a class="active" href="triprequest.html">Trip Request</a>
-            <a href="login.html">Login</a>
-            <a href="signup.html">Sign Up</a>
-        </div>
+      <a href="home.html">Home</a>
+      <a href="#contact">Contact</a>
+      <a href="about.html">About Me</a>
+      <a href="specials.html">Specials</a>
+      <a href="blogs.html">Blog Posts</a>
+      <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
+      <a href="clientDashboard.html">Client Dashboard</a>
+      <div class="login">
+        <a class="active" href="triprequest.html">Trip Request</a>
+        <a href="login.html">Login</a>
+        <a href="signup.html">Sign Up</a>
+      </div>
     </div>
-      
-</div>
 
-<div class = "submitForms" ng-controller="TripRequestController" >
- <!--   <form action="#">  -->
+  </div>
+
+  <div class="submitForms" ng-controller="TripRequestController">
+    <!--   <form action="#">  -->
 
 
 
-<div class="containerListInfo">
-<h3>Listing Information</h3>
+    <div class="containerListInfo">
+      <h3>Listing Information</h3>
       <label for="departure">Departure</label>
-      <select id="departure" name="dept" ng-model="origin" >
+      <br>
+      <select id="departure" name="dept" ng-model="origin">
         <option value="Miami International">MIA</option>
         <option value="Gainesville Airport">GNV</option>
         <option value="Orlando International">ORL</option>
       </select>
 
-      
-        <label for="departure-date">Departure date</label>
-        <input type="date" name="dept-date" ng-model="departDate">
+      <br>
+      <label for="departure-date">Departure date</label>
+      <br>
+      <input type="date" name="dept-date" ng-model="departDate" style=" width:30%;">
+      <br>
 
-        <label for="destination">Destination</label>
-        <select id="departure" name="dept" ng-model="destination">
+
+
+
+
+      <label for="destination">Destination</label>
+      <br>
+      <select id="departure" name="dept" ng-model="destination">
         <option value="Miami International">MIA</option>
-          <option value="Gainesville Airport">GNV</option>
-          <option value="Orlando International">ORL</option>
-        </select>
+        <option value="Gainesville Airport">GNV</option>
+        <option value="Orlando International">ORL</option>
+      </select>
 
-           
-        <label for="return-date">Return date</label>
+      <br>
+      <label for="return-date">Return date</label>
+      <br>
 
-        <input type="date" name="ret-date" ng-model="returnDate">
+      <input type="date" name="ret-date" ng-model="returnDate" style=" width:30%;">
 
+
+
+
+
+
+      <div class="stopsTest" ng-app="addStops" ng-controller="addStopsController">
+        <button ng-click="addNewStop()">Add stop</button>
+
+        <table>
+          <tr ng-repeat="stops in tableStops track by $id(stops)">
+
+            <td ng-model="tableStops[$index]">
+       
+              <div class="test">
+              <label for="destination"> Additional destination</label>
+              <br>
+              <select id="departure" name="dept" ng-model="destination" style=" width:100%;">
+                <option value="Miami International">MIA</option>
+                <option value="Gainesville Airport">GNV</option>
+                <option value="Orlando International">ORL</option>
+              </select>
+        
+              <br>
+              <label for="return-date">Additional return date</label>
+              <br>
+        
+              <input type="date" name="ret-date" ng-model="returnDate" style=" width:100%;">
+
+              </div>
+
+
+
+
+            </td>
+            <td>
+              <button ng-click="removeStop($index)" type="button">
+               
+              </button>
+            <td>
+          </tr>
+        </table>
+      </div>
+
+    
+      <div class="numInput">
         <label for="quantity">Number of people</label>
+        <br>
         <input type="number" name="quantity" ng-model="numPeople">
 
+        <br>
+        <label for="maxBudget"> Max budget</label>
+        <br>
+        <input type="number" name="maxBudget" ng-model="budget">
+        <br>
 
-        <label for="return-date"> Max budget</label>
-        <input type="number" name="quantity" ng-model="budget">
-      
-
-       </div>
-
-
-      <div class="containerComments"> 
-        <h3>Additional comments</h3>
-        <textarea id="comments" name="comments" placeholder="Write something.." style="height:100px; width:300px;" ng-model="notes"></textarea>
       </div>
-      
+    </div>
 
 
-     <center> <input type="submit" value="Submit" ng-click="submitRequest()"></center>
-   <!-- </form>  -->
+    <div class="containerComments">
+      <h3>Additional comments</h3>
+      <textarea id="comments" name="comments" placeholder="Write something.." style="height:100px; width:300px;"
+        ng-model="notes"></textarea>
+    </div>
 
-   <div class="siteAnchor">
-
-    <p style="float: left;">Copyright © 2019 Bochitto Travel</p>
 
 
-    <p style="float:right;">Questions? Contact us at bochittotravel@test.com</p>
+    <center> <input type="submit" value="Submit" ng-click="submitRequest()"></center>
+    <!-- </form>  -->
+
+    <div class="siteAnchor">
+
+      <p style="float: left;">Copyright © 2019 Bochitto Travel</p>
+
+      <p style="float:right;">Questions? Contact us at bochittotravel@test.com</p>
 
     </div>
 
   </div>
-  
+
+
+
+
+
+
+
+
+
 
 
   <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
@@ -100,5 +167,9 @@
   <script src="js/factories/tripRequestsFactory.js"></script>
   <script src="js/controllers/requestTripController.js"></script>
 
-    </body>
-  </html>
+
+  <script src="js/controllers/addStopsController.js"></script>
+
+</body>
+
+</html>
