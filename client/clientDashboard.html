@@ -32,7 +32,7 @@
         </div>
     </div>
 
-    <div class = "dashboard" ng-controller="TripRequestController">
+    <div class = "dashboard" ng-controller="clientDashboard">
         <h1>Dashboard</h1>
         <div class = "dashboardNav">
             <h2>My Trips</h2>
@@ -45,7 +45,7 @@
                         <th>Number of People</th>
                         <th></th>
                         </tr>
-                        <tr ng-repeat="request in userRequest | filter:searchData | orderBy:'departDate'"> <!--Orders search results by date-->
+                        <tr ng-repeat="request in TripRequests | filter:searchData | orderBy:'departDate'"> <!--Orders search results by date-->
                             <th>{{request.departDate}}</th> 
                             <th>{{request.origin}}</th> 
                             <th>{{request.stops}}</th>
