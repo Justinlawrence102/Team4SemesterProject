@@ -6,7 +6,7 @@
   <title>Project</title>
 </head>
 <body ng-app="travelAgencyApp">
-  <div class="container" style="margin-top: 20px">
+  <div class="container" style="margin-top: 20px" ng-controller="clientDashboardController">
     <div class="row1">
         
       <img src="bochitto2.jpg" alt="Logo" style="float:left;width:200px;height:100px;margin-left:50px;">
@@ -32,7 +32,7 @@
         </div>
     </div>
 
-    <div class = "dashboard" ng-controller="clientDashboard">
+    <div class = "dashboard" ng-controller="clientDashboardController">
         <h1>Dashboard</h1>
         <div class = "dashboardNav">
             <h2>My Trips</h2>
@@ -45,13 +45,13 @@
                         <th>Number of People</th>
                         <th></th>
                         </tr>
-                        <tr ng-repeat="request in TripRequests | filter:searchData | orderBy:'departDate'"> <!--Orders search results by date-->
-                            <th>{{request.departDate}}</th> 
+                        <tr ng-repeat="request in userRequest | filter:searchData | orderBy:'departDate'"> <!--Orders search results by date-->
+                            <th>{{request.departDate}}</th>
                             <th>{{request.origin}}</th> 
                             <th>{{request.stops}}</th>
                             <th>{{request.numPeople}}</th>
                             <th>
-                             <button ng-click ="editTrip(requests.indexOf(request))">Edit</button> 
+                             <button ng-click ="editTrip(requests.indexOf(Requests))">Edit</button>
                             </th>
                             </tr>
                     </table>
@@ -77,7 +77,7 @@
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <script src="js/app.js"></script>
     
-    <script src="js/factories/tripRequestsFactory.js"></script>
-    <script src="js/controllers/requestTripController.js"></script>
+    <script src="js/factories/clientDashboardFactory.js"></script>
+    <script src="js/controllers/clientDashboardController.js"></script>
     </body>
   </html>
