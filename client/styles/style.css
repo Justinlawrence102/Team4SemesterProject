@@ -319,6 +319,40 @@ html {
     border-radius: 4px;
     box-sizing: border-box;
   }
+  
+  
+      .departuresDate input[type=date], select {
+    width: 3%;
+    padding: 12px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+    .returnDate input[type=date], select {
+    width: 30%;
+    padding: 12px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+   .
+
+  
+    .numInput input[type=number], select {
+    width: 3%;
+    padding: 12px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 400px;
+    box-sizing: border-box;
+  }
 
 
 
