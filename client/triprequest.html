@@ -56,7 +56,7 @@
 
 
 
-
+<!--
       <label for="destination">Destination</label>
       <br>
       <select id="departure" name="dept" ng-model="destination">
@@ -71,33 +71,31 @@
 
       <input type="date" name="ret-date" ng-model="returnDate" style=" width:30%;">
 
+-->
 
 
 
 
-
-      <div class="stopsTest" ng-app="addStops" ng-controller="addStopsController">
-        <button ng-click="addNewStop()">Add stop</button>
+       <br>  <button ng-click="addNewStop()">Add stop</button>
 
         <table>
           <tr ng-repeat="stops in tableStops track by $id(stops)">
 
             <td ng-model="tableStops[$index]">
-       
               <div class="test">
-              <label for="destination"> Additional destination</label>
+              <label for="destination"> Stops</label>
               <br>
-              <select id="departure" name="dept" ng-model="destination" style=" width:100%;">
+              <select id="departure" name="dept" ng-model="stops.stopLocation" style=" width:100%;">
                 <option value="Miami International">MIA</option>
                 <option value="Gainesville Airport">GNV</option>
                 <option value="Orlando International">ORL</option>
               </select>
         
               <br>
-              <label for="return-date">Additional return date</label>
+              <label for="return-date">Date to Arrive at Stop</label>
               <br>
         
-              <input type="date" name="ret-date" ng-model="returnDate" style=" width:100%;">
+              <input type="date" name="ret-date" ng-model="tableStops[$index].stopDate" style=" width:100%;">
 
               </div>
 
@@ -112,9 +110,21 @@
             <td>
           </tr>
         </table>
-      </div>
 
-    
+      <br>
+      <br>
+      
+      
+      <label for="destination">Destination</label>
+      <br>
+      <label for="return-date">Return date</label>
+      <br>
+      
+      <input type="date" name="ret-date" ng-model="returnDate" style=" width:30%;">
+          
+          <br>
+          <br>
+          
       <div class="numInput">
         <label for="quantity">Number of people</label>
         <br>
@@ -148,11 +158,8 @@
       <p style="float:right;">Questions? Contact us at bochittotravel@test.com</p>
 
     </div>
-
+   
   </div>
-
-
-
 
 
 
