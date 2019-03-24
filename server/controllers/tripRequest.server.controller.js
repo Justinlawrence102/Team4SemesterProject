@@ -21,12 +21,16 @@ exports.createTrip = function(req, res) {
           userName: req.body.userName,
           origin: req.body.origin,
           departDate: req.body.departDate,
+          returnDate: req.body.returnDate,
           stops: req.body.stops,
           numPeople: req.body.numPeople,
           budget: req.body.budget,
           notes:req.body.notes
     }
     var tripRequests = new trip(req.body);
+    console.log('userName: '+req.body.userName+' stop: '+req.body.stops)
+
+    //console.log('stops: '+tripRequests.stops)
 
     /* Then save the listing */
     tripRequests.save(function(err) {
