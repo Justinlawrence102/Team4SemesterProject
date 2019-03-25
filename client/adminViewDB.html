@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <title>Project</title>
+</head>
+
+<body ng-app="travelAgencyApp">
+  <div class="container" style="margin-top: 20px" ng-controller="RequestController">
+    <div class="row1">
+
+      <img src="bochitto2.jpg" alt="Logo" style="float:left;width:200px;height:100px;margin-left:50px;">
+
+
+    </div>
+
+    <div class="topnav">
+        <a href="home.html">Home</a>
+        <a href="#contact">Contact</a>
+        <a href="about.html">About Me</a>
+        <a href="specials.html">Specials</a>
+        <a href= "blogs.html">Blog Posts</a>
+        <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
+        <a href = "clientDashboard.html">Client Dashboard</a>
+        <div class="login">
+            <a href="triprequest.html">Trip Request</a>
+            <a href="login.html">Login</a>
+            <a class="active" href="signup.html">Sign Up</a>
+        </div>
+
+    </div>
+
+
+
+    <div class="submitForms" ng-controller="RequestController">
+      <!--   <form action="#">  -->
+
+      <div class="containerPersonalInfo">
+<h1> Admin Dashboard</h1>
+<h2> Client Name </h2>
+
+		
+		
+		<div class="box">
+<h3>Current trip</h3>
+        <label for="clientFullName">Full Name</label>
+        <input type="text" id="clfullname" name="clientFullName" placeholder="Full name.." ng-model="#">
+		
+		<label for="clientTripDate">Current Trip Date</label>
+        <input type="text" id="cltripdate" name="clientTripDate" placeholder="Date.." ng-model="#">
+		
+		        <label for="clientNumPeople">People On Trip</label>
+        <input type="text" id="clnumpeople" name="clientNumPeople" placeholder="Number of people.." ng-model="#">
+		
+		<label for="clientContact">Client Contact Info</label>
+        <input type="text" id="clcontactinfo" name="clientContact" placeholder="Client contact info.." ng-model="#">
+
+		
+		<h3>Previous trips</h3>
+		
+		<label for="prevTripDate">Prev Trip Dates</label>
+        <input type="text" id="prtripdate" name="prevTripDate" placeholder="Date.." ng-model="#">
+		
+		<label for="prevTripDescription">Prev Trip Description</label>
+        <input type="text" id="prtripdesc" name="prevTripDescription" placeholder="Description.." ng-model="#">
+
+
+</div>
+
+
+<div class="box">
+
+<h3>Recommendations</h3>
+        <label for="tripTitle">Title</label>
+        <input type="text" id="uname" name="tripTitle" placeholder="Title.." ng-model="#">
+		
+		        <label for="flightName">Flight</label>
+        <input type="text" id="fname" name="flightName" placeholder="Flight name.." ng-model="#">
+		
+		        <label for="linkName">Links</label>
+        <input type="text" id="lname" name="linkName" placeholder="Links.." ng-model="#">
+		
+		
+		<label for="oDetails">Other details</label>
+       <textarea id="odetail" name="oDetails" placeholder="Additional info.." style="height:100px; width:300px;"
+        ng-model="notes"></textarea>
+		
+		
+		<label for="notes">Notes</label>
+       <textarea id="notes" name="notes" placeholder="Notes.." style="height:100px; width:300px;"
+        ng-model="notes"></textarea>
+		
+		
+		 <center> <input type="submit" value="Save" ng-click="submitRequest()" style = "width:40%" ></center>
+      </div>
+<br>
+
+	  
+
+	  
+	  
+	  
+
+      <div class="siteAnchor">
+
+        <p style="float: left;">Copyright © 2019 Bochitto Travel</p>
+
+
+        <p style="float:right;">Questions? Contact us at bochittotravel@test.com</p>
+
+      </div>
+    </div>
+    <!-- </form>  -->
+
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <script src="js/app.js"></script>
+
+    <script src="js/factories/requestsFactory.js"></script>
+    <script src="js/controllers/requestTripController.js"></script>
+
+</body>
+
+</html>
