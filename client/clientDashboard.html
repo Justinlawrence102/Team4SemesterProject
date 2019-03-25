@@ -47,7 +47,8 @@
                         </tr>
                         <tr ng-repeat="request in userRequest | filter:searchData | orderBy:'departDate'"> <!--Orders search results by date-->
                             <th>{{request.departDate}}</th>
-                            <th>{{request.origin}}</th> 
+                            <th>{{request.origin}}</th>
+                            
                             <th>{{request.stops}}</th>
                             <th>{{request.numPeople}}</th>
                             <th>
