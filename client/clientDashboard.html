@@ -33,15 +33,18 @@
     </div>
 
     <div class = "dashboard" ng-controller="clientDashboardController">
-        <h1>Dashboard</h1>
+        <div class = "topDash">
+          <h1>Dashboard</h1>
+          <button onclick = "location.href='triprequest.html'" style = "float:right;">Request a Trip</button>
+        </div>
         <div class = "dashboardNav">
-            <h2>My Trips</h2>
-            <div class="tableWrapper" style= "margin-bottom: 10px">
+            <h3 align = "left">My Current Trips</h3>
+            <div class="tableWrapper" style = "margin-bottom:100px;">
                 <table class="table table-striped table-hover">
                         <tr>
                         <th>Departure Date</th>
                         <th>Origin</th>
-                        <th>Arrival City</th>
+                        <th>Destination</th>
                         <th>Number of People</th>
                         <th></th>
                         </tr>
@@ -55,9 +58,72 @@
                             </th>
                             </tr>
                     </table>
-                </div>
-                <h3>Recommendations</h3>
-                <a href = "recommendations.html">My Recommendations</a>
+                  </div>
+                  <div class = "Recommendations" style = "padding-bottom:10px;padding-top:5px;padding-left:10px;outline:solid">
+                    <h3 align = "center">Current Trip Recommendations</h3>
+                    <div class="tableWrapper">
+                      <table class="table table-striped table-hover">
+                              <tr>
+                                  <table class="table table-striped table-hover">
+                                      <tr>
+                                      <th>Flights&nbsp;</th>
+                                      <th>Price</th>
+                                      </tr>
+                                      <tr ng-repeat="rec in Recommendations">
+                                          <th>{{rec.flights}}</th>
+                                          <th>{{rec.flights.price}}</th> 
+                                          </tr>
+                                        </table>
+                              </tr>
+                              <tr>
+                                <table class="table table-striped table-hover">
+                                    <tr>
+                                    <th>Hotels&nbsp;&nbsp;</th>
+                                    <th>Price</th>
+                                    </tr>
+                                    <tr ng-repeat="rec in Recommendations">
+                                        <th>{{rec.hotels}}</th>
+                                        <th>{{rec.hotels.price}}</th> 
+                                        </tr>
+                                </table>
+                              </tr>
+                              <tr>
+                                  <table class="table table-striped table-hover">
+                                      <tr>
+                                      <th>Cruises</th>
+                                      <th>Price</th>
+                                      </tr>
+                                      <tr ng-repeat="rec in Recommendations">
+                                          <th>{{rec.cruises}}</th>
+                                          <th>{{rec.cruises.price}}</th> 
+                                          </tr>
+                                  </table>
+                                </tr>
+
+                        </table>
+                    </div>
+                  </div>
+            <div class="tableWrapper" style = "padding-top:50px">
+                <h3 align = "left">My Previous Trips</h3>
+                <table class="table table-striped table-hover">
+                        <tr>
+                        <th>Departure Date</th>
+                        <th>Origin</th>
+                        <th>Destination</th>
+                        <th>Number of People</th>
+                        <th></th>
+                        </tr>
+                        <tr ng-repeat="request in userRequest | filter:searchData | orderBy:'departDate'"> <!--Orders search results by date-->
+                            <th>{{request.departDate}}</th>
+                            <th>{{request.origin}}</th> 
+                            <th>{{request.stops}}</th>
+                            <th>{{request.numPeople}}</th>
+                            <th>
+                             <button ng-click ="editTrip(requests.indexOf(Requests))">Edit</button>
+                            </th>
+                            </tr>
+                    </table>
+                  </div>
                 <h3>Account Settings</h3>
                 <a href = "accountSettings.html">Account Settings</a>
         </div>
