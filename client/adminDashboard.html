@@ -56,7 +56,7 @@
                                 <th>Last Name</th>
                                 <th></th>
                             </tr>
-                            <tr ng-repeat="users in userRequest | filter:searchData | orderBy:'departDate'"> --Orders search results by date
+                            <tr ng-repeat="users in userRequest | filter:searchData | orderBy:'departDate'" ng-click="showClient(users.username)"> --Orders search results by date
                                 <th>{{users.firstname}}</th>
                                 <th>{{users.lastname}}</th>
                                 <th>

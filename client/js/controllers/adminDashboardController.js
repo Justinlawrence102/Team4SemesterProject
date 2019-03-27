@@ -9,5 +9,11 @@ console.log('trying to get users')
      }, function(error) {
          console.log('Unable to retrieve list of users:', error);
     });
+                                                                  
+   $scope.showClient = function(client) {
+                                                                  console.log('username: '+client)
+     window.location =('/adminViewDB.html?userName='+client);
+    //$location.url = ('/adminViewDB.html')
+                                                                  };
    }
                                                                 ]);

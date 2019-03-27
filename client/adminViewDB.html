@@ -8,7 +8,7 @@
 </head>
 
 <body ng-app="travelAgencyApp">
-  <div class="container" style="margin-top: 20px" ng-controller="RequestController">
+  <div class="container" style="margin-top: 20px">
     <div class="row1">
 
       <img src="bochitto2.jpg" alt="Logo" style="float:left;width:200px;height:100px;margin-left:50px;">
@@ -34,12 +34,12 @@
 
 
 
-    <div class="submitForms" ng-controller="RequestController">
+    <div class="submitForms" ng-controller="adminViewDBController">
       <!--   <form action="#">  -->
 
       <div class="containerPersonalInfo">
 <h1> Admin Dashboard</h1>
-<h2> Client Name </h2>
+<h2> {{userName}} </h2>
 
 		
 		
@@ -117,8 +117,8 @@
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <script src="js/app.js"></script>
 
-    <script src="js/factories/requestsFactory.js"></script>
-    <script src="js/controllers/requestTripController.js"></script>
+    <script src="js/factories/adminViewDBFactory.js"></script>
+    <script src="js/controllers/adminViewDBController.js"></script>
 
 </body>
 
