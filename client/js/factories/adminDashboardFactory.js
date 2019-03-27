@@ -1,4 +1,4 @@
-angular.module('users', []).factory('Requests', function($http) {
+angular.module('clients', []).factory('Requests', function($http) {
                                     var methods = {
                                     
                                     getAllClients: function() {
