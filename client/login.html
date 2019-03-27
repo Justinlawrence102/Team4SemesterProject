@@ -7,7 +7,7 @@
   <title>Project</title>
 </head>
 
-<body ng-app="Project">
+<body ng-app="travelAgencyApp">
   <div class="container" style="margin-top: 20px">
     <div class="row1">
 
@@ -32,15 +32,15 @@
       </div>
     </div>
 
-    <div class="containerLogin">
+    <div class="containerLogin" ng-controller="ClientController">
 
       <h3>User Login </h3>
       <label for="fname">Username</label>
-      <input type="text" id="fname" name="firstname" placeholder="Username">
+      <input type="text" id="fname" name="firstname" placeholder="Username" ng-model="username">
 
       <label for="lname">Password</label>
-      <input type="text" id="lname" name="lastname" placeholder="Password">
-      <center> <input type="login" value="Login" ng-click="#" style="width:75px;"></center>
+      <input type="text" id="lname" name="lastname" placeholder="Password" ng-model="password">
+      <center> <input type="login" value="Login" ng-click="submit_authenticate()" style="width:75px;"></center>
     </div>
 
     <div class="siteAnchor">
@@ -52,6 +52,13 @@
 
     </div>
   </div>
+
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <script src="js/app.js"></script>
+
+    <script src="js/factories/clientFactory.js"></script>
+    <script src="js/controllers/clientController.js"></script>
+
 </body>
 
 </html>

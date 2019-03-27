@@ -8,7 +8,7 @@
 </head>
 
 <body ng-app="travelAgencyApp">
-  <div class="container" style="margin-top: 20px" ng-controller="RequestController">
+  <div class="container" style="margin-top: 20px" ng-controller="ClientController">
     <div class="row1">
 
       <img src="bochitto2.jpg" alt="Logo" style="float:left;width:200px;height:100px;margin-left:50px;">
@@ -34,17 +34,17 @@
 
 
 
-    <div class="submitForms" ng-controller="RequestController">
+    <div class="submitForms" ng-controller="ClientController">
       <!--   <form action="#">  -->
 
       <div class="containerPersonalInfo">
 
         <h3>Create your account </h3>
         <label for="fname">First Name</label>
-        <input type="text" id="fname" name="firstname" placeholder="Your name.." ng-model="firstName">
+        <input type="text" id="fname" name="firstname" placeholder="Your name.." ng-model="firstname">
 
         <label for="lname">Last Name</label>
-        <input type="text" id="lname" name="lastname" placeholder="Your last name.." ng-model="lastName">
+        <input type="text" id="lname" name="lastname" placeholder="Your last name.." ng-model="lastname">
 
 
 
@@ -56,7 +56,7 @@
 
 
         <label for="uname">Username</label>
-        <input type="text" id="uname" name="username" placeholder="Your username.." ng-model="userName">
+        <input type="text" id="uname" name="username" placeholder="Your username.." ng-model="username">
 
 
         <label for="pword">Password</label>
@@ -64,10 +64,10 @@
 
 
         <label for="pword2">Confirm Password</label>
-        <input type="password" id="pword2" name="confirmPassword" placeholder="Your password.." ng-model="#">
+        <input type="password" id="pword2" name="confirmPassword" placeholder="Your password.." ng-model="password">
       </div>
 
-      <center> <input type="submit" value="Submit" ng-click="submitRequest()"></center>
+      <center> <input type="submit" value="Submit" ng-click="submit_user_request()"></center>
 
 
       <div class="siteAnchor">
@@ -84,8 +84,8 @@
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <script src="js/app.js"></script>
 
-    <script src="js/factories/requestsFactory.js"></script>
-    <script src="js/controllers/requestTripController.js"></script>
+    <script src="js/factories/clientFactory.js"></script>
+    <script src="js/controllers/clientController.js"></script>
 
 </body>
 
