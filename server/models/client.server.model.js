@@ -1,6 +1,6 @@
 /* Import mongoose and define any variables needed to create the schema */
 var mongoose = require('mongoose'), 
-	bcrypt = require('bcrypt'),
+	bcryptjs = require('bcryptjs'),
     Schema = mongoose.Schema;
 
 

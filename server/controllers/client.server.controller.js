@@ -1,6 +1,6 @@
 /* Dependencies */
 var mongoose = require('mongoose'),
-	bcrypt = require ('bcrypt'),
+	bcryptjs = require ('bcryptjs'),
 	jwt = require('jsonwebtoken'),
     client = require('../models/client.server.model.js');
     config = require('../config/config.js');
