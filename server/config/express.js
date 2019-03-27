@@ -41,7 +41,7 @@ module.exports.init = function() {
     app.use('/api/requests', tripRequestRouter);
     app.use('/api/clients', clientRouter);
     app.use('/api/recomendations', recomendationsRouter);
-
+    app.use('/api/users',recomendationsRouter)
   /**TODO
   Go to homepage for all routes not specified */
     app.get('/', function(req, res){ //app.use(function(req, res){

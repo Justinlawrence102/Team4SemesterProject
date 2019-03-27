@@ -1,9 +1,9 @@
 /* Dependencies */
-var mongoose = require('mongoose'), 
-    admin = require('../models/adminDashboard.server.model.js');
+var mongoose = require('mongoose'),
+admin = require('../models/adminDashboard.server.model.js');
+allClients = require('../models/client.server.model.js');
 
-
-
+console.log('at the server.controller for admin')
 exports.createRecomendation = function(req, res) {
     /* Instantiate a trip request */
     var tripRecomendation = {
@@ -34,13 +34,25 @@ exports.createRecomendation = function(req, res) {
                       }
                       });
 };
-exports.list = function(req, res) {
-    console.log("HERE At top")
-    trip.find({ userName: 'testingUser'})
-    .sort([['departDate', 'ascending']])
-    .exec(function (err, allTrips) {
+//exports.listClientDetails = function(req, res) {
+//    console.log("Getting client details")
+//    //console.log('userName: '+req.body.userName)
+//    admin.find({ userName: 'testingUser'})
+//    .sort([['departDate', 'ascending']])
+//    .exec(function (err, allTrips) {
+//          if (err) { return next(err); }
+//          res.json(allTrips)
+//          })
+//
+//};
+
+exports.listAllClients = function(req, res) {
+    console.log("getting all clients")
+    allClients.find()
+    .sort([['lastname', 'ascending']])
+    .exec(function (err, allClients) {
           if (err) { return next(err); }
-          res.json(allTrips)
+          res.json(allClients)
           })
     
 };
