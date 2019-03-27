@@ -1,7 +1,6 @@
 /* Import mongoose and define any variables needed to create the schema */
 var mongoose = require('mongoose'), 
 	bcryptjs = require('bcryptjs'),
-	//bcrypt = require ('bcrypt'),
     Schema = mongoose.Schema;
 
 
@@ -24,12 +23,12 @@ clientSchema.virtual('fullName').get(function () {
 });
 
 //this is pre function to hash the passwords(encrypt the plain password)
-/*
+
 clientSchema.pre('save', function(next){
-	this.password = bcrypt.hashSync(this.password, 10);
+	this.password = bcryptjs.hashSync(this.password, 10);
 	next();
 });
-*/
+
 
 var client = mongoose.model('client', clientSchema);
 
