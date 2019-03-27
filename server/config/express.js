@@ -6,7 +6,8 @@
     config = require('./config'),
     jwt = require('jsonwebtoken'),
     tripRequestRouter = require('../routes/tripRequest.server.routes.js'),
-    clientRouter = require('../routes/client.server.routes.js');
+    clientRouter = require('../routes/client.server.routes.js'),
+    recomendationsRouter = require('../routes/adminDashboard.server.routes.js');
 
 module.exports.init = function() {
 
@@ -39,6 +40,7 @@ module.exports.init = function() {
   Use the listings router for requests to the api */
     app.use('/api/requests', tripRequestRouter);
     app.use('/api/clients', clientRouter);
+    app.use('/api/recomendations', recomendationsRouter);
 
   /**TODO
   Go to homepage for all routes not specified */

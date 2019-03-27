@@ -340,11 +340,9 @@ html {
     border-radius: 4px;
     box-sizing: border-box;
   }
-  
-   .
 
   
-    .numInput input[type=number], select {
+   /* .numInput input[type=number], select {
     width: 3%;
     padding: 12px 10px;
     margin: 8px 0;
@@ -352,10 +350,19 @@ html {
     border: 1px solid #ccc;
     border-radius: 400px;
     box-sizing: border-box;
-  }
+  }*/
 
 
 
+  .box {
+    float: left;
+    width: 40%;
+    margin-left: 10px;
+    margin-top: 10px;
+    padding: 5px;
+}
+  
+  
   /*Anchor part of page*/
 
   .siteAnchor {
@@ -377,3 +384,7 @@ html {
     margin-bottom: 10px;
     margin-top: 20px;
  }
+
+ 
+
+ 
