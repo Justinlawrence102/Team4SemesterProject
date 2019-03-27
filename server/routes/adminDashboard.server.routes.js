@@ -10,8 +10,9 @@ var adminDashboard = require('../controllers/adminDashboard.server.controller.js
 console.log("getting the server routes")
 router.route('/')
 
-  .post(adminDashboard.createRecomendation)
-.get(adminDashboard.list);
+.post(adminDashboard.createRecomendation)
+//.get(adminDashboard.listClientDetails)
+.get(adminDashboard.listAllClients);
 
 //router.route('/:listingId')
 //  .get(tripRequest.read)
