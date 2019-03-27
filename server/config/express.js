@@ -5,7 +5,8 @@
     bodyParser = require('body-parser'),
     config = require('./config'),
     jwt = require('jsonwebtoken'),
-    tripRequestRouter = require('../routes/tripRequest.server.routes.js');
+    tripRequestRouter = require('../routes/tripRequest.server.routes.js'),
+    clientRouter = require('../routes/client.server.routes.js');
 
 module.exports.init = function() {
 
@@ -28,15 +29,16 @@ module.exports.init = function() {
   
   /**TODO
   Serve static files */
-   app.use(express.static('client'))
+  app.use(express.static('client'));
     
-console.log("dirset it "+__dirname)
-    app.use(express.static('client'))
+  console.log("dirset it "+__dirname);
+  app.use(express.static('client'));
 
 
   /**TODO 
   Use the listings router for requests to the api */
-    app.use('/api/requests', tripRequestRouter)
+    app.use('/api/requests', tripRequestRouter);
+    app.use('/api/clients', clientRouter);
 
   /**TODO
   Go to homepage for all routes not specified */

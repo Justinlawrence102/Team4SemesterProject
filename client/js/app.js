@@ -2,7 +2,8 @@
 angular.module('requests', [])
 angular.module('clientDashboard', [])
 angular.module('addStops',[])
+angular.module('clients', [])
 /* register the application and inject all the necessary dependencies */
-var app = angular.module('travelAgencyApp', ['requests']);
+var app = angular.module('travelAgencyApp', ['requests', 'clients']);
 
-console.log('here')
+console.log('here');
