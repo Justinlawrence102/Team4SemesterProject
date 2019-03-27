@@ -15,7 +15,7 @@ var fs = require('fs'),
 console.log("running Client Dashboard!")
 
 exports.list = function(req, res) {
-    console.log("HERE At top")
+    console.log("getting all client's trips")
     trip.find({ userName: 'testingUser'})
     .sort([['departDate', 'ascending']])
     .exec(function (err, allTrips) {

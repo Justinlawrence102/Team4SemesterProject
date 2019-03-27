@@ -6,7 +6,7 @@
   <title>Project</title>
 </head>
 <body ng-app="travelAgencyApp">
-  <div class="container" style="margin-top: 20px" ng-controller="clientDashboardController">
+  <div class="container" style="margin-top: 20px">
     <div class="row1">
         
       <img src="bochitto2.jpg" alt="Logo" style="float:left;width:200px;height:100px;margin-left:50px;">
@@ -39,7 +39,7 @@
         </div>
     </div>
 
-    <div class = "dashboard" ng-controller="#">
+    <div class = "dashboard" ng-controller="adminDashboardController">
         <h1>Admin View</h1>
         <div class = "dashboardNav">
             <h2>Client Trips</h2>
@@ -48,23 +48,19 @@
 				
 				          <div class="searchBar">
 
-            <input type="text" placeholder="Enter client.." ng-model="#" style="width: 20%">
-			       <input type="submit" value="Search" ng-click="#">
+           <!-- <input type="text" placeholder="Enter client.." ng-model="#" style="width: 20%">
+			       <input type="submit" value="Search" ng-click="#"> -->
           </div>
                         <tr>
-                        <th>Departure Date</th>
-                        <th>Origin</th>
-                        <th>Arrival City</th>
-                        <th>Number of People</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
                         <th></th>
                         </tr>
-                      <!--  <tr ng-repeat="request in userRequest | filter:searchData | orderBy:'departDate'"> --Orders search results by date
-                            <th>{{request.departDate}}</th>
-                            <th>{{request.origin}}</th> 
-                            <th>{{request.stops}}</th>
-                            <th>{{request.numPeople}}</th>
+                      <tr ng-repeat="users in userRequest | filter:searchData | orderBy:'departDate'"> --Orders search results by date
+                            <th>{{users.firstname}}</th>
+                            <th>{{users.lastname}}</th>
                             <th>
-                             <button ng-click ="editTrip(requests.indexOf(Requests))">Edit</button>-->
+                             <button ng-click ="editTrip(requests.indexOf(Requests))">Edit</button>
                             </th>
                             </tr>
                     </table>
@@ -86,7 +82,7 @@
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <script src="js/app.js"></script>
     
-    <script src="js/factories/clientDashboardFactory.js"></script>
-    <script src="js/controllers/clientDashboardController.js"></script>
+    <script src="js/factories/adminDashboardFactory.js"></script>
+    <script src="js/controllers/adminDashboardController.js"></script>
     </body>
   </html>

@@ -1,6 +1,6 @@
 /* Import mongoose and define any variables needed to create the schema */
 var mongoose = require('mongoose'), 
-	bcrypt = require('bcrypt'),
+	//bcrypt = require('bcrypt'),
     Schema = mongoose.Schema;
 
 
@@ -27,7 +27,7 @@ clientSchema.pre('save', function(next){
 	this.password = bcrypt.hashSync(this.password, 10);
 	next();
 });
-
+console.log('add client server.model')
 
 var client = mongoose.model('client', clientSchema);
 

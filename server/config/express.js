@@ -7,6 +7,7 @@
     jwt = require('jsonwebtoken'),
     tripRequestRouter = require('../routes/tripRequest.server.routes.js');
     recomendationsRouter = require('../routes/adminDashboard.server.routes.js')
+    
 module.exports.init = function() {
 
   //connect to database
@@ -38,7 +39,7 @@ console.log("dirset it "+__dirname)
   Use the listings router for requests to the api */
     app.use('/api/requests', tripRequestRouter)
     app.use('/api/recomendations', recomendationsRouter)
-
+    app.use('/api/users',recomendationsRouter)
   /**TODO
   Go to homepage for all routes not specified */
     app.get('/', function(req, res){ //app.use(function(req, res){

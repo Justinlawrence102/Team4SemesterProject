@@ -7,11 +7,12 @@ var adminDashboard = require('../controllers/adminDashboard.server.controller.js
   These method calls are responsible for routing requests to the correct request handler.
   Take note that it is possible for different controller functions to handle requests to the same route.
  */
-console.log("getting the server routes")
+console.log("getting the server routes for admin dashboard")
 router.route('/')
 
-  .post(adminDashboard.createRecomendation)
-.get(adminDashboard.list);
+.post(adminDashboard.createRecomendation)
+//.get(adminDashboard.listClientDetails)
+.get(adminDashboard.listAllClients);
 
 //router.route('/:listingId')
 //  .get(tripRequest.read)
