@@ -46,18 +46,16 @@
 <div class="box">
 <h3>Current trip</h3>
         <label for="clientFullName">Full Name</label>
-        <!--
-        <input type="text" id="clfullname" name="clientFullName" placeholder="Full name.." ng-model="#">
+        <input type="text" id="clfullname" name="clientFullName" placeholder="Full name.." ng-model="fullName">
 		
 		<label for="clientTripDate">Current Trip Date</label>
-        <input type="text" id="cltripdate" name="clientTripDate" placeholder="Date.." ng-model="#">
+        <input type="text" id="cltripdate" name="clientTripDate" placeholder="Date.." ng-model="departDate">
 		
 		        <label for="clientNumPeople">People On Trip</label>
-        <input type="text" id="clnumpeople" name="clientNumPeople" placeholder="Number of people.." ng-model="#">
+        <input type="text" id="clnumpeople" name="clientNumPeople" placeholder="Number of people.." ng-model="numPeople">
 		
 		<label for="clientContact">Client Contact Info</label>
-        <input type="text" id="clcontactinfo" name="clientContact" placeholder="Client contact info.." ng-model="#">
--->
+        <input type="text" id="clcontactinfo" name="clientContact" placeholder="Client contact info.." ng-model="userName">
 		
 		<h3>Previous trips</h3>
 		<!--
@@ -74,15 +72,14 @@
 <div class="box">
 
 <h3>Recommendations</h3>
-<!--
         <label for="tripTitle">Title</label>
-        <input type="text" id="uname" name="tripTitle" placeholder="Title.." ng-model="#">
+        <input type="text" id="uname" name="tripTitle" placeholder="Title.." ng-model="recTitle">
 		
 		        <label for="flightName">Flight</label>
-        <input type="text" id="fname" name="flightName" placeholder="Flight name.." ng-model="#">
+        <input type="text" id="fname" name="flightName" placeholder="Flight name.." ng-model="recFlightName">
 		
 		        <label for="linkName">Links</label>
-        <input type="text" id="lname" name="linkName" placeholder="Links.." ng-model="#">
+        <input type="text" id="lname" name="linkName" placeholder="Links.." ng-model="recFlightLink">
 		
 		
 		<label for="oDetails">Other details</label>
@@ -96,8 +93,8 @@
 		
 		
 		 <center> <input type="submit" value="Save" ng-click="submitRequest()" style = "width:40%" ></center>
- -->
-      </div>
+
+        </div>
 
 <br>
 	  <div class="box">

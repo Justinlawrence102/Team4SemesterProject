@@ -2,6 +2,7 @@ angular.module('recomendations').controller('adminViewDBController', ['$scope', 
     $scope.userName = undefined;
     $scope.fullName = undefined;
     $scope.recTitle = undefined;
+    $scope.recFlightName = undefined;
     $scope.recFlightLink = undefined;
     $scope.recFlightPrice = undefined;
     $scope.recHotelLink = undefined;
