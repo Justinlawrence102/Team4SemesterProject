@@ -15,8 +15,11 @@ var fs = require('fs'),
 console.log("running Client Dashboard!")
 
 exports.list = function(req, res) {
-    console.log("HERE At top")
-    trip.find({ userName: 'testingUser'})
+    req.params=params(req); // call the function above ;
+    
+    console.log('userName: '+req.params.userName)
+    //console.log("HERE At serverController: userName is "+params(req).userName)//req.params.userName)
+    trip.find({ userName: req.params.userName})
     .sort([['departDate', 'ascending']])
     .exec(function (err, allTrips) {
           if (err) { return next(err); }
@@ -25,3 +28,16 @@ exports.list = function(req, res) {
 
 };
 
+var params=function(req){
+    let q=req.url.split('?'),result={};
+    if(q.length>=2){
+        q[1].split('&').forEach((item)=>{
+        try {
+         result[item.split('=')[0]]=item.split('=')[1];
+         } catch (e) {
+     result[item.split('=')[0]]='';
+          }
+     })
+    }
+    return result;
+}

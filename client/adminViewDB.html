@@ -39,13 +39,14 @@
 
       <div class="containerPersonalInfo">
 <h1> Admin Dashboard</h1>
-<h2> {{userName}} </h2>
+<h2> {{fullName}} </h2>
 
 		
 		
-		<div class="box">
+<div class="box">
 <h3>Current trip</h3>
         <label for="clientFullName">Full Name</label>
+        <!--
         <input type="text" id="clfullname" name="clientFullName" placeholder="Full name.." ng-model="#">
 		
 		<label for="clientTripDate">Current Trip Date</label>
@@ -56,16 +57,16 @@
 		
 		<label for="clientContact">Client Contact Info</label>
         <input type="text" id="clcontactinfo" name="clientContact" placeholder="Client contact info.." ng-model="#">
-
+-->
 		
 		<h3>Previous trips</h3>
-		
+		<!--
 		<label for="prevTripDate">Prev Trip Dates</label>
         <input type="text" id="prtripdate" name="prevTripDate" placeholder="Date.." ng-model="#">
 		
 		<label for="prevTripDescription">Prev Trip Description</label>
         <input type="text" id="prtripdesc" name="prevTripDescription" placeholder="Description.." ng-model="#">
-
+-->
 
 </div>
 
@@ -73,6 +74,7 @@
 <div class="box">
 
 <h3>Recommendations</h3>
+<!--
         <label for="tripTitle">Title</label>
         <input type="text" id="uname" name="tripTitle" placeholder="Title.." ng-model="#">
 		
@@ -94,14 +96,36 @@
 		
 		
 		 <center> <input type="submit" value="Save" ng-click="submitRequest()" style = "width:40%" ></center>
+ -->
       </div>
+
 <br>
+	  <div class="box">
+      <div class="tableWrapper" style = "padding-top:50px" ng-controller = "clientDashboardController">
+          <h3 align = "left">My Previous Trips</h3>
+          <table class="table table-striped table-hover">
+              <tr>
+                  <th>Departure Date</th>
+                  <th>Origin</th>
+                  <th>Destination</th>
+                  <th>Stops</th>
+                  <th>Number of People</th>
+                  <th></th>
+              </tr>
+              <tr ng-repeat="request in userRequest | filter:searchData | orderBy:'departDate'"> <!--Orders search results by date-->
+                  <th>{{request.departDate}}</th>
+                  <th>{{request.origin}}</th>
+                  <th>{{request.stops[request.stops.length - 1].stopLocation}}</th>
+                  <th>{{request.stops.length}}</th>
+                  <th>{{request.numPeople}}</th>
+                  <th>
+                      <button ng-click ="editTrip(requests.indexOf(Requests))">Edit</button>
+                  </th>
+              </tr>
+          </table>
+      </div>
+      </div>
 
-	  
-
-	  
-	  
-	  
 
       <div class="siteAnchor">
 
@@ -119,7 +143,8 @@
 
     <script src="js/factories/adminViewDBFactory.js"></script>
     <script src="js/controllers/adminViewDBController.js"></script>
-
+    <script src="js/controllers/clientDashboardController.js"></script>
+    <script src="js/factories/clientDashboardFactory.js"></script>
 </body>
 
 </html>

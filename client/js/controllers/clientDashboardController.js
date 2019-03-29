@@ -1,5 +1,5 @@
-angular.module('requests').controller('clientDashboardController', ['$scope', 'Requests',  function($scope, Requests) {
-  $scope.userName = "testingUser";
+angular.module('travelAgencyApp').controller('clientDashboardController', ['$scope', 'Requests',  function($scope, Requests) {
+  $scope.userName = "TESTJustin";
   $scope.origin = undefined;
   $scope.departDate = undefined;
 
@@ -16,6 +16,7 @@ angular.module('requests').controller('clientDashboardController', ['$scope', 'R
      }, function(error) {
         console.log('Unable to retrieve trip request:', error);
      });
+                                                                    
     $scope.editTrip = function() {
     console.log('editing listing')
     };

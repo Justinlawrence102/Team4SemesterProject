@@ -1,22 +1,26 @@
 angular.module('recomendations').controller('adminViewDBController', ['$scope', 'Requests',  function($scope, Requests) {
-                                                                      $scope.userName = undefined;
-                                                                      $scope.recTitle = undefined;
-                                                                      $scope.recFlightLink = undefined;
-                                                                      $scope.recFlightPrice = undefined;
-                                                                      $scope.recHotelLink = undefined;
-                                                                      $scope.recHotelPrice = undefined;
-                                                                      $scope.recNotes = undefined;
-                                                                      $scope.recCruiseLink = undefined;
-                                                                      $scope.recCruisePrice = undefined;
+    $scope.userName = undefined;
+    $scope.fullName = undefined;
+    $scope.recTitle = undefined;
+    $scope.recFlightLink = undefined;
+    $scope.recFlightPrice = undefined;
+    $scope.recHotelLink = undefined;
+    $scope.recHotelPrice = undefined;
+    $scope.recNotes = undefined;
+    $scope.recCruiseLink = undefined;
+    $scope.recCruisePrice = undefined;
+    $scope.departDate = undefined;
+    $scope.stops = undefined;
+   $scope.numPeople = undefined;
+    $scope.budget = undefined;
+    $scope.notes = undefined;
+                                                                      
+    var firstName = sessionStorage.getItem('ClientFirstName');
+    var lastName = sessionStorage.getItem('ClientLastName');
+    $scope.fullName = firstName+' '+lastName
+    $scope.userName = sessionStorage.getItem('ClientUserName');
                                                                       
                                                                       
-                                                                      $scope.departDate = undefined;
-                                                                      $scope.stops = undefined;
-                                                                      $scope.numPeople = undefined;
-                                                                      $scope.budget = undefined;
-                                                                      $scope.notes = undefined;
-                                                                      
-                                                            
 //  Requests.getAllTrips().then(function(response) {
 //     console.log('trying to get all trips')
 //      $scope.userRequest = response.data;

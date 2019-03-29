@@ -11,9 +11,12 @@ console.log('trying to get users')
     });
                                                                   
    $scope.showClient = function(client) {
-                                                                  console.log('username: '+client)
-     window.location =('/adminViewDB.html?userName='+client);
-    //$location.url = ('/adminViewDB.html')
+    console.log('username: '+client)
+     sessionStorage.setItem('ClientFirstName', client.firstname)
+     sessionStorage.setItem('ClientLastName', client.lastname)
+     sessionStorage.setItem('ClientUserName', client.username)
+     window.location =('/adminViewDB.html'
+                       );
                                                                   };
    }
                                                                 ]);
