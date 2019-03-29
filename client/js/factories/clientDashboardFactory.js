@@ -2,8 +2,10 @@ angular.module('requests', []).factory('Requests', function($http) {
   var methods = {
 	
     getAll: function() {
-    var userName = sessionStorage.getItem('ClientUserName');
-      return $http.get('/api/requests');
+    console.log('at client dashboard')
+    var userName = sessionStorage.getItem('CurrentlyLoggedInUserName');
+    userName = "testingUser"
+    return $http.get('/api/requests', {params: {userName: userName}});
     },
   };
 

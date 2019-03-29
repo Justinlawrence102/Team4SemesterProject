@@ -8,7 +8,7 @@ angular.module('travelAgencyApp').controller('clientDashboardController', ['$sco
   $scope.budget = undefined;
   $scope.notes = undefined;
   
-  console.log('getting here')
+  console.log('getting here in client dashboard controller')
 
     Requests.getAll().then(function(response) {
      console.log('trying to get all trips')
