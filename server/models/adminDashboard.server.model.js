@@ -8,13 +8,14 @@ var mongoose = require('mongoose'),
 */
 
 var tripRecomendationSchema = new Schema({
-	username: {type: String, required:true, unique:true},
-     recTitle: {type: String},
-    recFlightLink:{type: String},
-    recFlightPrice:{type: Number},
+	username: {type: String, required:true},
+     title: {type: String},
+    flightLink:{type: String},
+    flight:{type: String},
     recHotelLink:{type: String},
     recHotelPrice:{type: Number},
-    recNotes:{type: String},
+    notes:{type: String},
+    otherDetails:{type: String},
     recCruiseLink:{type: String},
     recCruisePrice:{type: Number},
    });
@@ -32,6 +33,6 @@ tripRecomendationSchema.pre('save', function(next) {
                next();
                });
 
-var tripRecomendation = mongoose.model('admin', tripRecomendationSchema);
+var tripRecomendation = mongoose.model('recommendations', tripRecomendationSchema);
 
 module.exports = tripRecomendation;
