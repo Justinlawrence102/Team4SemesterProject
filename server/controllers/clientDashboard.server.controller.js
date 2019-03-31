@@ -16,11 +16,12 @@ console.log("running Client Dashboard!")
 
 exports.list = function(req, res) {
     req.params=params(req); // call the function above ;
-    
+
     console.log('userName: '+req.params.userName)
     //console.log("HERE At serverController: userName is "+params(req).userName)//req.params.userName)
-    trip.find({ userName: req.params.userName})
-    .sort([['departDate', 'ascending']])
+    trip.find({ userName: req.params.userName})//.sort('-numPeople':1)
+    .sort([['numPeople', 'descending']]) //descending
+    //.sort(-'departDate')
     .exec(function (err, allTrips) {
           if (err) { return next(err); }
           res.json(allTrips)

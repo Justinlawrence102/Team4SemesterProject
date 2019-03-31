@@ -34,7 +34,7 @@
 
 
 
-    <div class="submitForms" ng-controller="adminViewDBController">
+    <div class="submitForms">
       <!--   <form action="#">  -->
 
       <div class="containerPersonalInfo">
@@ -45,7 +45,7 @@
  
 
 		
-<div class="box">
+<div class="box" ng-controller = "clientDashboardController">
 <h3>Current trip</h3>
         <label for="clientFullName">Client Full Name</label>
         <br>
@@ -53,6 +53,11 @@
         <br>
         <br>
 		
+		<label for="clientTripDate">Current Trip Date</label>
+        <input type="text" id="cltripdate" name="clientTripDate" placeholder="Date.." ng-model="userRequest[0].departDate">
+		
+		        <label for="clientNumPeople">People On Trip</label>
+        <input type="text" id="clnumpeople" name="clientNumPeople" placeholder="Number of people.." ng-model="userRequest[0].numPeople">
 		<label for="clientTripDate">Departure Date</label>
         <br>
         <p>{{departDate}}</p>
@@ -100,7 +105,8 @@
 </div>
 
 
-<div class="box">
+
+<div class="box" ng-controller="adminViewDBController">
 <h3> Notes on client </h3>
 <textarea id="notes" name="notes" placeholder="Notes on client.." style="width:300px;"
  ng-model="recNotes"></textarea>
@@ -167,7 +173,7 @@
                   <th>Stops</th>
                   <th>Number of People</th>
               </tr>
-              <tr ng-repeat="request in userRequest | filter:searchData | orderBy:'departDate'"> <!--Orders search results by date-->
+              <tr ng-repeat="request in userRequest | filter:searchData"> <!--Orders search results by date-->
                   <th>{{request.departDate}}</th>
                   <th>{{request.origin}}</th>
                   <th>{{request.stops[request.stops.length - 1].stopLocation}}</th>
