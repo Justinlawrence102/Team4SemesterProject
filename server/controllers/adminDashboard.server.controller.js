@@ -11,12 +11,14 @@ exports.createRecomendation = function(req, res) {
     title: req.body.title,
     flight: req.body.flight,
     flightLink: req.body.flightLink,
-    recHotelLink: req.body.recHotelLink,
-    recHotelPrice: req.body.recHotelPrice,
-    otherDetails: req.body.otherDetails,
-    notes: req.body.notes,
-    recCruiseLink:req.body.recCruiseLink,
-    recCruisePrice:req.body.recCruisePrice
+    flightPrice: req.body.flightPrice,
+    hotel: req.body.hotelName,
+    hotelLink: req.body.hotelLink,
+    hotelPrice: req.body.hotelPrice,
+    cruise: req.body.cruiseName,
+    cruiseLink:req.body.cruiseLink,
+    CruisePrice:req.body.cruisePrice,
+    otherDetails: req.body.otherDetails
     }
     var adminRecomendations = new admin(req.body);
     console.log('userName at cont: '+req.body.username)
