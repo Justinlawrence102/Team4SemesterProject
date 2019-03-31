@@ -66,13 +66,7 @@
         <br>
 		
         <label for="clientContact">Stops</label>
-      <!--
-        <table ng-repeat="stop in userRequest[0].stops">
-        <br>
-        <p>{{stop.stopLocation}}</p>
-        <br>
-        </table>
-        -->
+
       <table>
           <tr ng-repeat="stop in userRequest[0].stops"> <!--Orders search results by date-->
               <td>{{stop.stopLocation}}</td>
@@ -86,18 +80,20 @@
         <p>{{userRequest[0].budget}}</p>
         <br>
         <br>
-
-        <label for="clientNumStops">Number Of Stops</label>
+		
+        <label for="clientNumPeople">Number of People</label>
         <br>
-        <p>{{stops}}</p>
+        <p>{{numPeople}}</p>
         <br>
         <br>
 		
-        <label for="clientNumPeople">Number of People</label>
+		
+		<label for="clientNotes">Client Notes</label>
         <br>
         <p>{{userRequest[0].numPeople}}</p>
         <br>
         <br>
+
 
 		<!--
 		<label for="prevTripDate">Prev Trip Dates</label>
