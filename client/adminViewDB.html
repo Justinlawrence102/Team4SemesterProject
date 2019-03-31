@@ -52,33 +52,38 @@
         <p>{{fullName}}</p>
         <br>
         <br>
-		
-		<label for="clientTripDate">Current Trip Date</label>
-        <input type="text" id="cltripdate" name="clientTripDate" placeholder="Date.." ng-model="userRequest[0].departDate">
-		
-		        <label for="clientNumPeople">People On Trip</label>
-        <input type="text" id="clnumpeople" name="clientNumPeople" placeholder="Number of people.." ng-model="userRequest[0].numPeople">
+
 		<label for="clientTripDate">Departure Date</label>
         <br>
-        <p>{{departDate}}</p>
+        <p>{{userRequest[0].departDate}}</p>
         <br>
         <br>
 		
         <label for="clientDeptDate">Origin</label>
         <br>
-        <p>{{clientOrigin}}</p>
+        <p>{{userRequest[0].origin}}</p>
         <br>
         <br>
 		
-        <label for="clientContact">Destination</label>
+        <label for="clientContact">Stops</label>
+      <!--
+        <table ng-repeat="stop in userRequest[0].stops">
         <br>
-        <p>{{clientDestination}}</p>
+        <p>{{stop.stopLocation}}</p>
         <br>
+        </table>
+        -->
+      <table>
+          <tr ng-repeat="stop in userRequest[0].stops"> <!--Orders search results by date-->
+              <td>{{stop.stopLocation}}</td>
+              <td> {{stop.stopDate}}</td>
+          </tr>
+      </table>
         <br>
         
         <label for="clientBudget">Budget</label>
         <br>
-        <p>{{budget}}</p>
+        <p>{{userRequest[0].budget}}</p>
         <br>
         <br>
 
@@ -90,7 +95,7 @@
 		
         <label for="clientNumPeople">Number of People</label>
         <br>
-        <p>{{numPeople}}</p>
+        <p>{{userRequest[0].numPeople}}</p>
         <br>
         <br>
 
@@ -112,7 +117,7 @@
  ng-model="recNotes"></textarea>
 
  
- <center> <input type="submit" value="Save" ng-click="#" style = "width:40%" ></center>
+ <center> <input type="submit" value="Save" style = "width:40%" ></center>
  <br>
 <h3>Recommendations</h3>
         <label for="tripTitle">Title</label>
