@@ -34,7 +34,7 @@
 
 
 
-    <div class="submitForms" ng-controller="adminViewDBController">
+    <div class="submitForms">
       <!--   <form action="#">  -->
 
       <div class="containerPersonalInfo">
@@ -43,16 +43,16 @@
 
 		
 		
-<div class="box">
+<div class="box" ng-controller = "clientDashboardController">
 <h3>Current trip</h3>
         <label for="clientFullName">Full Name</label>
         <input type="text" id="clfullname" name="clientFullName" placeholder="Full name.." ng-model="fullName">
 		
 		<label for="clientTripDate">Current Trip Date</label>
-        <input type="text" id="cltripdate" name="clientTripDate" placeholder="Date.." ng-model="departDate">
+        <input type="text" id="cltripdate" name="clientTripDate" placeholder="Date.." ng-model="userRequest[0].departDate">
 		
 		        <label for="clientNumPeople">People On Trip</label>
-        <input type="text" id="clnumpeople" name="clientNumPeople" placeholder="Number of people.." ng-model="numPeople">
+        <input type="text" id="clnumpeople" name="clientNumPeople" placeholder="Number of people.." ng-model="userRequest[0].numPeople">
 		
 		<label for="clientContact">Client Contact Info</label>
         <input type="text" id="clcontactinfo" name="clientContact" placeholder="Client contact info.." ng-model="userName">
@@ -69,7 +69,7 @@
 </div>
 
 
-<div class="box">
+<div class="box" ng-controller="adminViewDBController">
 
 <h3>Recommendations</h3>
         <label for="tripTitle">Title</label>
@@ -109,7 +109,7 @@
                   <th>Number of People</th>
                   <th></th>
               </tr>
-              <tr ng-repeat="request in userRequest | filter:searchData | orderBy:'departDate'"> <!--Orders search results by date-->
+              <tr ng-repeat="request in userRequest | filter:searchData"> <!--Orders search results by date-->
                   <th>{{request.departDate}}</th>
                   <th>{{request.origin}}</th>
                   <th>{{request.stops[request.stops.length - 1].stopLocation}}</th>
