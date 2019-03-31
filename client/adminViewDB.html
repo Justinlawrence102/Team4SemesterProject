@@ -41,23 +41,59 @@
 <h1> Admin Dashboard</h1>
 <h2> {{fullName}} </h2>
 
-		
+
+ 
+
 		
 <div class="box" ng-controller = "clientDashboardController">
 <h3>Current trip</h3>
-        <label for="clientFullName">Full Name</label>
-        <input type="text" id="clfullname" name="clientFullName" placeholder="Full name.." ng-model="fullName">
+        <label for="clientFullName">Client Full Name</label>
+        <br>
+        <p>{{fullName}}</p>
+        <br>
+        <br>
 		
 		<label for="clientTripDate">Current Trip Date</label>
         <input type="text" id="cltripdate" name="clientTripDate" placeholder="Date.." ng-model="userRequest[0].departDate">
 		
 		        <label for="clientNumPeople">People On Trip</label>
         <input type="text" id="clnumpeople" name="clientNumPeople" placeholder="Number of people.." ng-model="userRequest[0].numPeople">
+		<label for="clientTripDate">Departure Date</label>
+        <br>
+        <p>{{departDate}}</p>
+        <br>
+        <br>
 		
-		<label for="clientContact">Client Contact Info</label>
-        <input type="text" id="clcontactinfo" name="clientContact" placeholder="Client contact info.." ng-model="userName">
+        <label for="clientDeptDate">Origin</label>
+        <br>
+        <p>{{clientOrigin}}</p>
+        <br>
+        <br>
 		
-		<h3>Previous trips</h3>
+        <label for="clientContact">Destination</label>
+        <br>
+        <p>{{clientDestination}}</p>
+        <br>
+        <br>
+        
+        <label for="clientBudget">Budget</label>
+        <br>
+        <p>{{budget}}</p>
+        <br>
+        <br>
+
+        <label for="clientNumStops">Number Of Stops</label>
+        <br>
+        <p>{{stops}}</p>
+        <br>
+        <br>
+		
+        <label for="clientNumPeople">Number of People</label>
+        <br>
+        <p>{{numPeople}}</p>
+        <br>
+        <br>
+
 		<!--
 		<label for="prevTripDate">Prev Trip Dates</label>
         <input type="text" id="prtripdate" name="prevTripDate" placeholder="Date.." ng-model="#">
@@ -69,35 +105,64 @@
 </div>
 
 
-<div class="box" ng-controller="adminViewDBController">
 
+<div class="box" ng-controller="adminViewDBController">
+<h3> Notes on client </h3>
+<textarea id="notes" name="notes" placeholder="Notes on client.." style="width:300px;"
+ ng-model="recNotes"></textarea>
+
+ 
+ <center> <input type="submit" value="Save" ng-click="#" style = "width:40%" ></center>
+ <br>
 <h3>Recommendations</h3>
         <label for="tripTitle">Title</label>
         <input type="text" id="uname" name="tripTitle" placeholder="Title.." ng-model="recTitle">
-		
-		        <label for="flightName">Flight</label>
+        
+        <div class="box">
+		<label for="flightName">Flight Name</label>
         <input type="text" id="fname" name="flightName" placeholder="Flight name.." ng-model="recFlightName">
 		
-		        <label for="linkName">Links</label>
-        <input type="text" id="lname" name="linkName" placeholder="Links.." ng-model="recFlightLink">
-		
+		<label for="flightLinkName">Flight Links</label>
+        <input type="text" id="flname" name="flightLinkName" placeholder="Flight links.." ng-model="recFlightLink">
+        
+        <label for="flightPrice">Flight Price</label>
+        <input type="text" id="fprice" name="flightPrice" placeholder="Flight price.." ng-model="recFlightPrice">
+    </div>
+
+    <div class="box">
+        <label for="hotelName">Hotel Name</label>
+        <input type="text" id="hname" name="hotelName" placeholder="Hotel name.." ng-model="recHotelName">
+        
+        
+		<label for="hotelLinkName">Hotel Links</label>
+        <input type="text" id="hlname" name="hotelLinkName" placeholder="Hotel links.." ng-model="recHotelLink">
+        
+        <label for="hotelPrice">Hotel Price</label>
+        <input type="text" id="hprice" name="hotelPrice" placeholder="Hotel price.." ng-model="recHotelPrice">
+		</div>
+
+        <label for="cruiseName">Cruise Name</label>
+        <input type="text" id="cname" name="cruiseName" placeholder="Cruise name.." ng-model="recCruiseName">
+        
+        
+		<label for="cruiseLinkName">Cruise Links</label>
+        <input type="text" id="clname" name="cruiseLinkName" placeholder="Cruise links.." ng-model="recCruiseLink">
+        
+        <label for="cruisePrice">Cruise Price</label>
+        <input type="text" id="cprice" name="cruisePrice" placeholder="Cruise price.." ng-model="recCruisePrice">
+        
 		
 		<label for="oDetails">Other details</label>
        <textarea id="odetail" name="oDetails" placeholder="Additional info.." style="height:100px; width:300px;"
         ng-model="recDetails"></textarea>
 		
 		
-		<label for="notes">Notes</label>
-       <textarea id="notes" name="notes" placeholder="Notes.." style="height:100px; width:300px;"
-        ng-model="recNotes"></textarea>
-		
-		
 		 <center> <input type="submit" value="Save" ng-click="submitRecomendation()" style = "width:40%" ></center>
 
         </div>
 
-<br>
-	  <div class="box">
+
+	<div class = "box1">
       <div class="tableWrapper" style = "padding-top:50px" ng-controller = "clientDashboardController">
           <h3 align = "left">My Previous Trips</h3>
           <table class="table table-striped table-hover">
@@ -107,7 +172,6 @@
                   <th>Destination</th>
                   <th>Stops</th>
                   <th>Number of People</th>
-                  <th></th>
               </tr>
               <tr ng-repeat="request in userRequest | filter:searchData"> <!--Orders search results by date-->
                   <th>{{request.departDate}}</th>
@@ -115,13 +179,12 @@
                   <th>{{request.stops[request.stops.length - 1].stopLocation}}</th>
                   <th>{{request.stops.length}}</th>
                   <th>{{request.numPeople}}</th>
-                  <th>
-                      <button ng-click ="editTrip(requests.indexOf(Requests))">Edit</button>
-                  </th>
               </tr>
           </table>
       </div>
-      </div>
+</div>
+
+</div>
 
 
       <div class="siteAnchor">
@@ -133,6 +196,9 @@
 
       </div>
     </div>
+    </div>
+
+
     <!-- </form>  -->
 
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
