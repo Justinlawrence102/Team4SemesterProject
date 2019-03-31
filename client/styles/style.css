@@ -251,6 +251,12 @@ html {
 
 }
 
+.box1 {
+width:800px;
+clear:both;
+float: center;
+}
+
   input[type=login] {
     width: 7%;
     background-color: #4CAF50;
@@ -385,6 +391,9 @@ html {
     margin-top: 20px;
  }
 
+ .Problem {
+   font-size: 20px;
+ }
  
 
  
