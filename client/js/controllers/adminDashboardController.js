@@ -15,6 +15,8 @@ console.log('trying to get users')
      sessionStorage.setItem('ClientFirstName', client.firstname)
      sessionStorage.setItem('ClientLastName', client.lastname)
      sessionStorage.setItem('ClientUserName', client.username)
+     sessionStorage.setItem('ClientNotes', client.notes)
+                                                                  
      window.location =('/adminViewDB.html'
                        );
                                                                   };

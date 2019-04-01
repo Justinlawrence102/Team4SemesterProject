@@ -12,6 +12,7 @@ var clientSchema = new Schema({
 	password: {type: String, required: true},
 	firstname: {type: String, required: true, index: true},
 	lastname: {type: String, required: true, index: true},
+    notes: {type: String},
 	email: {type: String, required: true, required: true},
 	tphone: {type: Number},
 },{collection: 'users'});

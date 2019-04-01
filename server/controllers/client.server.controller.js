@@ -23,6 +23,7 @@ exports.createUser = function(req, res, next){
 		firstname: req.body.firstname,
 		lastname: req.body.lastname,
 		email: req.body.email,
+        notes: req.body.notes,
 		tphone: req.body.tphone
 		};
 
@@ -82,3 +83,10 @@ exports.list = function(req, res) {
           res.json(allusers)
           })
 };
+
+exports.editNotes = function(req, res){
+    console.log("editing notes, userName is "+req.body.username)
+    client.findOneAndUpdate({ username: req.body.username }, {notes: 'test!'}, function(err, details) {
+                             if (err) throw err;
+                             });
+}

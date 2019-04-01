@@ -107,13 +107,16 @@
 
 
 
-<div class="box" ng-controller="adminViewDBController">
+<div class="box" ng-controller="clientNoteController">
 <h3> Notes on client </h3>
 <textarea id="notes" name="notes" placeholder="Notes on client.." style="width:300px;"
  ng-model="recNotes"></textarea>
 
  
- <center> <input type="submit" value="Save" style = "width:40%" ></center>
+ <center> <input type="submit" value="Save" style = "width:40%" ng-click = "editNotes()"></center>
+ </div>
+     
+<div class="box" ng-controller="adminViewDBController">
  <br>
 <h3>Recommendations</h3>
         <label for="tripTitle">Title</label>
@@ -204,11 +207,13 @@
 
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <script src="js/app.js"></script>
-
+    <script src="js/controllers/clientNotesController.js"></script>
     <script src="js/factories/adminViewDBFactory.js"></script>
     <script src="js/controllers/adminViewDBController.js"></script>
     <script src="js/controllers/clientDashboardController.js"></script>
     <script src="js/factories/clientDashboardFactory.js"></script>
+    <script src="js/factories/clientFactory.js"></script>
+
 </body>
 
 </html>

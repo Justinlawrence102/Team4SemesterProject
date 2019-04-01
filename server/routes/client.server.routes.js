@@ -12,6 +12,7 @@ var clients = require('../controllers/client.server.controller.js'),
 router.route('/')
 .get(clients.list)
 .post(clients.createUser)
+.put(clients.editNotes)
 
 router.route('/:username')
   .get(clients.authenticate)
