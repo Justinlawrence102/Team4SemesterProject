@@ -30,7 +30,7 @@ $scope.submit_authenticate = function(){
     username: $scope.username, 
     password: $scope.password};
 
-	console.log("past newAuth");
+	console.log("past newAuth of: " + newAuth.username);
 
 	Clients.authenticate(newAuth).then(function(response){
 		console.log("reached");
