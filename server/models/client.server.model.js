@@ -19,17 +19,29 @@ var clientSchema = new Schema({
 
 //This is a function to get the full name. It does not persist to the DB
 //get fullname by making the call "var.fullName"
-clientSchema.virtual('fullName').get(function () {
-  return this.firstname + ' ' + this.lastname;
-});
+//clientSchema.virtual('fullName').get(function () {
+ // return this.firstname + ' ' + this.lastname;
+//});
+
 
 //this is pre function to hash the passwords(encrypt the plain password)
-
+/*
 clientSchema.pre('save', function(next){
 	this.password = bcryptjs.hashSync(this.password, 10);
 	next();
 });
+*/
 
+clientSchema.methods.hashPassword = function(password) {
+	console.log('received password: ' + password)
+	return bcryptjs.hashSync(password, bcryptjs.genSaltSync(10))
+}
+
+clientSchema.methods.comparePassword = function(password, hash) {
+	//var flag = bcryptjs.compareSync(password,hash);
+	//console.log(flag)
+	return bcryptjs.compareSync(password,hash);
+}
 
 var client = mongoose.model('client', clientSchema);
 
