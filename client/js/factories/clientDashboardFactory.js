@@ -7,6 +7,8 @@ angular.module('requests', []).factory('Requests', function($http) {
     userName = "testingUser"
     return $http.get('/api/requests', {params: {userName: userName}});
     },
+    
+                
   };
 
   return methods;

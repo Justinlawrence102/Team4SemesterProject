@@ -28,6 +28,8 @@ angular.module('travelAgencyApp').controller('clientDashboardController', ['$sco
     $scope.editTrip = function() {
     console.log('editing listing')
     };
+    
+                
 
   }
 ]);

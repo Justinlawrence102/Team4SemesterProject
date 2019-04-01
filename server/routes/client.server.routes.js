@@ -13,6 +13,7 @@ console.log("getting client server routes")
 router.route('/')
 .get(clients.list)
 .post(clients.createUser)
+.put(clients.editNotes)
 
 router.route('/:username')
   .get(clients.authenticate)
