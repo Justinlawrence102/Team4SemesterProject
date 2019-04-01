@@ -1,6 +1,6 @@
 angular.module('requests').controller('TripRequestController', ['$scope', 'Requests',
   function($scope, Requests) {
-                                                            $scope.userName = "testingUser";
+                                                            $scope.userName = sessionStorage.getItem('CurrentlyLoggedInUserName');
                                                             $scope.origin = undefined;
                                                             $scope.departDate = undefined;
                                                             $scope.returnDate = undefined;

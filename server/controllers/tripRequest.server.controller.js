@@ -27,6 +27,14 @@ exports.createTrip = function(req, res) {
           budget: req.body.budget,
           notes:req.body.notes
     }
+//userName: req.params.Newrequest.userName,
+//origin: req.params.Newrequest.origin,
+//departDate: req.params.Newrequest.departDate,
+//returnDate: req.params.Newrequest.returnDate,
+//stops: req.params.Newrequest.stops,
+//numPeople: req.params.Newrequest.numPeople,
+//budget: req.params.Newrequest.budget,
+//notes:req.params.Newrequest.notes
     var tripRequests = new trip(req.body);
     console.log('userName: '+req.body.userName+' stop: '+req.body.stops)
 
