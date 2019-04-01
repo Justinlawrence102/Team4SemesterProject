@@ -37,7 +37,7 @@
     <div class="submitForms">
       <!--   <form action="#">  -->
 
-      <div class="containerPersonalInfo">
+      <div class="containerAdminView">
 <h1> Admin Dashboard</h1>
 <h2> {{fullName}} </h2>
 
@@ -109,7 +109,7 @@
 
 <div class="box" ng-controller="clientNoteController">
 <h3> Notes on client </h3>
-<textarea id="notes" name="notes" placeholder="Notes on client.." style="width:300px;"
+<textarea id="notes" name="notes" placeholder="Notes on client.." style="width:100%;"
  ng-model="notes"></textarea>
 
  
@@ -122,42 +122,42 @@
         <label for="tripTitle">Title</label>
         <input type="text" id="uname" name="tripTitle" placeholder="Title.." ng-model="recTitle">
         
-        <div class="box">
+        <div class="recBox">
 		<label for="flightName">Flight Name</label>
-        <input type="text" id="fname" name="flightName" placeholder="Flight name.." ng-model="recFlightName">
+        <input type="text" id="fname" name="flightName" placeholder="Name.." ng-model="recFlightName">
 		
 		<label for="flightLinkName">Flight Links</label>
-        <input type="text" id="flname" name="flightLinkName" placeholder="Flight links.." ng-model="recFlightLink">
+        <input type="text" id="flname" name="flightLinkName" placeholder="Links.." ng-model="recFlightLink">
         
         <label for="flightPrice">Flight Price</label>
-        <input type="text" id="fprice" name="flightPrice" placeholder="Flight price.." ng-model="recFlightPrice">
+        <input type="text" id="fprice" name="flightPrice" placeholder="Price.." ng-model="recFlightPrice">
     </div>
 
-    <div class="box">
+    <div class="recBox">
         <label for="hotelName">Hotel Name</label>
-        <input type="text" id="hname" name="hotelName" placeholder="Hotel name.." ng-model="recHotelName">
+        <input type="text" id="hname" name="hotelName" placeholder="Name.." ng-model="recHotelName">
         
         
 		<label for="hotelLinkName">Hotel Links</label>
-        <input type="text" id="hlname" name="hotelLinkName" placeholder="Hotel links.." ng-model="recHotelLink">
+        <input type="text" id="hlname" name="hotelLinkName" placeholder="Links.." ng-model="recHotelLink">
         
         <label for="hotelPrice">Hotel Price</label>
-        <input type="text" id="hprice" name="hotelPrice" placeholder="Hotel price.." ng-model="recHotelPrice">
+        <input type="text" id="hprice" name="hotelPrice" placeholder="Price.." ng-model="recHotelPrice">
 		</div>
-
+        <div class="recBox">
         <label for="cruiseName">Cruise Name</label>
-        <input type="text" id="cname" name="cruiseName" placeholder="Cruise name.." ng-model="recCruiseName">
+        <input type="text" id="cname" name="cruiseName" placeholder="Name.." ng-model="recCruiseName">
         
         
 		<label for="cruiseLinkName">Cruise Links</label>
-        <input type="text" id="clname" name="cruiseLinkName" placeholder="Cruise links.." ng-model="recCruiseLink">
+        <input type="text" id="clname" name="cruiseLinkName" placeholder="Links.." ng-model="recCruiseLink">
         
         <label for="cruisePrice">Cruise Price</label>
-        <input type="text" id="cprice" name="cruisePrice" placeholder="Cruise price.." ng-model="recCruisePrice">
+        <input type="text" id="cprice" name="cruisePrice" placeholder="Price.." ng-model="recCruisePrice">
         
-		
+		</div>
 		<label for="oDetails">Other details</label>
-       <textarea id="odetail" name="oDetails" placeholder="Additional info.." style="height:100px; width:300px;"
+       <textarea id="odetail" name="oDetails" placeholder="Additional info.." style="height:100px; width:100%;"
         ng-model="recDetails"></textarea>
 		
 		
