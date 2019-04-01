@@ -50,7 +50,7 @@ exports.createRecomendation = function(req, res) {
 //};
 
 exports.listAllClients = function(req, res) {
-    console.log("getting all clients")
+    console.log("getting all clients in dashboard here!")
     allClients.find()
     .sort([['lastname', 'ascending']])
     .exec(function (err, allClients) {
@@ -59,3 +59,10 @@ exports.listAllClients = function(req, res) {
           })
     
 };
+
+exports.editNotes = function(req, res){
+    console.log('editing notes, notes is ' +req.body.notes) //+req.body.username
+    allClients.findOneAndUpdate({ username: req.body.username }, {notes: req.body.notes}, function(err, details) {
+                            if (err) throw err;
+                            });
+}

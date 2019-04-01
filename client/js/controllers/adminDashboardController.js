@@ -20,5 +20,6 @@ console.log('trying to get users')
      window.location =('/adminViewDB.html'
                        );
                                                                   };
+                                                                  
    }
                                                                 ]);

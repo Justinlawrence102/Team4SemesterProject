@@ -16,7 +16,6 @@ router.route('/')
 
 router.route('/:username')
   .get(clients.authenticate)
-//  .put(tripRequest.update)
-//  .delete(tripRequest.delete);
+  //.put(clients.editNotes)
 
 module.exports = router;

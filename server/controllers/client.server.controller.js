@@ -77,6 +77,7 @@ exports.authenticate = function(req, res, next){
 //console.log("running Client Server Controller!")
 
 exports.list = function(req, res) {
+    console.log("at server.controller!!!!")
     client.find()
     .exec(function (err, allusers) {
           if (err) { return next(err); }
@@ -85,8 +86,8 @@ exports.list = function(req, res) {
 };
 
 exports.editNotes = function(req, res){
-    console.log("editing notes, userName is "+req.body.username)
-    client.findOneAndUpdate({ username: req.body.username }, {notes: 'test!'}, function(err, details) {
-                             if (err) throw err;
-                             });
+    console.log("editing notes, notes is "+req.body.notes)
+    client.findOneAndUpdate({ username: req.body.username}, {notes: req.body.notes}, function(err, details) {
+                            if (err) throw err;
+                            });
 }

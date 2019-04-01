@@ -28,7 +28,7 @@ angular.module('recomendations').controller('adminViewDBController', ['$scope', 
      console.log('submiting a  request')
        var newRecomendation = {username: $scope.username, title: $scope.recTitle, flight: $scope.recFlightName, flightLink: $scope.recFlightLink, flightPrice: $scope.recFlightPrice, hotel: $scope.recHotelName, hotelLink: $scope.recHotelLink, hotelPrice: $scope.recHotelPrice, cruise: $scope.recCruiseName, cruiseLink: $scope.recCruiseLink, cruisePrice: $scope.recCruisePrice, otherDetails: $scope.recDetails};
             Requests.create(newRecomendation).then(function(response) {                                                          });
-          window.location.reload(true);
+         // window.location.reload(true);
         }
   }
 ]);

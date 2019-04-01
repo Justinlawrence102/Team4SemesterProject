@@ -7,7 +7,8 @@ angular.module('travelAgencyApp').controller('clientNoteController', ['$scope', 
 //
      $scope.editNotes = function() {
      console.log('editing a note')
-      Clients.editNote($scope.notes).then(function(response) {                                                          });
+      Clients.editNotes($scope.notes).then(function(response) {                                                          });
+    sessionStorage.setItem('ClientNotes', $scope.notes)
           window.location.reload(true);
                                                                };
   }

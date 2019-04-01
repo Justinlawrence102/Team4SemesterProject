@@ -5,7 +5,7 @@ angular.module('clients', []).factory('Requests', function($http) {
                                     return $http.get('/api/users');
                                     console.log('getting API data')
                                     },
-                                      
+                        
                                     };
                                     
                                     return methods;
