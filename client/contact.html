@@ -4,6 +4,21 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles/style.css">
   <title>Project</title>
+  <style>
+      body, html {
+        background-image: url("beach2.jpg");
+      
+        /* Center and scale the image nicely */
+      background-position: center center;
+			background-repeat:  no-repeat;
+			background-attachment: fixed;
+			background-size:  cover;
+      background-color: #999;
+      margin-bottom:20px;
+      height: 100%;
+      }
+    
+      </style>
 </head>
 <body ng-app="Project">
   <div class="container" style="margin-top: 20px">
@@ -57,17 +72,19 @@
       </div>
 
       <center> <input type="submit" value="Submit" ng-click="submit_contact()"></center>
-
-
+    </div>
+  </div>
+<center>
       <div class="siteAnchor">
-
+<footer>
         <p style="float: left;">Copyright © 2019 Bochitto Travel</p>
 
 
         <p style="float:right;">Questions? Contact us at bochittotravel@test.com</p>
-
+</footer>
       </div>
-    </div>
+      </center>
+  
     <!-- </form>  -->
 
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
