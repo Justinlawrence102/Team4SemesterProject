@@ -45,7 +45,17 @@
       <input type="text" id="fname" name="firstname" placeholder="Username" ng-model="username">
 
       <label for="lname">Password</label>
-      <input type="text" id="lname" name="lastname" placeholder="Password" ng-model="password">
+      <input type="password" id="myInput" name="lastname" placeholder="Password" ng-model="password">
+      <script>
+      function myFunction() {
+       var x = document.getElementById("myInput");
+           if (x.type === "password") {
+              x.type = "text";
+          } else {
+        x.type = "password";
+         }
+        } 
+      </script>
       <center> <input type="login" value="Login" ng-click="submit_authenticate()" style="width:75px;"></center>
     </div>
 
