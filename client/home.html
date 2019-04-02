@@ -7,7 +7,7 @@
   <title>Project</title>
 </head>
 
-<body ng-app="Project">
+<body ng-app="travelAgencyApp">
   <div class="container" style="margin-top: 20px">
     <div class="row1">
 
@@ -16,16 +16,23 @@
 
     </div>
 
-    <div class="topnav">
+    <div class="topnav" ng-controller = "homeController">
       <a class="active" href="#home">Home</a>
       <a href="contact.html">Contact</a>
       <a href="about.html">About Me</a>
       <a href="specials.html">Specials</a>
       <a href="blogs.html">Blog Posts</a>
       <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
+      <div ng-if="userName === 'ash'">
       <a href="clientDashboard.html">Client Dashboard</a>
+      </div>
+      <div ng-if="userName === 'admin'">
+          <a href="adminDashboard.html">Admin Dashboard</a>
+      </div>
       <div class="login">
+        <div ng-if="userName === 'ash'">
         <a href="triprequest.html">Trip Request</a>
+        </div>
         <a href="login.html">Login</a>
         <a href="signup.html">Sign Up</a>
       </div>
@@ -54,7 +61,7 @@
             <input type="date" name="dept-date" ng-model="departDate">
 
 
-            <center> <input type="submitTrip" value="Go!" ng-click="#"></center>
+            <center> <input type="submitTrip" value="Go!"></center>
 
 
           </div>
@@ -164,6 +171,9 @@
 
 
       </div>
+      <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+      <script src="js/app.js"></script>
+      <script src="js/controllers/homeController.js"></script>
 
 </body>
 

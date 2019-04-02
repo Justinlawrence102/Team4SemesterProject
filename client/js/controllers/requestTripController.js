@@ -32,8 +32,9 @@ console.log('at controller')
            var newRequest = {userName: $scope.userName, origin: $scope.origin, departDate: $scope.departDate, returnDate: $scope.returnDate, stops: stops, numPeople: $scope.numPeople, budget: $scope.budget, notes: $scope.notes};
       Requests.create(newRequest).then(function(response) {
       });
-      window.location.reload(true);
-    };
+    window.location =('/clientDashboard.html');
+                                                                
+                                                                };
  
    $scope.addNewStop = function () {
     console.log($scope.tableStops)
