@@ -53,7 +53,7 @@
                         <th>Number of People</th>
                         <th></th>
                         </tr>
-                        <tr ng-repeat="request in userRequest | filter:searchData"> <!--Orders search results by date-->
+                        <tr ng-repeat="request in userRequest | filter:searchData | orderBy:'departDate'"> <!--Orders search results by date-->
                             <th>{{request.departDate}}</th>
                             <th>{{request.origin}}</th> 
                             <th>{{request.stops[request.stops.length - 1].stopLocation}}</th>
@@ -118,17 +118,13 @@
                         <th>Destination</th>
                         <th>Stops</th>
                         <th>Number of People</th>
-                        <th></th>
                         </tr>
-                        <tr ng-repeat="request in userRequest | filter:searchData"> <!--Orders search results by date-->
+                        <tr ng-repeat="request in userRequest | filter:searchData | orderBy:'departDate'"> <!--Orders search results by date-->
                             <th>{{request.departDate}}</th>
                             <th>{{request.origin}}</th> 
                             <th>{{request.stops[request.stops.length - 1].stopLocation}}</th>
                             <th>{{request.stops.length}}</th>
                             <th>{{request.numPeople}}</th>
-                            <th>
-                             <button ng-click ="editTrip(requests.indexOf(Requests))">Edit</button>
-                            </th>
                             </tr>
                     </table>
                   </div>
