@@ -1,8 +1,9 @@
-html {
-  background-color: skyblue;
+/*html {
+  background-image: url(ocean.jpg);
   padding: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+
 }
 
 /*body, html {
@@ -13,9 +14,16 @@ html {
   margin: 15px 10px;
 }
 
+.main {
+  padding-top: 10px;
+}
+
 .tableWrapper {
   max-height: 400px;
   overflow: auto;
+}
+.container {
+  background-color: white;
 }
 
 .row1 {
@@ -56,7 +64,7 @@ html {
 
   /* Add a color to the active/current link */
   .topnav a.active {
-    background-color: #4CAF50;
+    background-color: darkorchid;
     color: white;
   }
 
