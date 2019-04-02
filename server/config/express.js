@@ -5,11 +5,17 @@
     bodyParser = require('body-parser'),
     config = require('./config'),
     jwt = require('jsonwebtoken'),
+    session = require('express-session'),
+    passport = require('passport'),
     tripRequestRouter = require('../routes/tripRequest.server.routes.js'),
     clientRouter = require('../routes/client.server.routes.js'),
+    indexRouter = require('../routes/index.routes.js'),
     recomendationsRouter = require('../routes/adminDashboard.server.routes.js');
 
+
 module.exports.init = function() {
+
+  require('./passport')(passport)
 
   //connect to database
   mongoose.connect(config.db.uri);
@@ -17,6 +23,7 @@ module.exports.init = function() {
 
   //initialize app
   var app = express();
+  var authRouter = require('../routes/auth.server.routes.js')(passport);
 
   //enable request logging for development debugging
   app.use(morgan('dev'));
@@ -36,19 +43,38 @@ module.exports.init = function() {
   app.use(express.static('client'));
 
 
+  //initialize passport
+  app.use(passport.initialize());
+  app.use(passport.session());
+
+  //not sure if need this or not
+  app.use(session({
+    secret: 'test',
+    saveUninitialized: false,
+    resave: false
+  }))
+
   /**TODO 
   Use the listings router for requests to the api */
+    app.use('/', indexRouter);
     app.use('/api/requests', tripRequestRouter);
     app.use('/api/clients', clientRouter);
     app.use('/api/recomendations', recomendationsRouter);
-    app.use('/api/users',recomendationsRouter)
+    app.use('/api/users',recomendationsRouter);
+
+    //ash
+    app.use('/api/auth', authRouter);
+  
+
   /**TODO
   Go to homepage for all routes not specified */
-    app.get('/', function(req, res){ //app.use(function(req, res){
-            //res.sendfile('./client', './client/index.html');
-           
-            res.sendfile('./client/home.html');
+   // app.get('/', function(req, res){ 
+     // res.sendfile('./client/home.html');
+    //});
 
-            });
+    //app.get('/logout', function (req, res) {
+     // res.send('/home')
+   // });
+
   return app;
 };  

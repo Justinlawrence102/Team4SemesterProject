@@ -19,7 +19,7 @@ angular.module('travelAgencyApp').controller('clientDashboardController', ['$sco
          var getData = response.data;
         $scope.userRequest = getData.sort((a, b) => (a.departDate < b.departDate) ? 1 : -1)
                            
-          console.log('this is the numpeople: '+$scope.userRequest[0].numPeople)
+    //      console.log('this is the numpeople: '+$scope.userRequest[0].stops[0].stopLocation)
                            
      }, function(error) {
         console.log('Unable to retrieve trip request:', error);
@@ -28,6 +28,8 @@ angular.module('travelAgencyApp').controller('clientDashboardController', ['$sco
     $scope.editTrip = function() {
     console.log('editing listing')
     };
+    
+                
 
   }
 ]);

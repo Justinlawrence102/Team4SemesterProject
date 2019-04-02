@@ -23,11 +23,12 @@
         <a href="specials.html">Specials</a>
         <a href= "blogs.html">Blog Posts</a>
         <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
-        <a href = "clientDashboard.html">Client Dashboard</a>
+     <!--   <a href = "clientDashboard.html">Client Dashboard</a> -->
+        <a class = "active" a href= "adminDashboard.html">Admin Dashboard</a>
         <div class="login">
-            <a href="triprequest.html">Trip Request</a>
+        <!--    <a href="triprequest.html">Trip Request</a> -->
             <a href="login.html">Login</a>
-            <a class="active" href="signup.html">Sign Up</a>
+            <a href="signup.html">Sign Up</a>
         </div>
 
     </div>
@@ -37,7 +38,7 @@
     <div class="submitForms">
       <!--   <form action="#">  -->
 
-      <div class="containerPersonalInfo">
+      <div class="containerAdminView">
 <h1> Admin Dashboard</h1>
 <h2> {{fullName}} </h2>
 
@@ -52,47 +53,48 @@
         <p>{{fullName}}</p>
         <br>
         <br>
-		
-		<label for="clientTripDate">Current Trip Date</label>
-        <input type="text" id="cltripdate" name="clientTripDate" placeholder="Date.." ng-model="userRequest[0].departDate">
-		
-		        <label for="clientNumPeople">People On Trip</label>
-        <input type="text" id="clnumpeople" name="clientNumPeople" placeholder="Number of people.." ng-model="userRequest[0].numPeople">
+
 		<label for="clientTripDate">Departure Date</label>
         <br>
-        <p>{{departDate}}</p>
+        <p>{{userRequest[0].departDate}}</p>
         <br>
         <br>
 		
         <label for="clientDeptDate">Origin</label>
         <br>
-        <p>{{clientOrigin}}</p>
+        <p>{{userRequest[0].origin}}</p>
         <br>
         <br>
 		
-        <label for="clientContact">Destination</label>
-        <br>
-        <p>{{clientDestination}}</p>
-        <br>
+        <label for="clientContact">Stops</label>
+
+      <table>
+          <tr ng-repeat="stop in userRequest[0].stops"> <!--Orders search results by date-->
+              <td>{{stop.stopLocation}}</td>
+              <td> {{stop.stopDate}}</td>
+          </tr>
+      </table>
         <br>
         
         <label for="clientBudget">Budget</label>
         <br>
-        <p>{{budget}}</p>
-        <br>
-        <br>
-
-        <label for="clientNumStops">Number Of Stops</label>
-        <br>
-        <p>{{stops}}</p>
+        <p>{{userRequest[0].budget}}</p>
         <br>
         <br>
 		
         <label for="clientNumPeople">Number of People</label>
         <br>
-        <p>{{numPeople}}</p>
+        <p>{{userRequest[0].numPeople}}</p>
         <br>
         <br>
+		
+		
+		<label for="clientNotes">Client Notes</label>
+        <br>
+        <p>{{userRequest[0].notes}}</p>
+        <br>
+        <br>
+
 
 		<!--
 		<label for="prevTripDate">Prev Trip Dates</label>
@@ -106,54 +108,57 @@
 
 
 
-<div class="box" ng-controller="adminViewDBController">
+<div class="box" ng-controller="clientNoteController">
 <h3> Notes on client </h3>
-<textarea id="notes" name="notes" placeholder="Notes on client.." style="width:300px;"
- ng-model="recNotes"></textarea>
+<textarea id="notes" name="notes" placeholder="Notes on client.." style="width:100%;"
+ ng-model="notes"></textarea>
 
  
- <center> <input type="submit" value="Save" ng-click="#" style = "width:40%" ></center>
+ <center> <input type="submit" value="Save" style = "width:40%" ng-click = "editNotes()"></center>
+ </div>
+     
+<div class="box" ng-controller="adminViewDBController">
  <br>
 <h3>Recommendations</h3>
         <label for="tripTitle">Title</label>
         <input type="text" id="uname" name="tripTitle" placeholder="Title.." ng-model="recTitle">
         
-        <div class="box">
+        <div class="recBox">
 		<label for="flightName">Flight Name</label>
-        <input type="text" id="fname" name="flightName" placeholder="Flight name.." ng-model="recFlightName">
+        <input type="text" id="fname" name="flightName" placeholder="Name.." ng-model="recFlightName">
 		
 		<label for="flightLinkName">Flight Links</label>
-        <input type="text" id="flname" name="flightLinkName" placeholder="Flight links.." ng-model="recFlightLink">
+        <input type="text" id="flname" name="flightLinkName" placeholder="Links.." ng-model="recFlightLink">
         
         <label for="flightPrice">Flight Price</label>
-        <input type="text" id="fprice" name="flightPrice" placeholder="Flight price.." ng-model="recFlightPrice">
+        <input type="text" id="fprice" name="flightPrice" placeholder="Price.." ng-model="recFlightPrice">
     </div>
 
-    <div class="box">
+    <div class="recBox">
         <label for="hotelName">Hotel Name</label>
-        <input type="text" id="hname" name="hotelName" placeholder="Hotel name.." ng-model="recHotelName">
+        <input type="text" id="hname" name="hotelName" placeholder="Name.." ng-model="recHotelName">
         
         
 		<label for="hotelLinkName">Hotel Links</label>
-        <input type="text" id="hlname" name="hotelLinkName" placeholder="Hotel links.." ng-model="recHotelLink">
+        <input type="text" id="hlname" name="hotelLinkName" placeholder="Links.." ng-model="recHotelLink">
         
         <label for="hotelPrice">Hotel Price</label>
-        <input type="text" id="hprice" name="hotelPrice" placeholder="Hotel price.." ng-model="recHotelPrice">
+        <input type="text" id="hprice" name="hotelPrice" placeholder="Price.." ng-model="recHotelPrice">
 		</div>
-
+        <div class="recBox">
         <label for="cruiseName">Cruise Name</label>
-        <input type="text" id="cname" name="cruiseName" placeholder="Cruise name.." ng-model="recCruiseName">
+        <input type="text" id="cname" name="cruiseName" placeholder="Name.." ng-model="recCruiseName">
         
         
 		<label for="cruiseLinkName">Cruise Links</label>
-        <input type="text" id="clname" name="cruiseLinkName" placeholder="Cruise links.." ng-model="recCruiseLink">
+        <input type="text" id="clname" name="cruiseLinkName" placeholder="Links.." ng-model="recCruiseLink">
         
         <label for="cruisePrice">Cruise Price</label>
-        <input type="text" id="cprice" name="cruisePrice" placeholder="Cruise price.." ng-model="recCruisePrice">
+        <input type="text" id="cprice" name="cruisePrice" placeholder="Price.." ng-model="recCruisePrice">
         
-		
+		</div>
 		<label for="oDetails">Other details</label>
-       <textarea id="odetail" name="oDetails" placeholder="Additional info.." style="height:100px; width:300px;"
+       <textarea id="odetail" name="oDetails" placeholder="Additional info.." style="height:100px; width:100%;"
         ng-model="recDetails"></textarea>
 		
 		
@@ -203,11 +208,13 @@
 
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <script src="js/app.js"></script>
-
+    <script src="js/controllers/clientNotesController.js"></script>
     <script src="js/factories/adminViewDBFactory.js"></script>
     <script src="js/controllers/adminViewDBController.js"></script>
     <script src="js/controllers/clientDashboardController.js"></script>
     <script src="js/factories/clientDashboardFactory.js"></script>
+    <script src="js/factories/clientNotesFactory.js"></script>
+
 </body>
 
 </html>

@@ -11,7 +11,7 @@ angular.module('recomendations', []).factory('Requests', function($http) {
          return $http.get('/api/requests', {params: {userName: ClientUserName}});
         },
                                              
-      create: function(newRecomendation){
+      create: function(newRecomendation) {
           console.log("submit new recomendation")
           return $http.post('/api/recomendations', newRecomendation);
                                              },

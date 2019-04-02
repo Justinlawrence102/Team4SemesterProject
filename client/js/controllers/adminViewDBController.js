@@ -26,9 +26,9 @@ angular.module('recomendations').controller('adminViewDBController', ['$scope', 
 //
      $scope.submitRecomendation = function() {
      console.log('submiting a  request')
-       var newRecomendation = {username: $scope.username, title: $scope.recTitle, flight: $scope.recFlightName, flightLink: $scope.recFlightLink, flightPrice: $scope.recFlightPrice, hotelName: $scope.recHotelName, hotelLink: $scope.recHotelLink, hotelPrice: $scope.recHotelPrice, cruiseName: $scope.recCruiseName, cruiseLink: $scope.recCruiseLink, cruisePrice: $scope.recCruisePrice, otherDetails: $scope.recDetails};
-                                        //, recTitle: $scope.recTitle, recFlightLink: $scope.recFlightLink, recFlightPrice: $scope.recFlightPrice, recHotelLink: $scope.recHotelLink, recHotelPrice: $scope.recHotelPrice, recCruiseLink: $scope.recCruiseLink, recCruisePrice = $scope.recCruisePrice, recNotes: $scope.recNotes
+       var newRecomendation = {username: $scope.username, title: $scope.recTitle, flight: $scope.recFlightName, flightLink: $scope.recFlightLink, flightPrice: $scope.recFlightPrice, hotel: $scope.recHotelName, hotelLink: $scope.recHotelLink, hotelPrice: $scope.recHotelPrice, cruise: $scope.recCruiseName, cruiseLink: $scope.recCruiseLink, cruisePrice: $scope.recCruisePrice, otherDetails: $scope.recDetails};
             Requests.create(newRecomendation).then(function(response) {                                                          });
-                                                                      }
-                                                                      }
+         // window.location.reload(true);
+        }
+  }
 ]);

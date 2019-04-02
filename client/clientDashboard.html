@@ -14,21 +14,25 @@
 
   </div>
 
-    <div class="topnav" >
+    <div class="topnav" ng-controller = "homeController">
         <a href="home.html">Home</a>
         <a href="contact.html">Contact</a>
         <a href="about.html">About Me</a>
         <a href="specials.html">Specials</a>
-        <a href= "blogs.html">Blog Posts</a>
+        <a href="blogs.html">Blog Posts</a>
         <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
-        <div class = "dropdown">
-        <a class = "active" href = "#clientDashboard">Client Dashboard</a>
+        <div ng-if="userName !== null">
+            <a class="active" href="clientDashboard.html">Client Dashboard</a>
+        </div>
+        <div ng-if="userName === 'admin'">
+            <a href="adminDashboard.html">Admin Dashboard</a>
         </div>
         <div class="login">
-                
+            <div ng-if="userName !== null">
                 <a href="triprequest.html">Trip Request</a>
-                <a href="login.html">Login</a>
-                <a href="signup.html">Sign Up</a>
+            </div>
+            <a href="login.html">Login</a>
+            <a href="signup.html">Sign Up</a>
         </div>
     </div>
 
@@ -55,9 +59,6 @@
                             <th>{{request.stops[request.stops.length - 1].stopLocation}}</th>
                             <th>{{request.stops.length}}</th>
                             <th>{{request.numPeople}}</th>
-                            <th>
-                             <button ng-click ="editTrip(requests.indexOf(Requests))">Edit</button>
-                            </th>
                             </tr>
                     </table>
                     <div class = "Problem">
@@ -148,5 +149,7 @@
     
     <script src="js/factories/clientDashboardFactory.js"></script>
     <script src="js/controllers/clientDashboardController.js"></script>
+    <script src="js/controllers/homeController.js"></script>
+
     </body>
   </html>

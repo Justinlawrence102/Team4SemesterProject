@@ -12,7 +12,8 @@ router.route('/')
 
 .post(adminDashboard.createRecomendation)
 //.get(adminDashboard.listClientDetails)
-.get(adminDashboard.listAllClients);
+.get(adminDashboard.listAllClients)
+.put(adminDashboard.editNotes)
 
 //router.route('/:listingId')
 //  .get(tripRequest.read)
