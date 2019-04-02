@@ -21,6 +21,7 @@ $scope.submit_user_request = function(){
     Clients.create(newUser).then(function(response){
         console.log(newUser.username + ' successfully created!');
     });
+   window.location =('/login.html');
 };
 
 $scope.submit_authenticate = function(){
@@ -37,6 +38,7 @@ $scope.submit_authenticate = function(){
         sessionStorage.setItem('CurrentlyLoggedInUserName', newAuth.username)
 
                                        console.log('out of newAuth '+newAuth.username)
+                                       window.location =('/home.html');
     //console.log(response.username);
 	});
 };
