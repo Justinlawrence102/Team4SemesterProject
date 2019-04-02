@@ -21,14 +21,14 @@
         <a href="specials.html">Specials</a>
         <a href="blogs.html">Blog Posts</a>
         <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
-        <div ng-if="userName === 'ash'">
+        <div ng-if="userName !== null">
             <a class="active" href="clientDashboard.html">Client Dashboard</a>
         </div>
         <div ng-if="userName === 'admin'">
             <a href="adminDashboard.html">Admin Dashboard</a>
         </div>
         <div class="login">
-            <div ng-if="userName === 'ash'">
+            <div ng-if="userName !== null">
                 <a href="triprequest.html">Trip Request</a>
             </div>
             <a href="login.html">Login</a>
