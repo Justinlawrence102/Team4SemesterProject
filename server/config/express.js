@@ -9,6 +9,7 @@
     passport = require('passport'),
     tripRequestRouter = require('../routes/tripRequest.server.routes.js'),
     clientRouter = require('../routes/client.server.routes.js'),
+    blogsRouter = require('../routes/blogs.server.routes.js'),
     indexRouter = require('../routes/index.routes.js'),
     recomendationsRouter = require('../routes/adminDashboard.server.routes.js');
 
@@ -61,6 +62,7 @@ module.exports.init = function() {
     app.use('/api/clients', clientRouter);
     app.use('/api/recomendations', recomendationsRouter);
     app.use('/api/users',recomendationsRouter);
+    app.use('/api/blogs',blogsRouter);
 
     //ash
     app.use('/api/auth', authRouter);
