@@ -4,10 +4,10 @@ admin = require('../models/adminDashboard.server.model.js');
 allClients = require('../models/client.server.model.js');
 
 console.log('at the server.controller for admin')
-exports.createRecomendation = function(req, res) {
+exports.createRecommendation = function(req, res) {
     /* Instantiate a trip request */
-    var tripRecomendation = {
-    username: req.body.username,
+    var tripRecommendation = {
+    userName: req.body.userName,
     title: req.body.title,
     flight: req.body.flight,
     flightLink: req.body.flightLink,
@@ -20,20 +20,20 @@ exports.createRecomendation = function(req, res) {
     CruisePrice:req.body.cruisePrice,
     otherDetails: req.body.otherDetails
     }
-    var adminRecomendations = new admin(req.body);
-    console.log('userName at cont: '+req.body.username)
+    var adminRecommendations = new admin(req.body);
+    console.log('userName at cont: '+req.body.userName)
     
     //console.log('stops: '+tripRequests.stops)
     
     /* Then save the listing */
-    adminRecomendations.save(function(err) {
+    adminRecommendations.save(function(err) {
                       console.log("at controller saving")
                       
                       if(err) {
                       console.log(err);
                       res.status(400).send(err);
                       } else {
-                      res.json(tripRecomendation);
+                      res.json(tripRecommendation);
                       }
                       });
 };
