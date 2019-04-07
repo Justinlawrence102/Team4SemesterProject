@@ -13,7 +13,6 @@ console.log("getting her server routes")
 router.route('/')
 .post(tripRequest.createTrip)
 .get(clientDashboard.list)
-.get(clientDashboard.getRec)
 
 //router.route('/:listingId')
 //  .get(tripRequest.read)

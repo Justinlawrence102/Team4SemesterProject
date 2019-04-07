@@ -11,7 +11,8 @@
     clientRouter = require('../routes/client.server.routes.js'),
     blogsRouter = require('../routes/blogs.server.routes.js'),
     indexRouter = require('../routes/index.routes.js'),
-    recomendationsRouter = require('../routes/adminDashboard.server.routes.js');
+    clientRecommendationsRouter = require('../routes/recommendation.server.routes.js'),
+    recommendationsRouter = require('../routes/adminDashboard.server.routes.js');
 
 
 module.exports.init = function() {
@@ -60,9 +61,10 @@ module.exports.init = function() {
     app.use('/', indexRouter);
     app.use('/api/requests', tripRequestRouter);
     app.use('/api/clients', clientRouter);
-    app.use('/api/recomendations', recomendationsRouter);
-    app.use('/api/users',recomendationsRouter);
+    app.use('/api/recommendations', recommendationsRouter);
+    app.use('/api/users',recommendationsRouter);
     app.use('/api/blogs',blogsRouter);
+    app.use('/api/clientRecommendations', clientRecommendationsRouter);
 
     //ash
     app.use('/api/auth', authRouter);

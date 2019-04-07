@@ -50,7 +50,7 @@ newTrip.save(function(err){
 
 
 var recommendation1 = new recommendation({
-    username:"ken1",
+    userName:"ken1",
     recTitle:"Best recommendation",
     recFlightName:"Flight to Paris",
     recFlightLink: "tripadvisor.com",

@@ -36,14 +36,15 @@ angular.module('travelAgencyApp').controller('clientDashboardController', ['$sco
      }, function(error) {
         console.log('Unable to retrieve trip request:', error);
      });
-
     //call to get all recommendation
     Requests.getRecommendation().then(function(response) {
       console.log('getting recommendations');
-        var getData = response.data;
-        $scope.userRec = getData;
+        var getRec = response.data;
+        $scope.userRec = getRec;
 
-    })
+    }, function(error){
+        console.log('Unable to get recommendations:', error);
+    });
                                                                     
     $scope.editTrip = function() {
     console.log('editing listing')
