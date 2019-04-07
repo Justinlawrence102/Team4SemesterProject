@@ -1,5 +1,6 @@
 /* Dependencies */
 var adminDashboard = require('../controllers/adminDashboard.server.controller.js'),
+	recommendation = require('../controllers/recommendation.server.controller.js'),
     express = require('express'), 
     router = express.Router();
 

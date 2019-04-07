@@ -3,7 +3,6 @@
 var fs = require('fs'),
         mongoose = require('mongoose'),
         trip = require('../models/tripRequest.server.model.js'),
-        rec = require('../models/recommendation.server.model.js'),
         config = require('../config/config.js');
 /*
   In this file, you should use Mongoose queries in order to retrieve/add/remove/update listings.
@@ -31,17 +30,6 @@ exports.list = function(req, res) {
 };
 
 
-//gets all user recommendation
-exports.getRec = function(req, res){
-    req.params = params(req);
-    rec.find({userName: req.params.userName})
-    .exec(function (err, allRecs){
-        if (err){ return 
-          next(err);}
-          console.log("this was successful");
-        res.json(allRecs)
-    })
-};
 
 
 

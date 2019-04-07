@@ -9,7 +9,7 @@ var mongoose = require('mongoose'),
 	Schema for recommendations
 */
 var recommendationSchema = new Schema({
-	username:{type: String, required: true},
+	userName:{type: String, required: true},
 	fullName:{type: String},
 	recTitle:{type: String},
 	recFlightName:{type: String},

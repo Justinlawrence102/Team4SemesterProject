@@ -1,4 +1,4 @@
-angular.module('spcials', []).factory('Requests', function($http) {
+angular.module('specials', []).factory('Requests', function($http) {
 
 
 	var methods = {

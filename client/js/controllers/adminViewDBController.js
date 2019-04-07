@@ -1,4 +1,4 @@
-angular.module('recomendations').controller('adminViewDBController', ['$scope', 'Requests',  function($scope, Requests) {
+angular.module('recommendations').controller('adminViewDBController', ['$scope', 'Requests',  function($scope, Requests) {
     $scope.username = undefined;
     $scope.fullName = undefined;
     $scope.recTitle = undefined;
@@ -24,10 +24,10 @@ angular.module('recomendations').controller('adminViewDBController', ['$scope', 
                                                                       
    
 //
-     $scope.submitRecomendation = function() {
+     $scope.submitRecommendation = function() {
      console.log('submiting a  request')
-       var newRecomendation = {username: $scope.username, title: $scope.recTitle, flight: $scope.recFlightName, flightLink: $scope.recFlightLink, flightPrice: $scope.recFlightPrice, hotel: $scope.recHotelName, hotelLink: $scope.recHotelLink, hotelPrice: $scope.recHotelPrice, cruise: $scope.recCruiseName, cruiseLink: $scope.recCruiseLink, cruisePrice: $scope.recCruisePrice, otherDetails: $scope.recDetails};
-            Requests.create(newRecomendation).then(function(response) {                                                          });
+       var newRecommendation = {username: $scope.username, title: $scope.recTitle, flight: $scope.recFlightName, flightLink: $scope.recFlightLink, flightPrice: $scope.recFlightPrice, hotel: $scope.recHotelName, hotelLink: $scope.recHotelLink, hotelPrice: $scope.recHotelPrice, cruise: $scope.recCruiseName, cruiseLink: $scope.recCruiseLink, cruisePrice: $scope.recCruisePrice, otherDetails: $scope.recDetails};
+            Requests.create(newRecommendation).then(function(response) {                                                          });
          // window.location.reload(true);
         }
   }
