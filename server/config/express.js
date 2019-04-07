@@ -2,7 +2,7 @@
     express = require('express'), 
     mongoose = require('mongoose'),
     morgan = require('morgan'),
-    bodyParser = require('body-parser'),
+    bodyParser = require('body-parser')
     config = require('./config'),
     jwt = require('jsonwebtoken'),
     session = require('express-session'),
@@ -35,6 +35,7 @@ module.exports.init = function() {
 
   //body parsing middleware 
   app.use(bodyParser.json());
+  //  app.use(express.bodyParser());
 
   
   /**TODO
@@ -48,7 +49,6 @@ module.exports.init = function() {
   //initialize passport
   app.use(passport.initialize());
   app.use(passport.session());
-
   //not sure if need this or not
   app.use(session({
     secret: 'test',

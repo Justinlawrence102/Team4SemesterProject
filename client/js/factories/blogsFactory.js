@@ -1,14 +1,17 @@
 angular.module('blogs', []).factory('Requests', function($http) {
   var methods = {
 	
-    getAll: function() {
+    getAllBlogs: function() {
      return $http.get('/api/blogs');
     },
     
-    createPost: function(newPost) {
+    createBlog: function(newPost) {
      return $http.post('/api/blogs', newPost);
      },
-                
+                                    
+    editBlog: function(updatedBlog){
+      return $http.put('/api/blogs', updatedBlog);
+    },
   };
 
   return methods;

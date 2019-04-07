@@ -30,11 +30,12 @@ exports.createPost = function(req, res){
     summary: req.body.summary,
     body: req.body.body,
     featured: req.body.featured,
+    imageURL: req.body.imageURL,
     }
     var blogPost = new blogs(req.body);
 
     /* Then save the blog post */
-    blogs.save(function(err) {
+    blogPost.save(function(err) {
          console.log("at controller saving")
                       
                       if(err) {
@@ -44,4 +45,17 @@ exports.createPost = function(req, res){
                       res.json(newPost);
                       }
                       });
+};
+
+exports.editPost = function(req, res){
+    var updatedPost = {
+        title: req.body.title,
+        summary: req.body.summary,
+        body: req.body.body,
+        featured: req.body.featured,
+        imageURL: req.body.imageURL,
+    }
+    blogs.findOneAndUpdate({ title: req.body.title }, {updatedPost}, function(err, details) {
+                           if (err) throw err;
+                           });
 }

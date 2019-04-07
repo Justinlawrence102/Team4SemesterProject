@@ -10,6 +10,7 @@ var blogSchema = new Schema({
 	summary:{type: String},
 	body:{type: String},
     featured: {type: Number},
+    imageURL: {type: String},
 });
 console.log('in server model')
 
