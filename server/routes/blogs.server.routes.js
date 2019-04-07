@@ -12,6 +12,7 @@ router.route('/')
 
 .get(blogs.listBlogs)
 .post(blogs.createPost)
+.put(blogs.editPost)
 //router.route('/:listingId')
 //  .get(tripRequest.read)
 //  .put(tripRequest.update)

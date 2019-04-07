@@ -36,8 +36,16 @@ $scope.submit_authenticate = function(){
 	Clients.authenticate(newAuth).then(function(response){
 		console.log("reached");
         sessionStorage.setItem('CurrentlyLoggedInUserName', newAuth.username)
+                                       console.log('this is the new way: '+response.username)
+                                       if (response.status == 401){
+                                       res.send(401);
+                                       console.log('failed login')
+                                       }
+                                       else {
+                                       console.log('sucess')
+                                       }
                                        console.log('out of newAuth '+newAuth.username)
-                                       window.location =('/home.html');
+                                      // window.location =('/home.html');
     //console.log(response.username);
 	});
 };
