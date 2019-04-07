@@ -7,6 +7,12 @@ angular.module('requests', []).factory('Requests', function($http) {
    // userName = "testingUser"
     return $http.get('/api/requests', {params: {userName: userName}});
     },
+
+    getRecommendation: function(){
+      console.log('at getRecommendation in Factory');
+      var userName = sessionStorage.getItem('CurrentlyLoggedInUserName');
+      return $http.get('/api/requests', {params: {userName: userName}});
+    },
     
                 
   };

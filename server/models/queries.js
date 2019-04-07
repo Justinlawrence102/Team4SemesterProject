@@ -5,7 +5,7 @@ var fs = require('fs'),
         trip = require('./tripRequest.server.model.js'),
         recommendation = require('./recommendation.server.model.js'),
         special = require('./special.server.model.js'),
-        admin = require('./admin.server.model.js'),
+        //admin = require('./admin.server.model.js'),
         adminNotes = require('./adminNote.server.model.js'),
         config = require('../config/config.js');
 
@@ -14,7 +14,7 @@ var fs = require('fs'),
 mongoose.connect(config.db.uri);
 
 
-
+/*
 //query to create a new user
 var client1 = new client({
         username: "Kenneth",
@@ -46,13 +46,22 @@ var newTrip = new trip({
 newTrip.save(function(err){
     if (err) throw (err);
 });
+*/
+
 
 var recommendation1 = new recommendation({
-    email:"k.oyibo@ufl.edu",
-    title:"My first recommendation",
-    flights:"Flight 1",
-    link: "www.fb.me",
-    detail:"greatest deal"
+    username:"ken1",
+    recTitle:"Best recommendation",
+    recFlightName:"Flight to Paris",
+    recFlightLink: "tripadvisor.com",
+    recFlightPrice: "$5000",
+    recHotelName: "Hotel Venetian",
+    recHotelLink: "www.venetianhotel.com",
+    recHotelPrice: "$5000",
+    recDetails: "This is a great deal!",
+    recCruiseName: "cruise to Bermuda",
+    recCruiseLink: "www.visitbermuda.com",
+    recCruisePrice: "6000",
 });
 
 recommendation1.save(function(err){
@@ -60,15 +69,19 @@ recommendation1.save(function(err){
 });
 
 
+/*
 var special1 = new special({
-    link: "www.fb.me",
-    summary:"greatest special"
+    title: " Travel to Brazil",
+    link: "www.braziltravel.com",
+    summary:"This is a ......"
 });
 
 special1.save(function(err){
     if (err) throw (err);
 });
 
+*/
+/*
 var admin1 = new admin({
     username: "admin",
     password: "admin1234",
@@ -90,5 +103,6 @@ var adminNote1 = new adminNotes({
 adminNote1.save(function(err){
     if (err) throw (err);
 });
+*/
 
 //query to create a new 
