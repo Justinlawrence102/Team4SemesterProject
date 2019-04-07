@@ -1,7 +1,7 @@
 /* Dependencies */
 var fs = require('fs'),
         mongoose = require('mongoose'),
-        rec = require('../models/recommendation.server.model.js'),
+        rec = require('../models/adminDashboard.server.model.js'),
         config = require('../config/config.js');
 
 console.log("running recommendation!")

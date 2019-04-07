@@ -7,9 +7,9 @@ var mongoose = require('mongoose'),
 	Schema for the admin
 */
 
-var tripRecomendationSchema = new Schema({
-	username: {type: String, required:true},
-     title: {type: String},
+var tripRecommendationSchema = new Schema({
+	userName: {type: String, required:true},
+    title: {type: String},
     flight:{type: String},
     flightLink:{type: String},
     flightPrice:{type: Number},
@@ -25,7 +25,7 @@ var tripRecomendationSchema = new Schema({
 
 
 /* Use your schema to instantiate a Mongoose model */
-tripRecomendationSchema.pre('save', function(next) {
+tripRecommendationSchema.pre('save', function(next) {
                console.log("at model saving")
                var currentTime = new Date;
                this.updated_at = currentTime;
@@ -36,6 +36,6 @@ tripRecomendationSchema.pre('save', function(next) {
                next();
                });
 
-var tripRecomendation = mongoose.model('recommendations', tripRecomendationSchema);
+var tripRecommendation = mongoose.model('recommendations', tripRecommendationSchema);
 
-module.exports = tripRecomendation;
+module.exports = tripRecommendation;
