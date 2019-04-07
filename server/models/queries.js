@@ -50,17 +50,17 @@ newTrip.save(function(err){
 
 
 var recommendation1 = new recommendation({
-    userName:"ken1",
+    userName:"JohnDoe",
     recTitle:"Best recommendation",
-    recFlightName:"Flight to Paris",
-    recFlightLink: "tripadvisor.com",
-    recFlightPrice: "$5000",
-    recHotelName: "Hotel Venetian",
-    recHotelLink: "www.venetianhotel.com",
+    recFlightName:"Flight to France",
+    recFlightLink: "tripdone",
+    recFlightPrice: "$6000",
+    recHotelName: "Hotel Venice",
+    recHotelLink: "ww",
     recHotelPrice: "$5000",
     recDetails: "This is a great deal!",
-    recCruiseName: "cruise to Bermuda",
-    recCruiseLink: "www.visitbermuda.com",
+    recCruiseName: "cruise to Vegas",
+    recCruiseLink: "www.visitVegas.com",
     recCruisePrice: "6000",
 });
 

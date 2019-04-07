@@ -1,5 +1,5 @@
 angular.module('recommendations').controller('adminViewDBController', ['$scope', 'Requests',  function($scope, Requests) {
-    $scope.username = undefined;
+    $scope.userName = undefined;
     $scope.fullName = undefined;
     $scope.recTitle = undefined;
     $scope.recFlightName = undefined;
@@ -20,13 +20,13 @@ angular.module('recommendations').controller('adminViewDBController', ['$scope',
     $scope.notes = undefined;
                                                             
    
-    $scope.username = sessionStorage.getItem('ClientUserName');
+    $scope.userName = sessionStorage.getItem('ClientUserName');
                                                                       
    
 //
      $scope.submitRecommendation = function() {
      console.log('submiting a  request')
-       var newRecommendation = {username: $scope.username, title: $scope.recTitle, flight: $scope.recFlightName, flightLink: $scope.recFlightLink, flightPrice: $scope.recFlightPrice, hotel: $scope.recHotelName, hotelLink: $scope.recHotelLink, hotelPrice: $scope.recHotelPrice, cruise: $scope.recCruiseName, cruiseLink: $scope.recCruiseLink, cruisePrice: $scope.recCruisePrice, otherDetails: $scope.recDetails};
+       var newRecommendation = {userName: $scope.userName, title: $scope.recTitle, flight: $scope.recFlightName, flightLink: $scope.recFlightLink, flightPrice: $scope.recFlightPrice, hotel: $scope.recHotelName, hotelLink: $scope.recHotelLink, hotelPrice: $scope.recHotelPrice, cruise: $scope.recCruiseName, cruiseLink: $scope.recCruiseLink, cruisePrice: $scope.recCruisePrice, otherDetails: $scope.recDetails};
             Requests.create(newRecommendation).then(function(response) {                                                          });
          // window.location.reload(true);
         }

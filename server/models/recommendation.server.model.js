@@ -1,13 +1,12 @@
 
 /* Import mongoose and define any variables needed to create the schema */
+
+/*
 var mongoose = require('mongoose'), 
     Schema = mongoose.Schema;
 
 
 
-/*
-	Schema for recommendations
-*/
 var recommendationSchema = new Schema({
 	userName:{type: String, required: true},
 	fullName:{type: String},
@@ -28,3 +27,5 @@ var recommendationSchema = new Schema({
 var recommendation = mongoose.model('recommendation', recommendationSchema);
 
 module.exports = recommendation;
+
+*/
