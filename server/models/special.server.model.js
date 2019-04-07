@@ -8,6 +8,7 @@ var mongoose = require('mongoose'),
 	Schema for specials
 */
 var specialSchema = new Schema({
+	title: {type: String},
 	link:{type: String},
 	summary:{type: String}
 }, {collection: 'special'});
