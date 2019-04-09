@@ -1,19 +1,18 @@
 /* Dependencies */
-var tripRequest = require('../controllers/tripRequest.server.controller.js'),
-	clientDashboard = require('../controllers/clientDashboard.server.controller.js'),
+var blogs = require('../controllers/blogs.server.controller.js'),
     express = require('express'), 
-    clients = require('../controllers/client.server.controller.js'),
     router = express.Router();
 
 /* 
   These method calls are responsible for routing requests to the correct request handler.
   Take note that it is possible for different controller functions to handle requests to the same route.
  */
-console.log("getting her server routes")
+console.log("getting the server routes")
 router.route('/')
-.post(tripRequest.createTrip)
-.get(clientDashboard.list)
 
+.get(blogs.listBlogs)
+.post(blogs.createPost)
+.put(blogs.editPost)
 //router.route('/:listingId')
 //  .get(tripRequest.read)
 //  .put(tripRequest.update)

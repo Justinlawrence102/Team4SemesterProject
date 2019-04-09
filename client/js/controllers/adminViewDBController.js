@@ -1,5 +1,5 @@
-angular.module('recomendations').controller('adminViewDBController', ['$scope', 'Requests',  function($scope, Requests) {
-    $scope.username = undefined;
+angular.module('recommendations').controller('adminViewDBController', ['$scope', 'Requests',  function($scope, Requests) {
+    $scope.userName = undefined;
     $scope.fullName = undefined;
     $scope.recTitle = undefined;
     $scope.recFlightName = undefined;
@@ -20,14 +20,14 @@ angular.module('recomendations').controller('adminViewDBController', ['$scope', 
     $scope.notes = undefined;
                                                             
    
-    $scope.username = sessionStorage.getItem('ClientUserName');
+    $scope.userName = sessionStorage.getItem('ClientUserName');
                                                                       
    
 //
-     $scope.submitRecomendation = function() {
+     $scope.submitRecommendation = function() {
      console.log('submiting a  request')
-       var newRecomendation = {username: $scope.username, title: $scope.recTitle, flight: $scope.recFlightName, flightLink: $scope.recFlightLink, flightPrice: $scope.recFlightPrice, hotel: $scope.recHotelName, hotelLink: $scope.recHotelLink, hotelPrice: $scope.recHotelPrice, cruise: $scope.recCruiseName, cruiseLink: $scope.recCruiseLink, cruisePrice: $scope.recCruisePrice, otherDetails: $scope.recDetails};
-            Requests.create(newRecomendation).then(function(response) {                                                          });
+       var newRecommendation = {userName: $scope.userName, title: $scope.recTitle, flight: $scope.recFlightName, flightLink: $scope.recFlightLink, flightPrice: $scope.recFlightPrice, hotel: $scope.recHotelName, hotelLink: $scope.recHotelLink, hotelPrice: $scope.recHotelPrice, cruise: $scope.recCruiseName, cruiseLink: $scope.recCruiseLink, cruisePrice: $scope.recCruisePrice, otherDetails: $scope.recDetails};
+            Requests.create(newRecommendation).then(function(response) {                                                          });
          // window.location.reload(true);
         }
   }

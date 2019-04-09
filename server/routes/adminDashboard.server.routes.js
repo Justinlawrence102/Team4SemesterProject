@@ -1,5 +1,6 @@
 /* Dependencies */
 var adminDashboard = require('../controllers/adminDashboard.server.controller.js'),
+	recommendation = require('../controllers/recommendation.server.controller.js'),
     express = require('express'), 
     router = express.Router();
 
@@ -10,7 +11,7 @@ var adminDashboard = require('../controllers/adminDashboard.server.controller.js
 console.log("getting the server routes")
 router.route('/')
 
-.post(adminDashboard.createRecomendation)
+.post(adminDashboard.createRecommendation)
 //.get(adminDashboard.listClientDetails)
 .get(adminDashboard.listAllClients)
 .put(adminDashboard.editNotes)

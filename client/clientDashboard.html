@@ -89,9 +89,9 @@
                                       <th>Flights&nbsp;</th>
                                       <th>Price</th>
                                       </tr>
-                                      <tr ng-repeat="rec in Recommendations">
-                                          <th>{{rec.flights}}</th>
-                                          <th>{{rec.flights.price}}</th> 
+                                      <tr ng-repeat="rec in userRec">
+                                          <th>{{rec.flight}}</th>
+                                          <th>{{rec.flightPrice}}</th> 
                                           </tr>
                                         </table>
                               </tr>
@@ -101,9 +101,9 @@
                                     <th>Hotels&nbsp;&nbsp;</th>
                                     <th>Price</th>
                                     </tr>
-                                    <tr ng-repeat="rec in Recommendations">
-                                        <th>{{rec.hotels}}</th>
-                                        <th>{{rec.hotels.price}}</th> 
+                                    <tr ng-repeat="rec in userRec">
+                                        <th>{{rec.hotel}}</th>
+                                        <th>{{rec.hotelPrice}}</th> 
                                         </tr>
                                 </table>
                               </tr>
@@ -113,9 +113,9 @@
                                       <th>Cruises</th>
                                       <th>Price</th>
                                       </tr>
-                                      <tr ng-repeat="rec in Recommendations">
-                                          <th>{{rec.cruises}}</th>
-                                          <th>{{rec.cruises.price}}</th> 
+                                      <tr ng-repeat="rec in userRec">
+                                          <th>{{rec.cruise}}</th>
+                                          <th>{{rec.cruisePrice}}</th> 
                                           </tr>
                                   </table>
                                 </tr>

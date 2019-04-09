@@ -2,19 +2,19 @@
     express = require('express'), 
     mongoose = require('mongoose'),
     morgan = require('morgan'),
-    bodyParser = require('body-parser'),
+    bodyParser = require('body-parser')
     config = require('./config'),
     jwt = require('jsonwebtoken'),
     session = require('express-session'),
     passport = require('passport'),
     tripRequestRouter = require('../routes/tripRequest.server.routes.js'),
     clientRouter = require('../routes/client.server.routes.js'),
+    blogsRouter = require('../routes/blogs.server.routes.js'),
     indexRouter = require('../routes/index.routes.js'),
-    recomendationsRouter = require('../routes/adminDashboard.server.routes.js'),
-
     nodemailer = require("nodemailer"),
-    flash = require('connect-flash');
-
+    flash = require('connect-flash'),
+    clientRecommendationsRouter = require('../routes/recommendation.server.routes.js'),
+    recommendationsRouter = require('../routes/adminDashboard.server.routes.js');
 
 module.exports.init = function() {
 
@@ -44,7 +44,8 @@ module.exports.init = function() {
 
   //body parsing middleware 
   app.use(bodyParser.json());
-  
+  //  app.use(express.bodyParser());
+
   /**TODO
   Serve static files */
   app.use(express.static('client'));
@@ -55,7 +56,6 @@ module.exports.init = function() {
   //initialize passport
   app.use(passport.initialize());
   app.use(passport.session());
-
   //not sure if need this or not
   app.use(session({
     secret: 'test',
@@ -77,8 +77,10 @@ module.exports.init = function() {
     app.use('/', indexRouter);
     app.use('/api/requests', tripRequestRouter);
     app.use('/api/clients', clientRouter);
-    app.use('/api/recomendations', recomendationsRouter);
-    app.use('/api/users',recomendationsRouter);
+    app.use('/api/recommendations', recommendationsRouter);
+    app.use('/api/users',recommendationsRouter);
+    app.use('/api/blogs',blogsRouter);
+    app.use('/api/clientRecommendations', clientRecommendationsRouter);
     app.use('/api/auth', authRouter);
 
     app.get('/send', function (req,res) {

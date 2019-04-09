@@ -29,6 +29,10 @@ exports.list = function(req, res) {
 
 };
 
+
+
+
+
 var params=function(req){
     let q=req.url.split('?'),result={};
     if(q.length>=2){

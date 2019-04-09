@@ -117,9 +117,10 @@
     height: auto;
   }
 
-  .entrySample1 {
+  .repeatBlogPost {
     border-style: ridge;
-    padding-bottom: 10%;
+    padding-bottom: 5%;
+	margin-top: 10%
   
   }
 
@@ -199,6 +200,20 @@
     cursor: pointer;
   }
 
+
+  input[type=submitBlog] {
+    width: 13%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;  
+	margin-left: auto;
+  margin-right: auto;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
   input[type=submit]:hover {
     background-color: #45a049;
   }
@@ -256,6 +271,19 @@
   padding: 20px;  
   background-color: #f2f2f2
 }
+
+.blogSubmissions {
+  box-sizing: content-box;  
+  margin-top:30px;
+  margin-left: 14%;
+  margin-right: auto;
+  width: 69.5%;
+  height: 50%;
+  padding: 20px;  
+  background-color: #f2f2f2
+}
+
+
 
 /*login page*/
 .containerLogin {
@@ -396,6 +424,52 @@ float: center;
     padding: 5px;
 }
   
+
+
+
+
+
+/*   Checkbox creation   */
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+.blogContainer:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.blogContainer input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.blogContainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.blogContainer .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
   
   /*Anchor part of page*/
 

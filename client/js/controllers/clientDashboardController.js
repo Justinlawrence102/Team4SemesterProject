@@ -2,11 +2,23 @@ angular.module('travelAgencyApp').controller('clientDashboardController', ['$sco
   $scope.userName = undefined;
   $scope.origin = undefined;
   $scope.departDate = undefined;
-
   $scope.stops = undefined;
   $scope.numPeople = undefined;
   $scope.budget = undefined;
   $scope.notes = undefined;
+
+  $scope.fullName = undefined;
+  $scope.recTitle = undefined;
+  $scope.recFlightName = undefined;
+  $scope.recFlightLink = undefined;
+  $scope.recFlightPrice = undefined;
+  $scope.recHotelName = undefined;
+  $scope.recHotelLink = undefined;
+  $scope.recHotelPrice = undefined;
+  $scope.recDetails = undefined;
+  $scope.recCruiseName = undefined;
+  $scope.recCruiseLink = undefined;
+  $scope.recCruisePrice = undefined;
                                                                            
   var firstName = sessionStorage.getItem('ClientFirstName');
   var lastName = sessionStorage.getItem('ClientLastName');
@@ -24,12 +36,20 @@ angular.module('travelAgencyApp').controller('clientDashboardController', ['$sco
      }, function(error) {
         console.log('Unable to retrieve trip request:', error);
      });
+    //call to get all recommendation
+    Requests.getRecommendation().then(function(response) {
+      console.log('getting recommendations');
+        var getRec = response.data;
+        $scope.userRec = getRec;
+
+    }, function(error){
+        console.log('Unable to get recommendations:', error);
+    });
                                                                     
     $scope.editTrip = function() {
     console.log('editing listing')
     };
-    
-                
+               
 
   }
 ]);
