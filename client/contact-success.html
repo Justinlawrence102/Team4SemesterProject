@@ -16,7 +16,7 @@
 			background-size:  cover;
       background-color: #999;
       margin-bottom:20px;
-      height: 100%;
+      height: 50%;
       }
     
       </style>
@@ -32,7 +32,7 @@
 
     <div class="topnav">
         <a href="home.html">Home</a>
-        <a class="active" href="#contact">Contact</a>
+        <a class="active" href="contact.html">Contact</a>
         <a href="about.html">About Me</a>
         <a href="specials.html">Specials</a>
         <a href= "blogs.html">Blog Posts</a>
@@ -51,47 +51,13 @@
     <div class="submitForms">
       <div class="containerPersonalInfo">
 
-        <h3>Have a problem? </h3>
+        <h2>Message sent! </h3>
           <br>
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Your name" >
-
-
-        <label for="usremail">Email</label>
-        <input type="email" id="to" name="email" placeholder="Your email" >
-
-
-        <label for="subject">Subject</label>
-        <input type="text" id="subject" name="subject" placeholder="Subject" >
-
-        
-      <label for="message">Message</label>
+        <p>Thank you for your message, we will be in contact with you soon.</p> 
         <br>
-      <textarea id = "message" name="paragraph_text" style="height:150px; width:790px;" placeholder = "What can I help you with?" ng-model = "message"> </textarea>
-      </div>
-
-      <center> <input id="send_email" type="submit" value="Submit"></center>
-      
-      <script>
-        $(document).ready(function() {
-            var from, to, subject, text, name;
-
-            $("#send_email").click(function() {
-              to=$("#to").val();
-              subject=$("#subject").val();
-              text=$("#message").val();
-              name=$("#name").val();
-
-            $.get("/send", {to: to, subject: subject, text:text, name: name}, function(data){
-              if (data =="sent")
-              {
-                 window.location.href = "/contact-success.html";
-               }
-             });
-          });
-        });
-    </script>
-    
+        <br>
+        </div>
+      <div style="margin-bottom:380px;"> </div>
     </div>
   </div>
 <center>
