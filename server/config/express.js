@@ -11,9 +11,10 @@
     clientRouter = require('../routes/client.server.routes.js'),
     blogsRouter = require('../routes/blogs.server.routes.js'),
     indexRouter = require('../routes/index.routes.js'),
+    nodemailer = require("nodemailer"),
+    flash = require('connect-flash'),
     clientRecommendationsRouter = require('../routes/recommendation.server.routes.js'),
     recommendationsRouter = require('../routes/adminDashboard.server.routes.js');
-
 
 module.exports.init = function() {
 
@@ -26,6 +27,14 @@ module.exports.init = function() {
   //initialize app
   var app = express();
   var authRouter = require('../routes/auth.server.routes.js')(passport);
+  var smtpTransport = nodemailer.createTransport({
+    service: "gmail",
+    host: "smtp.gmail.com",
+    auth: {
+      user: "bochtraveltest",
+      pass: "thisisatest1234"
+    }
+  })
 
   //enable request logging for development debugging
   app.use(morgan('dev'));
@@ -37,14 +46,12 @@ module.exports.init = function() {
   app.use(bodyParser.json());
   //  app.use(express.bodyParser());
 
-  
   /**TODO
   Serve static files */
   app.use(express.static('client'));
     
   console.log("dirset it "+__dirname);
   app.use(express.static('client'));
-
 
   //initialize passport
   app.use(passport.initialize());
@@ -56,6 +63,15 @@ module.exports.init = function() {
     resave: false
   }))
 
+
+  //flash messages --testing
+  app.use(flash());
+  app.use(function (req, res, next) {
+    res.locals.messages = require('express-messages')(req, res);
+    next();
+  });
+
+
   /**TODO 
   Use the listings router for requests to the api */
     app.use('/', indexRouter);
@@ -65,11 +81,33 @@ module.exports.init = function() {
     app.use('/api/users',recommendationsRouter);
     app.use('/api/blogs',blogsRouter);
     app.use('/api/clientRecommendations', clientRecommendationsRouter);
-
-    //ash
     app.use('/api/auth', authRouter);
-  
 
+    app.get('/send', function (req,res) {
+      var mailOptions = {
+        from: req.query.to,
+        to: "bochtraveltest@gmail.com",
+        subject: req.query.subject + " [Email sent from " + req.query.name + ", " + req.query.to + "].",
+        text: req.query.text + "\n\nEmail sent from:" + "\nName: " + req.query.name + "\nEmail address: " + req.query.to
+      }
+      console.log(mailOptions);
+      res.type("text/plain");
+
+      smtpTransport.sendMail(mailOptions, function(error,response) {
+        if (error) {
+          console.log(error);
+          res.end("error");
+        }
+        else {
+          res.end("sent");
+        }
+      });
+    });
+
+    app.get('/contact-success', function (req,res) {
+      res.sendfile('./client/contact-success.html');
+    });
+  
   /**TODO
   Go to homepage for all routes not specified */
    // app.get('/', function(req, res){ 
