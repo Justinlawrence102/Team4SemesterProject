@@ -44,7 +44,7 @@ $scope.submit_authenticate = function(){
                                        console.log('sucess')
                                        }
                                        console.log('out of newAuth '+response.username)
-                                       //window.location =('/home.html');
+                                       window.location =('/home.html');
     //console.log(response.username);
 	});
 };

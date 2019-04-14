@@ -92,13 +92,14 @@
 
 
       </div>
-
-
-      <div ng-if="isEditing === 0">
-          <center> <input type="submitBlog" value="Submit new post" ng-click="submitNewPost()"></center>
+      <div ng-if="isEditing == 0">
+          <center> <input type="submitBlog" value="Submit" ng-click="submitNewPost()"></center>
       </div>
-      <div ng-if="isEditing === 1">
-          <center> <input type="submitBlog" value="Edit post" ng-click="editPost()"></center>
+      <div ng-if="isEditing == 1">
+          <center> <input type="submitBlog" value="Edit Post" ng-click="editPost()"></center>
+          <br>
+          <center> <input type="submitBlog" value="Delete" ng-click="deletePost()"></center>
+
       </div>
     
       <!-- </form>  -->

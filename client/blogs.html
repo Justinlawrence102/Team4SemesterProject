@@ -21,7 +21,7 @@
   </style>
 </head>
 
-<body ng-app="blogs">
+<body ng-app="travelAgencyApp">
   <div class="container" style="margin-top: 20px">
     <div class="row1">
 
@@ -54,31 +54,25 @@
         <h1 align="center">Blog Posts</h1>
       </header>
 
-      <div class="blogHeader">
-
+      <div class="blogHeader" ng-controller = "blogsController">
 
         <center><img src="headerBlogTemp.jpeg" alt="blogHeader" style="max-width: 80%; height: auto; padding-top:10px;">
         </center>
-
 
         <center>
           <div class="blogHeaderText">
             <p>
 
-              "(Insert blog entry header text here)Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              Please view all of my blogs to learn about exciting trips you can go on!
             </p>
-
-          </div>
-        </center>
+      <div ng-if="userName === 'admin'">
+      <center> <input type="submit" value="New Post" ng-click = "goToNewPost()"></center>
       </div>
+      </div>
+        </center>
 
-      <form action="/newBlogSubmission.html">
-      <center> <input type="submit" value="New post"></center> 
-      </form>
+    </div>
+
 
 
 
@@ -87,7 +81,7 @@
       <div class="blogClass" ng-controller="blogsController">
 
         <!--<p align="right">Insert Date Here </p> -->
-        <div class="repeatBlogPost" ng-repeat="blog in userRequest" >
+        <div class="repeatBlogPost" ng-repeat="blog in allBlogs" >
           <center>
               <button ng-click="viewBlog(blog)"></button>
             <h2>{{blog.title}} </h2>
@@ -103,7 +97,6 @@
 
         </div>
       </div>
-    </div>
 
 
 
@@ -122,6 +115,8 @@
       <a href="#">10</a>
       <a href="#">&raquo;</a>
     </div>
+  </div>
+
   </div>
   <center>
     <div class="siteAnchor">
