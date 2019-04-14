@@ -15,22 +15,26 @@ module.exports = function (passport) {
 
 		client.findOne({username: username}, function(err, user){
 			if (err) {
-				done(err)	
+                       console.log('ERROR')
+				return done(err)
 			}
 			else {
 				if (user) {
 					if (user.comparePassword(password, user.password)) {
-						done(null, {
+                       console.log('success')
+						return done(null, {
 							username: user.username,
 							id: user._id
 						})
 					}
 					else {
-						done(null, false)	
+                       console.log('Wrong password')
+						return done(null, false)
 					}
 				}
 				else {
-					done(null, false)	
+                       console.log('email doesnt exist!')
+					return done(null, false)
 				}
 			}
 		})

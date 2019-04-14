@@ -85,17 +85,18 @@
       <div class="blogClass" ng-controller="blogsController">
 
         <!--<p align="right">Insert Date Here </p> -->
-        <div class="repeatBlogPost" ng-repeat="request in userRequest">
+        <div class="repeatBlogPost" ng-repeat="blog in userRequest" >
           <center>
-            <h2>{{request.title}}</h2>
+              <button ng-click="viewBlog(blog)"></button>
+            <h2>{{blog.title}} </h2>
           </center><p>
           <left><img src={{request.imageURL}} style="display: block; width:250px; height:150px; float:left; padding-right: 10px; padding-bottom: 15px;">
             <br>
-             {{request.summary}}</p>
+             {{blog.summary}}</p>
           </left>
           <br><br>
 
-          <p> {{request.featured}}</p>
+          <p> {{blog.featured}}</p>
 
 
         </div>
