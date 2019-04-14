@@ -13,15 +13,13 @@ console.log("at auth routes");
 //.post(clients.authenticate)
 
 module.exports = function(passport) {
-
-	router.post('/', passport.authenticate('local', {
-		failureRedirect: '/login.html',
-		successRedirect: '/clientDashboard.html',
-		failureFlash: true
-	}), function(req, res) {
-			res.send('test')
-	})
-
+    router.post('/', passport.authenticate('local', { //express was router
+        failureRedirect: '/login.html',
+        successRedirect: '/home.html',
+        failureFlash: true
+    }), function(req, res) {
+            res.send('test')
+    })
 	return router;
 
 };
