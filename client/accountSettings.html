@@ -40,7 +40,7 @@
         <a href="blogs.html">Blog Posts</a>
         <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
         <div ng-if="userName !== null">
-            <a href="clientDashboard.html">Client Dashboard</a>
+            <a class="active" href="clientDashboard.html">Client Dashboard</a>
         </div>
         <div ng-if="userName === 'admin'">
             <a href="adminDashboard.html">Admin Dashboard</a>
@@ -49,36 +49,30 @@
             <div ng-if="userName !== null">
                 <a href="triprequest.html">Trip Request</a>
             </div>
-            <a class="active" href="login.html">Login</a>
+            <a href="login.html">Login</a>
             <a href="signup.html">Sign Up</a>
         </div>
     </div>
 
     <div class="containerLogin" ng-controller="ClientController">
 
-      <h3>User Login </h3>
-      <label for="fname">Username</label>
-      <input type="text" id="fname" name="firstname" placeholder="Username" ng-model="username">
+      <h3>Account Settings </h3>
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" name="firstname" placeholder="{{firstname}}" ng-model="firstname">
 
-      <label for="lname">Password</label>
-      <input type="password" id="myInput" name="lastname" placeholder="Password" ng-model="password">
-      <script>
-      function myFunction() {
-       var x = document.getElementById("myInput");
-           if (x.type === "password") {
-              x.type = "text";
-          } else {
-        x.type = "password";
-         }
-        } 
-      </script>
-      </div>
-      <center> <input type="login" style = "padding-top:10px;margin-bottom: 25px;margin-top:10px;" value="Login" ng-click="submit_authenticate()" style="width:75px;"></center>
-  
-  <div class = "bottomPic">
-    <img src = "siesta.jpg" style = "width:500px;height:175px;margin-left:310px;margin-bottom:25px;">
-  </div>
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="lastname" placeholder="{{lastname}}" ng-model="lastname">
+
+      <label for="fname">Email</label>
+      <input type="text" id="email" name="email" placeholder="{{email}}" ng-model="email">
+
+      <label for="tphone">Phone Number</label>
+      <input type="tel" id="telphone" name="usrtel" placeholder="{{tphone}}" ng-model="tphone">
+
+      
+      <center> <input type="login" value="Update" ng-click="submit_authenticate()" style="width:90px;"></center>
     </div>
+  </div>
 <center>
     <div class="siteAnchor">
 
