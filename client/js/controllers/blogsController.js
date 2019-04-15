@@ -2,15 +2,27 @@ angular.module('blogs').controller('blogsController', ['$scope', 'Requests',  fu
          $scope.title = sessionStorage.getItem('tempBlogTitle');
          $scope.summary = sessionStorage.getItem('tempBlogSummary');
          $scope.body = sessionStorage.getItem('tempBlogBody');
-         $scope.featured = undefined;
+         $scope.featured = sessionStorage.getItem('tempBlogfeatured');
          $scope.imageURL = sessionStorage.getItem('tempBlogImageURL');
          $scope.isEditing = sessionStorage.getItem('isEditing');
          $scope.userName = sessionStorage.getItem('CurrentlyLoggedInUserName');
-
+$scope.testFeat = "true"
     Requests.getAllBlogs().then(function(response) {
                     console.log('trying to get blog posts')
                      var allBlogs = response.data;
                                 $scope.allBlogs = allBlogs.reverse();
+                                $scope.featuredBlogs = []
+                                var counter = 0
+                    for (i = 0; i < $scope.allBlogs.length; i++) {
+                            if ($scope.allBlogs[i].featured == 1) {
+                                    $scope.featuredBlogs.push($scope.allBlogs[i])
+                                counter ++
+
+                                }
+                            if (counter == 6){
+                                break;
+                                }
+                    }
      }, function(error) {
          console.log('Unable to retrieve list of blogs:', error);
     });
@@ -21,6 +33,7 @@ angular.module('blogs').controller('blogsController', ['$scope', 'Requests',  fu
           sessionStorage.setItem('tempBlogSummary', blogPost.summary)
           sessionStorage.setItem('tempBlogBody', blogPost.body)
           sessionStorage.setItem('tempBlogImageURL', blogPost.imageURL)
+          sessionStorage.setItem('tempBlogfeatured', blogPost.featured)
                                                        
           window.location =('/viewBlogs.html');
      }
@@ -30,6 +43,7 @@ angular.module('blogs').controller('blogsController', ['$scope', 'Requests',  fu
          sessionStorage.setItem('tempBlogBody', "")
          sessionStorage.setItem('tempBlogImageURL', "")
          sessionStorage.setItem('isEditing', 0)
+         sessionStorage.setItem('tempBlogfeatured', 0)
         window.location =('/newBlogSubmission.html');
     }
     $scope.goToEditPost = function() {

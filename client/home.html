@@ -53,7 +53,7 @@
       </div>
     </div>
     
-    <div class="main">
+    <div class="main" >
 
         <div class="blogHeader">
   
@@ -93,8 +93,9 @@
             </div>
           </center>
         </div>
-  
-        <div class="row">
+    </div>
+
+        <div class="row" ng-controller = "blogsController">
   
           <center><h2>Specials</h2></center>
           <div class="col-lg-4 col-sm-6">
@@ -121,59 +122,19 @@
                 pellentesque felis.</p>
             </div>
           </div>
-          <center><h2>Blog posts</h2></center>
-          <div class="col-lg-4 col-sm-6">
+          
+          
+        <center><h2>Blog posts</h2></center>
+          <div class="col-lg-4 col-sm-6" ng-repeat="blog in featuredBlogs" ng-click="viewBlog(blog)">
             <div class="thumbnail">
-              <img src="homeSample4.jpg" style="width:100%;">
-              <h3>Sample header</h3>
-              <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim
-                pellentesque felis.</p>
+              <img src={{blog.imageURL}} style="display: block; width:500px; height:300">
+                  <h3>{{blog.title}}</h3>
+                  <p>{{blog.summary}}</p>
             </div>
           </div>
-          <div class="col-lg-4 col-sm-6">
-            <div class="thumbnail">
-              <img src="homeSample5.jpg" style="width:100%;">
-              <h3>Sample header</h3>
-              <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim
-                pellentesque felis.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <div class="thumbnail">
-              <img src="homeSample6.jpg" style="width:100%;">
-              <h3>Sample header</h3>
-              <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim
-                pellentesque felis.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <div class="thumbnail">
-              <img src="homeSample7.jpg" style="width:100%;">
-              <h3>Sample header</h3>
-              <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim
-                pellentesque felis.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <div class="thumbnail">
-              <img src="homeSample8.jpg" style="width:100%;">
-              <h3>Sample header</h3>
-              <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim
-                pellentesque felis.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <div class="thumbnail">
-              <img src="homeSample9.jpg" style="width:100%;">
-              <h3>Sample header</h3>
-              <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim
-                pellentesque felis.</p>
-            </div>
-          </div>
-          </div>
-
         </div>
-      </div>
+        </div>
+
       <center>
     <div class="siteAnchor">
 
@@ -191,6 +152,8 @@
     
     <script src="js/factories/clientDashboardFactory.js"></script>
     <script src="js/controllers/clientDashboardController.js"></script>
+    <script src="js/factories/blogsFactory.js"></script>
+    <script src="js/controllers/blogsController.js"></script>
     <script src="js/controllers/homeController.js"></script>
 
 </body>
