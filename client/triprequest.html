@@ -56,37 +56,17 @@
       <h3>Listing Information</h3>
       <label for="departure">Departure</label>
       <br>
-      <select id="departure" name="dept" ng-model="origin">
-        <option value="Miami International">MIA</option>
-        <option value="Gainesville Airport">GNV</option>
-        <option value="Orlando International">ORL</option>
-      </select>
+   
+	  
+	  
+	          <input type="departure" name="dept" ng-model="origin">
+        <br>
 
       <br>
       <label for="departure-date">Departure date</label>
       <br>
       <input type="date" name="dept-date" ng-model="departDate" style=" width:30%;">
       <br>
-
-
-
-
-<!--
-      <label for="destination">Destination</label>
-      <br>
-      <select id="departure" name="dept" ng-model="destination">
-        <option value="Miami International">MIA</option>
-        <option value="Gainesville Airport">GNV</option>
-        <option value="Orlando International">ORL</option>
-      </select>
-
-      <br>
-      <label for="return-date">Return date</label>
-      <br>
-
-      <input type="date" name="ret-date" ng-model="returnDate" style=" width:30%;">
-
--->
 
 
 
@@ -100,11 +80,9 @@
               <div class="test">
               <label for="destination"> Stops</label>
               <br>
-              <select id="departure" name="dept" ng-model="stops.stopLocation" style=" width:100%;">
-                <option value="Miami International">MIA</option>
-                <option value="Gainesville Airport">GNV</option>
-                <option value="Orlando International">ORL</option>
-              </select>
+            
+			  
+			  <input type="departure" name="dept" ng-model="stops.stopLocation">
         
               <br>
               <label for="return-date">Date to Arrive at Stop</label>
@@ -119,19 +97,15 @@
 
             </td>
             <td>
-              <button ng-click="removeStop($index)" type="button">
-               
+              <button ng-click="removeStop($index)" type="button" >
+               Remove Stop
               </button>
             <td>
           </tr>
         </table>
 
       <br>
-      <br>
       
-      
-      <label for="destination">Destination</label>
-      <br>
       <label for="return-date">Return date</label>
       <br>
       
