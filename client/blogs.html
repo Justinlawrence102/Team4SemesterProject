@@ -32,19 +32,26 @@
 
     </div>
 
-    <div class="topnav">
-      <a href="home.html">Home</a>
-      <a href="contact.html">Contact</a>
-      <a href="about.html">About Me</a>
-      <a href="specials.html">Specials</a>
-      <a class="active" href="blogs.html">Blog Posts</a>
-      <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
-      <a href="clientDashboard.html">Client Dashboard</a>
-      <div class="login">
-        <a href="triprequest.html">Trip Request</a>
-        <a href="login.html">Login</a>
-        <a href="signup.html">Sign Up</a>
-      </div>
+    <div class="topnav" ng-controller = "homeController">
+        <a href="home.html">Home</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About Me</a>
+        <a href="specials.html">Specials</a>
+        <a class="active" href="blogs.html">Blog Posts</a>
+        <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
+        <div ng-if="userName !== null">
+            <a href="clientDashboard.html">Client Dashboard</a>
+        </div>
+        <div ng-if="userName === 'admin'">
+            <a href="adminDashboard.html">Admin Dashboard</a>
+        </div>
+        <div class="login">
+            <div ng-if="userName !== null">
+                <a href="triprequest.html">Trip Request</a>
+            </div>
+            <a href="login.html">Login</a>
+            <a href="signup.html">Sign Up</a>
+        </div>
     </div>
 
     <!--- Santis code-->
@@ -81,19 +88,16 @@
       <div class="blogClass" ng-controller="blogsController">
 
         <!--<p align="right">Insert Date Here </p> -->
-        <div class="repeatBlogPost" ng-repeat="blog in allBlogs" >
+        <div class="repeatBlogPost" ng-repeat="blog in allBlogs" ng-click="viewBlog(blog)">
           <center>
-              <button ng-click="viewBlog(blog)"></button>
+             <!-- <button ng-click="viewBlog(blog)"></button> -->
             <h2>{{blog.title}} </h2>
           </center><p>
-          <left><img src={{request.imageURL}} style="display: block; width:250px; height:150px; float:left; padding-right: 10px; padding-bottom: 15px;">
+          <left><img src={{blog.imageURL}} style="display: block; width:250px; height:150px; float:left; padding-right: 10px; padding-bottom: 15px;">
             <br>
              {{blog.summary}}</p>
           </left>
           <br><br>
-
-          <p> {{blog.featured}}</p>
-
 
         </div>
       </div>

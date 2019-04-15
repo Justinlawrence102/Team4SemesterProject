@@ -63,9 +63,12 @@ exports.editPost = function(req, res){
 }
 
 exports.deletePost = function(req, res) {
-    var listing = req.blogs;
-    console.log("DELETING "+listing.title)
+    var blog = req.blogs;
+    console.log("DELETING "+blog.title)
     blogs.findOneAndRemove({ title: req.body.title }, function(err, details) {
-                           if (err) throw err;
+                           if (err) {
+                           console.log("ERROR HERE!")
+                           throw err;
+                           }
                            });
 }

@@ -15,7 +15,7 @@ angular.module('blogs', []).factory('Requests', function($http) {
     },
     deleteBlog: function(blog){
       console.log('removing '+blog.title)
-       return $http.delete('/api/blogs/', blog.title);
+       return $http.delete('/api/blogs/'+blog.title);
     },
   };
 
