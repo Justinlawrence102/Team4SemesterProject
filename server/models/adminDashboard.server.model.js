@@ -10,6 +10,7 @@ var mongoose = require('mongoose'),
 var tripRecommendationSchema = new Schema({
 	userName: {type: String, required:true},
     title: {type: String},
+    departDate: {type: String},
     flight:{type: String},
     flightLink:{type: String},
     flightPrice:{type: Number},

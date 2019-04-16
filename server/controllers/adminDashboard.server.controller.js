@@ -8,6 +8,7 @@ exports.createRecommendation = function(req, res) {
     /* Instantiate a trip request */
     var tripRecommendation = {
     userName: req.body.userName,
+    departDate: req.body.departDate,
     title: req.body.title,
     flight: req.body.flight,
     flightLink: req.body.flightLink,

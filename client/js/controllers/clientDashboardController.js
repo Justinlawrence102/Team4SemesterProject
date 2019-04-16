@@ -1,4 +1,5 @@
 angular.module('travelAgencyApp').controller('clientDashboardController', ['$scope', 'Requests',  function($scope, Requests) {
+                                                                           
   $scope.userName = undefined;
   $scope.origin = undefined;
   $scope.departDate = undefined;
@@ -30,17 +31,27 @@ angular.module('travelAgencyApp').controller('clientDashboardController', ['$sco
      console.log('trying to get all trips')
          var getData = response.data;
         $scope.userRequest = getData.sort((a, b) => (a.departDate < b.departDate) ? 1 : -1)
-                           
-    //      console.log('this is the numpeople: '+$scope.userRequest[0].stops[0].stopLocation)
+        $scope.currTrips = []
+        $scope.currTrips.push($scope.userRequest[0])
+        sessionStorage.setItem('departureDate', $scope.userRequest[0].departDate)
+
+        //      console.log('this is the numpeople: '+$scope.userRequest[0].stops[0].stopLocation)
                            
      }, function(error) {
         console.log('Unable to retrieve trip request:', error);
      });
     //call to get all recommendation
     Requests.getRecommendation().then(function(response) {
-      console.log('getting recommendations');
         var getRec = response.data;
-        $scope.userRec = getRec;
+        $scope.tempRec = getRec.sort((a, b) => (a.departDate < b.departDate) ? 1 : -1)
+        $scope.userRec = []
+        var latestDepartDate = $scope.tempRec[0].departDate
+      for (i = 0; i < $scope.tempRec.length; i++) {
+         if ($scope.tempRec[i].departDate != latestDepartDate){
+             break
+          }
+        $scope.userRec.push($scope.tempRec[i])
+        }
 
     }, function(error){
         console.log('Unable to get recommendations:', error);
