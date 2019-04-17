@@ -40,7 +40,7 @@
         <a class="active" href="blogs.html">Blog Posts</a>
         <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
         <div ng-if="userName !== null">
-            <a href="clientDashboard.html">Client Dashboard</a>
+            <a href="clientDashboard.html">My Dashboard</a>
         </div>
         <div ng-if="userName === 'admin'">
             <a href="adminDashboard.html">Admin Dashboard</a>
@@ -70,7 +70,7 @@
           <div class="blogHeaderText">
             <p>
 
-              Please view all of my blogs to learn about exciting trips you can go on!
+            Summary/intro to blogs: Please view all of my blogs to learn about exciting trips you can go on!
             </p>
       <div ng-if="userName === 'admin'">
       <center> <input type="submit" value="New Post" ng-click = "goToNewPost()"></center>
