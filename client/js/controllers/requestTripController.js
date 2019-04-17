@@ -1,8 +1,8 @@
 angular.module('requests').controller('TripRequestController', ['$scope', 'Requests',
   function($scope, Requests) {
                                                             $scope.userName = sessionStorage.getItem('CurrentlyLoggedInUserName');
-                                                            $scope.origin = undefined;
-                                                            $scope.departDate = undefined;
+                                                            $scope.origin = sessionStorage.getItem('homeOrigin');
+                                                            $scope.departDate = sessionStorage.getItem('homeDepartDate');
                                                             $scope.returnDate = undefined;
                                                             $scope.stopLocation = undefined;
                                                             $scope.stopDate = undefined;
