@@ -38,7 +38,7 @@
         <a href="blogs.html">Blog Posts</a>
         <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
         <div ng-if="userName !== null">
-            <a class="active" href="clientDashboard.html">Client Dashboard</a>
+            <a class="active" href="clientDashboard.html">My Dashboard</a>
         </div>
         <div ng-if="userName === 'admin'">
             <a href="adminDashboard.html">Admin Dashboard</a>
@@ -69,7 +69,7 @@
                         <th>Number of People</th>
                         <th></th>
                         </tr>
-                        <tr ng-repeat="request in userRequest | filter:searchData | orderBy:'departDate'"> <!--Orders search results by date-->
+                        <tr ng-repeat="request in currTrips | filter:searchData | orderBy:'departDate'"> <!--Orders search results by date-->
                             <th>{{request.departDate}}</th>
                             <th>{{request.origin}}</th> 
                             <th>{{request.stops[request.stops.length - 1].stopLocation}}</th>
@@ -89,23 +89,27 @@
                                   <table class="table table-striped table-hover">
                                       <tr>
                                       <th>Flights&nbsp;</th>
-                                      <th style="float:right;padding-right: 100%;">Price</th>
+                                      <th>Price</th>
+                                      <th>Link</th>
                                       </tr>
                                       <tr ng-repeat="rec in userRec">
                                           <th>{{rec.flight}}</th>
-                                          <th style="float:right;padding-right: 100%;">{{rec.flightPrice}}</th> 
+                                          <th>{{rec.flightPrice}}</th>
+                                          <th>{{rec.flightLink}}
                                           </tr>
                                         </table>
                               </tr>
                               <tr>
                                 <table class="table table-striped table-hover">
                                     <tr>
-                                    <th>Hotels</th>
-                                    <th style="float:right;padding-right: 100%;">Price</th>
+                                    <th>Hotels&nbsp;&nbsp;</th>
+                                    <th>Price</th>
+                                    <th>Link</th>
                                     </tr>
                                     <tr ng-repeat="rec in userRec">
                                         <th>{{rec.hotel}}</th>
-                                        <th style="float:right;padding-right: 100%;">{{rec.hotelPrice}}</th> 
+                                        <th>{{rec.hotelPrice}}</th>
+                                        <th>{{rec.hotelLink}}</th>
                                         </tr>
                                 </table>
                               </tr>
@@ -113,11 +117,13 @@
                                   <table class="table table-striped table-hover">
                                       <tr>
                                       <th>Cruises</th>
-                                      <th style="float:right;padding-right: 100%;">Price</th>
+                                      <th>Price</th>
+                                      <th>Link</th>
                                       </tr>
                                       <tr ng-repeat="rec in userRec">
                                           <th>{{rec.cruise}}</th>
-                                          <th style="float:right;padding-right: 100%;">{{rec.cruisePrice}}</th> 
+                                          <th>{{rec.cruisePrice}}</th>
+                                          <th>{{rec.cruiseLink}}</th>
                                           </tr>
                                   </table>
                                 </tr>

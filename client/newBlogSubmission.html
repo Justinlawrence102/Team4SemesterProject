@@ -81,8 +81,6 @@
         <br>
         <br>
 
-
-        {{featured}}
         <label class="blogContainer">Featured blog post?
           <input type="checkbox" checked="checked" ng-model="featured">
           <!--<span class="checkmark"></span>-->
@@ -95,9 +93,9 @@
           <center> <input type="submitBlog" value="Submit" ng-click="submitNewPost()"></center>
       </div>
       <div ng-if="isEditing == 1">
-          <center> <input type="submitBlog" value="Edit Post" ng-click="editPost()"></center>
-          <br>
-          <center> <input type="submitBlog" value="Delete" ng-click="deletePost()"></center>
+          <center> <input type="submitBlog" value="Save Post" ng-click="editPost()"></center>
+<!--          <br>-->
+<!--          <center> <input type="submitBlog" value="Delete" ng-click="deletePost()"></center>-->
 
       </div>
     

@@ -22,6 +22,12 @@
 </head>
 
 <body ng-app="travelAgencyApp">
+    <!-- facebook integration-->
+    
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=419877092101867&autoLogAppEvents=1"></script>
+    
+    
   <div class="container" style="margin-top: 20px">
     <div class="row1">
 
@@ -38,7 +44,7 @@
         <a class="active" href="blogs.html">Blog Posts</a>
         <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
         <div ng-if="userName !== null">
-            <a href="clientDashboard.html">Client Dashboard</a>
+            <a href="clientDashboard.html">My Dashboard</a>
         </div>
         <div ng-if="userName === 'admin'">
             <a href="adminDashboard.html">Admin Dashboard</a>
@@ -68,9 +74,9 @@
           <h1 align="center">{{title}}</h1>
       </header>
 
-      <div class="blogHeader">
+      <div class="blogHeader" >
 
-            <center><img src={{imageURL}}style="max-width: 80%; height: auto; padding-top:10px;">
+            <center><img src={{imageURL}}  style =  "padding-top:10px;width:333px; height:215px;">
 
         </center>
 
@@ -84,6 +90,7 @@
           </div>
         </center>
       </div>
+      <div class="fb-share-button" data-href="https://team4semesterproject.herokuapp.com/blogs.html" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fteam4semesterproject.herokuapp.com%2FviewBlogs.html&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
     </div>
   </div>
   <center>
