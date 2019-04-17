@@ -1,6 +1,7 @@
 
 /* Dependencies */
 var fs = require('fs'),
+client = require('../models/client.server.model.js'),
         mongoose = require('mongoose'),
         trip = require('../models/tripRequest.server.model.js'),
         config = require('../config/config.js');
