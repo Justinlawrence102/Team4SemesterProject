@@ -4,7 +4,7 @@
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles/style.css">
-  <title>Project</title>
+  <title>Account Settings</title>
   <style>
       body, html {
         background-image: url("beach2.jpg");
@@ -40,12 +40,12 @@
         <a href="blogs.html">Blog Posts</a>
         <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
         <div ng-if="userName !== null">
-            <a class="active" href="clientDashboard.html">Client Dashboard</a>
+            <a style = "float:right" class="active" href="clientDashboard.html">Client Dashboard</a>
         </div>
         <div ng-if="userName === 'admin'">
             <a href="adminDashboard.html">Admin Dashboard</a>
         </div>
-        <div class="login">
+        <div ng-if = "userName === null" class="login">
             <div ng-if="userName !== null">
                 <a href="triprequest.html">Trip Request</a>
             </div>

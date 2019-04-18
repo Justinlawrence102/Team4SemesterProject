@@ -3,7 +3,7 @@
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles/style.css">
-  <title>Project</title>
+  <title>Client Dashboard</title>
   <style>
       body, html {
         background-image: url("beach2.jpg");
@@ -38,12 +38,12 @@
         <a href="blogs.html">Blog Posts</a>
         <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
         <div ng-if="userName !== null">
-            <a class="active" href="clientDashboard.html">My Dashboard</a>
+            <a class="active" style="float:right" href="clientDashboard.html">My Dashboard</a>
         </div>
         <div ng-if="userName === 'admin'">
             <a href="adminDashboard.html">Admin Dashboard</a>
         </div>
-        <div class="login">
+        <div ng-if= "userName === null" class="login">
             <div ng-if="userName !== null">
                 <a href="triprequest.html">Trip Request</a>
             </div>
@@ -88,42 +88,42 @@
                               <tr>
                                   <table class="table table-striped table-hover">
                                       <tr>
-                                      <th>Flights&nbsp;</th>
-                                      <th>Price</th>
-                                      <th>Link</th>
+                                      <th class = "column1">Flights</th>
+                                      <th class = "column2">Price</th>
+                                      <th class = "column3">Link</th>
                                       </tr>
                                       <tr ng-repeat="rec in userRec">
-                                          <th>{{rec.flight}}</th>
-                                          <th>{{rec.flightPrice}}</th>
-                                          <th>{{rec.flightLink}}
+                                          <th class = "column1">{{rec.flight}}</th>
+                                          <th class = "column2">{{rec.flightPrice}}</th>
+                                          <th class = "column3">{{rec.flightLink}}</th>
                                           </tr>
                                         </table>
                               </tr>
                               <tr>
                                 <table class="table table-striped table-hover">
                                     <tr>
-                                    <th>Hotels&nbsp;&nbsp;</th>
-                                    <th>Price</th>
-                                    <th>Link</th>
+                                    <th class = "column1">Hotels</th>
+                                    <th class = "column2">Price</th>
+                                    <th class = "column3">Link</th>
                                     </tr>
                                     <tr ng-repeat="rec in userRec">
-                                        <th>{{rec.hotel}}</th>
-                                        <th>{{rec.hotelPrice}}</th>
-                                        <th>{{rec.hotelLink}}</th>
+                                        <th class = "column1">{{rec.hotel}}</th>
+                                        <th class = "column2">{{rec.hotelPrice}}</th>
+                                        <th class = "column3">{{rec.hotelLink}}</th>
                                         </tr>
                                 </table>
                               </tr>
                               <tr>
                                   <table class="table table-striped table-hover">
                                       <tr>
-                                      <th>Cruises</th>
-                                      <th>Price</th>
-                                      <th>Link</th>
+                                      <th class = "column1">Cruises</th>
+                                      <th class = "column2">Price</th>
+                                      <th class = "column3">Link</th>
                                       </tr>
                                       <tr ng-repeat="rec in userRec">
-                                          <th>{{rec.cruise}}</th>
-                                          <th>{{rec.cruisePrice}}</th>
-                                          <th>{{rec.cruiseLink}}</th>
+                                          <th class = "column1">{{rec.cruise}}</th>
+                                          <th class = "column2">{{rec.cruisePrice}}</th>
+                                          <th class = "column3">{{rec.cruiseLink}}</th>
                                           </tr>
                                   </table>
                                 </tr>
