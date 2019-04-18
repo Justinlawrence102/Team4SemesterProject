@@ -4,7 +4,7 @@
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles/style.css">
-  <title>Project</title>
+  <title>Trip Request</title>
   <style>
       body, html {
         background-image: url("beach2.jpg");
@@ -31,15 +31,23 @@
 
     </div>
 
-    <div class="topnav">
+    <div class="topnav" ng-controller = "homeController">
       <a href="home.html">Home</a>
-      <a href="#contact">Contact</a>
+      <a href="contact.html">Contact</a>
       <a href="about.html">About Me</a>
       <a href="specials.html">Specials</a>
       <a href="blogs.html">Blog Posts</a>
       <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
-      <div class="login">
+      <div ng-if="userName !== null">
+      <a style="float:right" href="clientDashboard.html">My Dashboard</a>
+      </div>
+      <div ng-if="userName === 'admin'">
+          <a href="adminDashboard.html">Admin Dashboard</a>
+      </div>
+      <div ng-if="userName === null" class="login">
+        <div ng-if="userName !== null">
         <a class="active" href="triprequest.html">Trip Request</a>
+        </div>
         <a href="login.html">Login</a>
         <a href="signup.html">Sign Up</a>
       </div>
