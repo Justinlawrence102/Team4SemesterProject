@@ -20,6 +20,7 @@ exports.createSpecial = function(req, res){
     title: req.body.title,
     link: req.body.link,
     summary: req.body.summary,
+    imageURL: req.body.imageURL,
     }
     var specialPost = new special(req.body);
 
@@ -33,4 +34,16 @@ exports.createSpecial = function(req, res){
                       res.json(newSpecial);
                       }
                       });
+};
+
+exports.editPost = function(req, res){
+    var updatedPost = {
+        title: req.body.title,
+        summary: req.body.summary,
+        link: req.body.link,
+        imageURL: req.body.imageURL,
+    }
+    special.findOneAndUpdate({ title: req.body.title }, {updatedPost}, function(err, details) {
+                           if (err) throw err;
+                           });
 }

@@ -10,6 +10,7 @@
     tripRequestRouter = require('../routes/tripRequest.server.routes.js'),
     clientRouter = require('../routes/client.server.routes.js'),
     blogsRouter = require('../routes/blogs.server.routes.js'),
+    specialsRouter = require('../routes/special.server.routes.js'),
     indexRouter = require('../routes/index.routes.js'),
     nodemailer = require("nodemailer"),
     flash = require('connect-flash'),
@@ -82,6 +83,7 @@ module.exports.init = function() {
     app.use('/api/blogs',blogsRouter);
     app.use('/api/clientRecommendations', clientRecommendationsRouter);
     app.use('/api/auth', authRouter);
+    app.use('/api/specials', specialsRouter);
 
     app.get('/send', function (req,res) {
       var mailOptions = {

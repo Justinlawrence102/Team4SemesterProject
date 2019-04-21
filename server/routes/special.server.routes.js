@@ -12,7 +12,7 @@ router.route('/')
 
 .get(special.listSpecials)
 .post(special.createSpecial)
-
+.put(special.editPost)
 
 //router.param('tripRequestId', tripRequest.listingByID);
 
