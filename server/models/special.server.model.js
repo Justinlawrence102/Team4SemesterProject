@@ -10,7 +10,8 @@ var mongoose = require('mongoose'),
 var specialSchema = new Schema({
 	title: {type: String},
 	link:{type: String},
-	summary:{type: String}
+	summary:{type: String},
+	imageURL: {type: String},
 }, {collection: 'special'});
 
 
