@@ -1,10 +1,11 @@
 angular.module('specials').controller('specialsController', ['$scope', 'Requests',  function($scope, Requests) {
          $scope.title = sessionStorage.getItem('tempSpecialTitle');
          $scope.summary = sessionStorage.getItem('tempSpecialSummary');
-         $scope.body = sessionStorage.getItem('tempSpecialBody');
+         $scope.link = sessionStorage.getItem('tempSpecialLink');
          $scope.featured = sessionStorage.getItem('tempSpecialfeatured');
          $scope.imageURL = sessionStorage.getItem('tempSpecialImageURL');
          $scope.isEditing = sessionStorage.getItem('isEditing');
+        $scope.price = sessionStorage.getItem('tempSpecialPrice')
          $scope.userName = sessionStorage.getItem('CurrentlyLoggedInUserName');
 $scope.testFeat = "true"
     Requests.getAllSpecials().then(function(response) {
@@ -28,31 +29,34 @@ $scope.testFeat = "true"
     });
                                                     
     $scope.viewSpecial = function(specialPost) {
-          console.log("clicked!")
+          console.log("clicked! "+specialPost.price)
           sessionStorage.setItem('tempSpecialTitle', specialPost.title)
           sessionStorage.setItem('tempSpecialSummary', specialPost.summary)
-          sessionStorage.setItem('tempSpecialBody', specialPost.body)
+          sessionStorage.setItem('tempSpecialLink', specialPost.link)
           sessionStorage.setItem('tempSpecialImageURL', specialPost.imageURL)
           sessionStorage.setItem('tempSpecialfeatured', specialPost.featured)
+        sessionStorage.setItem('tempSpecialPrice', specialPost.price)
                                                        
           window.location =('/viewSpecials.html');
      }
      $scope.goToNewPost = function() {
          sessionStorage.setItem('tempSpecialTitle', "")
          sessionStorage.setItem('tempSpecialSummary', "")
-         sessionStorage.setItem('tempSpecialBody', "")
+         sessionStorage.setItem('tempSpecialLink', "")
          sessionStorage.setItem('tempSpecialImageURL', "")
          sessionStorage.setItem('isEditing', 0)
          sessionStorage.setItem('tempSpecialfeatured', 0)
+         sessionStorage.setItem('tempSpecialPrice', 0)
         window.location =('/newSpecialSubmission.html');
     }
     $scope.goToEditPost = function() {
         sessionStorage.setItem('isEditing', 1)
+                                                             console.log('editing')
         window.location =('/newSpecialSubmission.html');
      }
                                                        
     $scope.submitNewPost = function() {
-        var newSpecial = {title: $scope.title, summary: $scope.summary, body: $scope.body, featured: $scope.featured, imageURL: $scope.imageURL}
+         var newSpecial = {title: $scope.title, summary: $scope.summary, link: $scope.link, featured: $scope.featured, imageURL: $scope.imageURL, price: $scope.price}
          Requests.createSpecials(newSpecial).then(function(response) {
          });
         window.location =('/specials.html');
@@ -60,8 +64,8 @@ $scope.testFeat = "true"
                                                        
     $scope.editPost = function() {
        console.log("editing special post!!!")
-       var updatedSpecial = {title: $scope.title, summary: $scope.summary, body: $scope.body, featured: $scope.featured, imageURL: $scope.imageURL}
-    Requests.editSpecial(updatedSpecial).then(function(response) {
+       var updatedSpecial = {title: $scope.title, summary: $scope.summary, link: $scope.link, featured: $scope.featured, imageURL: $scope.imageURL, price: $scope.price}
+    Requests.editSpecials(updatedSpecial).then(function(response) {
                                         })
      window.location =('/specials.html');
                                                        }
