@@ -39,16 +39,23 @@
         <a href="specials.html">Specials</a>
         <a href="blogs.html">Blog Posts</a>
         <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
+        
         <div ng-if="userName !== 'null'">
-            <a style="float:right"href="clientDashboard.html">My Dashboard</a>
-        </div>
-        <div ng-if="userName === 'admin'">
-            <a href="adminDashboard.html">Admin Dashboard</a>
-        </div>
-        <div ng-if="userName === 'null'" class="login">
-            <div ng-if="userName !== 'null'">
-                <a href="triprequest.html">Trip Request</a>
+            <a style = "float:right" ng-click="logout()">Logout</a>
+            <div ng-if="userName !== 'admin'">
+                <a style="float:right" href="clientDashboard.html">My Dashboard</a>
             </div>
+            <div ng-if="userName === 'admin'">
+                <a style="float:right" href="adminDashboard.html">My Dashboard</a>
+            </div>
+        </div>
+        
+            <div ng-if="userName !== 'null'">
+              <div ng-if = "userName !== 'admin'">
+                <a href="triprequest.html">Trip Request</a>
+              </div>
+            </div>
+            <div ng-if= "userName === 'null'" class="login">
             <a class="active" href="login.html">Login</a>
             <a href="signup.html">Sign Up</a>
         </div>

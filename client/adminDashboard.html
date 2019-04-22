@@ -4,6 +4,20 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
             <link rel="stylesheet" href="styles/style.css">
                 <title>Project</title>
+                <style>
+                        body, html {
+                          background-image: url("beach2.jpg");
+                        
+                          /* Center and scale the image nicely */
+                        background-position: center center;
+                              background-repeat:  no-repeat;
+                              background-attachment: fixed;
+                              background-size:  cover;
+                        background-color: #999;
+                        margin-bottom:20px;
+                        }
+                      
+                        </style>
     </head>
     <body ng-app="travelAgencyApp">
         <div class="container" style="margin-top: 20px">
@@ -14,25 +28,34 @@
                     
                     </div>
             
-            <div class="topnav" >
-                <a href="home.html">Home</a>
-                <a href="contact.html">Contact</a>
-                <a href="about.html">About Me</a>
-                <a href="specials.html">Specials</a>
-                <a href= "blogs.html">Blog Posts</a>
-                <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
-                <div class = "dropdown">
-                  <!--  <a href = "clientDashboard.html">Client Dashboard</a> -->
-                    <a class = "active" a href= "adminDashboard.html">Admin Dashboard</a>
-                    
-                </div>
-                <div class="login">
-                    
-                  <!--  <a href="triprequest.html">Trip Request</a> -->
-                    <a href="login.html">Login</a>
-                    <a href="signup.html">Sign Up</a>
-                </div>
-            </div>
+                    <div class="topnav" ng-controller = "homeController">
+                            <a href="home.html">Home</a>
+                            <a href="contact.html">Contact</a>
+                            <a href="about.html">About Me</a>
+                            <a href="specials.html">Specials</a>
+                            <a href="blogs.html">Blog Posts</a>
+                            <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
+                            
+                            <div ng-if="userName !== 'null'">
+                                <a style = "float:right" ng-click="logout()">Logout</a>
+                                <div ng-if="userName !== 'admin'">
+                                    <a style="float:right" href="clientDashboard.html">My Dashboard</a>
+                                </div>
+                                <div ng-if="userName === 'admin'">
+                                    <a class="active" style="float:right" href="adminDashboard.html">My Dashboard</a>
+                                </div>
+                            </div>
+                            
+                                <div ng-if="userName !== 'null'">
+                                  <div ng-if = "userName !== 'admin'">
+                                    <a href="triprequest.html">Trip Request</a>
+                                  </div>
+                                </div>
+                                <div ng-if= "userName === 'null'" class="login">
+                                <a href="login.html">Login</a>
+                                <a href="signup.html">Sign Up</a>
+                            </div>
+                        </div>
             
             <div class = "dashboard" ng-controller="adminDashboardController">
                 <h1>Admin View</h1>
@@ -61,6 +84,7 @@
                     </div>
                 </div>
             </div>
+        </div>
             
             <div class="siteAnchor">
                 
@@ -78,5 +102,6 @@
             
             <script src="js/factories/adminDashboardFactory.js"></script>
             <script src="js/controllers/adminDashboardController.js"></script>
+            <script src="js/controllers/homeController.js"></script>
             </body>
     </html>
