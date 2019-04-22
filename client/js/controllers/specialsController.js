@@ -53,7 +53,7 @@ $scope.testFeat = "true"
                                                        
     $scope.submitNewPost = function() {
         var newSpecial = {title: $scope.title, summary: $scope.summary, body: $scope.body, featured: $scope.featured, imageURL: $scope.imageURL}
-         Requests.createSpecial(newSpecial).then(function(response) {
+         Requests.createSpecials(newSpecial).then(function(response) {
          });
         window.location =('/specials.html');
     }
