@@ -4,7 +4,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles/style.css">
-  <title>Project</title>
+  <title>Contact</title>
   <style>
       body, html {
         background-image: url("beach2.jpg");
@@ -31,21 +31,29 @@
 
   </div>
 
-    <div class="topnav">
-        <a href="home.html">Home</a>
-        <a class="active" href="#contact">Contact</a>
-        <a href="about.html">About Me</a>
-        <a href="specials.html">Specials</a>
-        <a href= "blogs.html">Blog Posts</a>
-        <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
-        <a href = "clientDashboard.html">Client Dashboard</a>
-        <div class="login">
-                
-                <a href="triprequest.html">Trip Request</a>
-                <a href="login.html">Login</a>
-                <a href="signup.html">Sign Up</a>
-        </div>
-    </div>
+  <div class="topnav" ng-controller = "homeController">
+      <a href="home.html">Home</a>
+      <a class="active" href="contact.html">Contact</a>
+      <a href="about.html">About Me</a>
+      <a href="specials.html">Specials</a>
+      <a href="blogs.html">Blog Posts</a>
+      <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
+      <div ng-if="userName !== 'null'">
+          <a style = "float:right" ng-click="logout()">Logout</a>
+          <a style="float:right" href="clientDashboard.html">My Dashboard</a>
+      </div>
+      <div ng-if="userName === 'admin'">
+          <a href="adminDashboard.html">Admin Dashboard</a>
+      </div>
+      
+          <div ng-if="userName !== 'null'">
+              <a href="triprequest.html">Trip Request</a>
+          </div>
+          <div ng-if= "userName === 'null'" class="login">
+          <a href="login.html">Login</a>
+          <a href="signup.html">Sign Up</a>
+      </div>
+  </div>
 
     <h1><center>Contact Me</center></h1>
       
@@ -113,6 +121,7 @@
 
     <script src="js/factories/clientFactory.js"></script>
     <script src="js/controllers/clientController.js"></script>
+    <script src="js/controllers/homeController.js"></script>
 
 </body>
 

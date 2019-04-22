@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <title>Project</title>
+  <style>
+    body,
+    html {
+      background-image: url("beach2.jpg");
+
+      /* Center and scale the image nicely */
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      background-color: #999;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body ng-app="travelAgencyApp">
+  <div class="container" style="margin-top: 20px">
+    <div class="row1">
+
+      <img src="bochitto2.jpg" alt="Logo" style="float:left;width:200px;height:100px;margin-left:50px;">
+
+    </div>
+
+    <div class="topnav">
+      <a href="home.html">Home</a>
+      <a href="#contact">Contact</a>
+      <a href="about.html">About Me</a>
+      <a href="specials.html">Specials</a>
+      <a href="blogs.html">Blog Posts</a>
+      <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
+      <div class="login">
+        <a href="triprequest.html">Trip Request</a>
+        <a href="login.html">Login</a>
+        <a href="signup.html">Sign Up</a>
+      </div>
+    </div>
+
+  </div>
+  <div class="container">
+    <div class="submitForms" ng-controller="specialsController">
+      <!--   <form action="#">  -->
+
+
+
+      <div class="specialsSubmissions">
+
+
+        <label for="titlePost">Title of Special post:</label><br>
+        <input type="text" id="tpost" name="titlePost" placeholder="Special entry title.." ng-model="title" style="width:70%">
+
+        <br>
+        <br>
+
+        <label for="summaryPost">Summary of Post:</label><br>
+        <textarea id="sumPost" name="summaryPost" placeholder="Enter summary here" style="height:100px; width:70%;"
+          ng-model="summary"></textarea>
+
+        <br>
+        <br>
+
+        <label for="link">Web link for special:</label><br>
+        <textarea id="link" name="link" placeholder="Enter web link here.." style="height:100px; width:70%;"
+          ng-model="link"></textarea>
+
+
+        <br>
+        <br>
+
+
+
+        <label for="imgPost">Image of new post:</label><br>
+        <input type="text" id="ipost" name="imgPost" placeholder="Insert image URL here.." ng-model="imageURL" style="width:70%">
+        </label>
+        <br>
+        <br>
+
+        <label class="specialContainer">Featured special post?
+          <input type="checkbox" checked="checked" ng-model="featured">
+          <!--<span class="checkmark"></span>-->
+        </label>
+
+
+
+      </div>
+
+
+      <div ng-if="isEditing === 0">
+          <center> <input type="submitSpecial" value="Submit new post" ng-click="submitNewPost()"></center>
+      </div>
+      <div ng-if="isEditing === 1">
+          <center> <input type="submitSpecial" value="Edit post" ng-click="editPost()"></center>
+      </div>
+    
+      <!-- </form>  -->
+    </div>
+  </div>
+  <center>
+    <div class="siteAnchor">
+
+      <p style="float: left;">Copyright © 2019 Bochitto Travel</p>
+
+      <p style="float:right;">Questions? Contact us at bochittotravel@test.com</p>
+
+    </div>
+  </center>
+
+
+
+
+
+
+
+
+
+  <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+  <script src="js/app.js"></script>
+
+  <script src="/js/factories/specialsFactory.js"></script>
+  <script src="js/controllers/specialsController.js"></script>
+
+
+
+</body>
+
+</html>

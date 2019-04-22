@@ -4,7 +4,7 @@
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles/style.css">
-  <title>Project</title>
+  <title>Account Settings</title>
   <style>
       body, html {
         background-image: url("beach2.jpg");
@@ -40,45 +40,41 @@
         <a href="blogs.html">Blog Posts</a>
         <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
         <div ng-if="userName !== 'null'">
-            <a style="float:right"href="clientDashboard.html">My Dashboard</a>
+            <a style = "float:right" ng-click="logout()">Logout</a>
+            <a class="active" style="float:right" href="clientDashboard.html">My Dashboard</a>
         </div>
         <div ng-if="userName === 'admin'">
             <a href="adminDashboard.html">Admin Dashboard</a>
         </div>
-        <div ng-if="userName === 'null'" class="login">
+        
             <div ng-if="userName !== 'null'">
                 <a href="triprequest.html">Trip Request</a>
             </div>
-            <a class="active" href="login.html">Login</a>
+            <div ng-if= "userName === 'null'" class="login">
+            <a href="login.html">Login</a>
             <a href="signup.html">Sign Up</a>
         </div>
     </div>
 
-    <div class="containerLogin" ng-controller="ClientController">
+    <div class="containerLogin" ng-controller="clientDashboardController">
 
-      <h3>User Login </h3>
-      <label for="fname">Username</label>
-      <input type="text" id="fname" name="firstname" placeholder="Username" ng-model="username">
+      <h3>Account Settings </h3>
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" name="firstName" placeholder="{{firstName}}" ng-model="firstname">
 
-      <label for="lname">Password</label>
-      <input type="password" id="myInput" name="lastname" placeholder="Password" ng-model="password">
-      <script>
-      function myFunction() {
-       var x = document.getElementById("myInput");
-           if (x.type === "password") {
-              x.type = "text";
-          } else {
-        x.type = "password";
-         }
-        } 
-      </script>
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="lastName" placeholder="{{lastName}}" ng-model="lastname">
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="{{email}}" ng-model="email">
+
+      <label for="tphone">Phone Number</label>
+      <input type="tel" id="telphone" name="tel" placeholder="{{tphone}}" ng-model="tphone">
+    </div>
       
-      <center> <input type="login" value="Login" ng-click="submit_authenticate()" style = "padding-top:10px;margin-bottom:25px;margin-top:10px;width:75px;" ></center>
-    </div>
-  <div class = "bottomPic">
-    <img src = "siesta.jpg" style = "width:500px;height:175px;margin-left:310px;margin-bottom:25px;margin-top:25px;">
+      <center> <input type="submit" value="Update" ng-click="update_user_request()" style="padding-top:10px;margin-bottom:25px;margin-top:10px;width:90px;"></center>
+    
   </div>
-    </div>
 <center>
     <div class="siteAnchor">
 
@@ -92,6 +88,8 @@
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <script src="js/app.js"></script>
 
+    <script src="js/factories/clientDashboardFactory.js"></script>
+    <script src="js/controllers/clientDashboardController.js"></script>
     <script src="js/factories/clientFactory.js"></script>
     <script src="js/controllers/clientController.js"></script>
     <script src="js/controllers/homeController.js"></script>

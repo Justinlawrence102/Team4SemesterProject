@@ -1,5 +1,5 @@
 /* Dependencies */
-var special = require('../controllers/special.server.controller.js'),
+var specials = require('../controllers/special.server.controller.js'),
     express = require('express'), 
     router = express.Router();
 
@@ -10,10 +10,9 @@ var special = require('../controllers/special.server.controller.js'),
 console.log("getting the server routes")
 router.route('/')
 
-.get(special.listSpecials)
-.post(special.createSpecial)
-
-
-//router.param('tripRequestId', tripRequest.listingByID);
+.get(specials.listSpecials)
+.post(specials.createPost)
+.put(specials.editPost)
+.delete(specials.deletePost)
 
 module.exports = router;

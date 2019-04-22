@@ -2,35 +2,67 @@
 /* Dependencies */
 var fs = require('fs'),
         mongoose = require('mongoose'),
-        special = require('../models/special.server.model.js'),
+        specials = require('../models/special.server.model.js'),
         config = require('../config/config.js');
+/*
+  In this file, you should use Mongoose queries in order to retrieve/add/remove/update listings.
+  On an error you should send a 404 status code, as well as the error message. 
+  On success (aka no error), you should send the listing(s) as JSON in the response.
 
+  HINT: if you are struggling with implementing these functions, refer back to this tutorial 
+  from assignment 3 https://scotch.io/tutorials/using-mongoosejs-in-node-js-and-mongodb-applications
+ */
 
 exports.listSpecials = function(req, res) {
-    special.find()
-    .exec(function (err, allSpecials) {
+    console.log('in server controller')
+//    console.log('userName: '+req.params.userName)
+    specials.find()
+    .exec(function (err, allTrips) {
           if (err) { return next(err); }
-          res.json(allSpecials);
+          res.json(allTrips)
           })
 
 };
 
-exports.createSpecial = function(req, res){
-    var newSpecial = {
+exports.createPost = function(req, res){
+    var newPost = {
     title: req.body.title,
-    link: req.body.link,
     summary: req.body.summary,
+    body: req.body.body,
+    featured: req.body.featured,
+    imageURL: req.body.imageURL,
     }
-    var specialPost = new special(req.body);
+    var specialPost = new specials(req.body);
 
-    special.save(function(err) {
-         console.log("saving new special");
+    /* Then save the special post */
+    specialPost.save(function(err) {
+         console.log("at controller saving")
                       
                       if(err) {
                       console.log(err);
                       res.status(400).send(err);
                       } else {
-                      res.json(newSpecial);
+                      res.json(newPost);
                       }
                       });
+};
+
+exports.editPost = function(req, res){
+
+    console.log("at the server.controller with title: " + req.body.title)
+    specials.findOneAndUpdate({ title: req.body.title }, {summary: req.body.summary, body: req.body.body, featured: req.body.featured, imageURL: req.body.imageURL}, function(err, details) {
+                           if (err) throw err;
+                           console.log('at details: '+details)
+                           });
+}
+
+exports.deletePost = function(req, res) {
+    var specials = req.specials;
+    console.log("DELETING "+specials.title)
+    specials.findOneAndRemove({ title: req.body.title }, function(err, details) {
+                           if (err) {
+                           console.log("SPECIAL: ERROR HERE!")
+                           throw err;
+                           }
+                           });
 }

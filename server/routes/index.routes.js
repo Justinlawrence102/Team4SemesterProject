@@ -9,6 +9,7 @@
 
       if(req.isAuthenticated()) {
         next()
+          console.log("here in index.routes")
       }
       else {
         res.redirect('/login.html');

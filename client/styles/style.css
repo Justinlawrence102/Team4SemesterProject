@@ -17,7 +17,16 @@
 .main {
   padding-top: 10px;
 }
+.column1 {
+  width:400px;
+}
+.column2 {
+  width:400px;
+}
 
+.column3{
+  width:500px;
+}
 .tableWrapper {
   max-height: 400px;
   overflow: auto;
@@ -498,4 +507,9 @@ float: center;
  }
  
 
- 
+div.thumbnail {
+overflow: hidden;
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 1;
+}

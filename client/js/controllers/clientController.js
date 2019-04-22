@@ -7,6 +7,9 @@ angular.module('clients').controller('ClientController', ['$scope', 'Clients',
                                                             $scope.email = undefined;
                                                             $scope.tphone = undefined;
 
+                                                            
+                                                            
+
 $scope.submit_user_request = function(){
     console.log('creating user: ' +$scope.username+ '...');
 
@@ -20,41 +23,46 @@ $scope.submit_user_request = function(){
 
     Clients.create(newUser).then(function(response){
         console.log(newUser.username + ' successfully created!');
+        
     });
    window.location =('/login.html');
 };
 
 $scope.submit_authenticate = function(){
 	console.log('authenticating ' +$scope.username+ '...');
-
 	var newAuth = {
     username: $scope.username, 
-    password: $scope.password};
+    password: $scope.password
+};
 
 	console.log("past newAuth of: " + newAuth.username);
 
 	Clients.authenticate(newAuth).then(function(response){
 		console.log("reached");
-        sessionStorage.setItem('CurrentlyLoggedInUserName', newAuth.username);
-        // sessionStorage.setItem('CurrentlyLoggedInFirstName', response.firstname)
-        // sessionStorage.setItem('CurrentlyLoggedInLastName', response.lastname)
-        // sessionStorage.setItem('CurrentlyLoggedInEmail', response.email)
-
-
-                                       if (response.status == 401){
-                                       res.send(401);
-                                       console.log('failed login')
-                                       }
-                                       else {
-                                       console.log('sucess');
-                                       }
-                                       //console.log('out of newAuth '+ response.username);
-                                       //console.log('out of newAuth '+ response.session.passport.user.username);
-                                       window.location =('/home.html');
+       if (response.status == 401){
+         res.send(401);
+         console.log('failed login')
+       }
+       else {
+         console.log('sucess');
+       }
+         //console.log('out of newAuth '+ response.username);
+         //console.log('out of newAuth '+ response.session.passport.user.username);
+         window.location =('/home.html');
+         sessionStorage.setItem('CurrentlyLoggedInUserName', newAuth.username)
+         
+         //window.location =('/clientDashboard.html');
+         console.log('sucess')
+  }
     //console.log(response.username);
 	});
 };
 
+$scope.firstName = sessionStorage.getItem('CurrentlyLoggedInFirstName');
+console.log('firstname: ' + JSON.stringify($scope.firstName));
+
+
+$scope.username = sessionStorage.getItem('CurrentlyLoggedInUserName')
 //Clients.getAll().then(function(response) {
    //console.log('trying to get all clients')
   // $scope.userRequest = response.data;

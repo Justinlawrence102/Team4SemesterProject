@@ -5,7 +5,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles/style.css">
-  <title>Project</title>
+  <title>Trip Request</title>
   <style>
       body, html {
         background-image: url("beach2.jpg");
@@ -30,18 +30,28 @@
 
     </div>
 
-    <div class="topnav">
-      <a href="home.html">Home</a>
-      <a href="#contact">Contact</a>
-      <a href="about.html">About Me</a>
-      <a href="specials.html">Specials</a>
-      <a href="blogs.html">Blog Posts</a>
-      <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
-      <div class="login">
-        <a class="active" href="triprequest.html">Trip Request</a>
-        <a href="login.html">Login</a>
-        <a href="signup.html">Sign Up</a>
-      </div>
+    <div class="topnav" ng-controller = "homeController">
+        <a href="home.html">Home</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About Me</a>
+        <a href="specials.html">Specials</a>
+        <a href="blogs.html">Blog Posts</a>
+        <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
+        <div ng-if="userName !== 'null'">
+            <a style = "float:right" ng-click="logout()">Logout</a>
+            <a style="float:right" href="clientDashboard.html">My Dashboard</a>
+        </div>
+        <div ng-if="userName === 'admin'">
+            <a href="adminDashboard.html">Admin Dashboard</a>
+        </div>
+        
+            <div ng-if="userName !== 'null'">
+                <a class="active" href="triprequest.html">Trip Request</a>
+            </div>
+            <div ng-if= "userName === 'null'" class="login">
+            <a href="login.html">Login</a>
+            <a href="signup.html">Sign Up</a>
+        </div>
     </div>
 
   </div>
@@ -60,27 +70,22 @@
     <h3>Listing Information</h3>
       <label for="departure">Departure</label>
       <br>
-  
       <input id="dept" type="Origin" name="dept" ng-model="origin">
       <br><br>
-
       <label for="departure-date">Departure date</label>
       <br>
       <input id="dept-date" type="date" name="dept-date" ng-model="departDate" style=" width:30%;">
       <br><br>  
 
       <button ng-click="addNewStop()">Add stop</button>
-
         <table>
           <tr ng-repeat="stops in tableStops track by $id(stops)">
 
             <td ng-model="tableStops[$index]">
               <div class="test">
               <label for="destination"> Stops</label>
-              <br>
-        
-        <input id="destination" type="departure" name="dept" ng-model="stops.stopLocation">
-        
+              <br>       
+        <input id="destination" type="departure" name="dept" ng-model="stops.stopLocation"
               <br>
               <label for="return-date">Date to Arrive at Stop</label>
               <br>
@@ -169,6 +174,7 @@
 
   <script src="/js/factories/TriprequestsFactory.js"></script>
   <script src="js/controllers/requestTripController.js"></script>
+  <script src="js/controllers/homeController.js"></script>
 
 
   <script src="js/controllers/addStopsController.js"></script>

@@ -21,14 +21,14 @@ angular.module('recommendations').controller('adminViewDBController', ['$scope',
                                                             
    
     $scope.userName = sessionStorage.getItem('ClientUserName');
-                                                                      
+    var departDate = sessionStorage.getItem('departureDate');
    
 //
      $scope.submitRecommendation = function() {
-     console.log('submiting a  request')
-       var newRecommendation = {userName: $scope.userName, title: $scope.recTitle, flight: $scope.recFlightName, flightLink: $scope.recFlightLink, flightPrice: $scope.recFlightPrice, hotel: $scope.recHotelName, hotelLink: $scope.recHotelLink, hotelPrice: $scope.recHotelPrice, cruise: $scope.recCruiseName, cruiseLink: $scope.recCruiseLink, cruisePrice: $scope.recCruisePrice, otherDetails: $scope.recDetails};
+     console.log('submiting a  request '+departDate)
+     var newRecommendation = {userName: $scope.userName, title: $scope.recTitle, departDate: departDate, flight: $scope.recFlightName, flightLink: $scope.recFlightLink, flightPrice: $scope.recFlightPrice, hotel: $scope.recHotelName, hotelLink: $scope.recHotelLink, hotelPrice: $scope.recHotelPrice, cruise: $scope.recCruiseName, cruiseLink: $scope.recCruiseLink, cruisePrice: $scope.recCruisePrice, otherDetails: $scope.recDetails};
             Requests.create(newRecommendation).then(function(response) {                                                          });
-         // window.location.reload(true);
+          window.location.reload(true);
         }
   }
 ]);

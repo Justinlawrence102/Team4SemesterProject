@@ -10,7 +10,12 @@ angular.module('blogs', []).factory('Requests', function($http) {
      },
                                     
     editBlog: function(updatedBlog){
+                                    console.log('at factory!')
       return $http.put('/api/blogs', updatedBlog);
+    },
+    deleteBlog: function(blog){
+      console.log('removing '+blog.title)
+       return $http.delete('/api/blogs/'+blog.title);
     },
   };
 

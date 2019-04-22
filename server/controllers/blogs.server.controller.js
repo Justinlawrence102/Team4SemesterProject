@@ -48,14 +48,27 @@ exports.createPost = function(req, res){
 };
 
 exports.editPost = function(req, res){
-    var updatedPost = {
-        title: req.body.title,
-        summary: req.body.summary,
-        body: req.body.body,
-        featured: req.body.featured,
-        imageURL: req.body.imageURL,
-    }
-    blogs.findOneAndUpdate({ title: req.body.title }, {updatedPost}, function(err, details) {
+//    var updatedPost = {
+//        title: req.body.title,
+//        summary: req.body.summary,
+//        body: req.body.body,
+//        featured: req.body.featured,
+//        imageURL: req.body.imageURL,
+//    }
+    console.log("at the server.controller with title: " + req.body.title)
+    blogs.findOneAndUpdate({ title: req.body.title }, {summary: req.body.summary, body: req.body.body, featured: req.body.featured, imageURL: req.body.imageURL}, function(err, details) {
                            if (err) throw err;
+                           console.log('at details: '+details)
+                           });
+}
+
+exports.deletePost = function(req, res) {
+    var blog = req.blogs;
+    console.log("DELETING "+blog.title)
+    blogs.findOneAndRemove({ title: req.body.title }, function(err, details) {
+                           if (err) {
+                           console.log("ERROR HERE!")
+                           throw err;
+                           }
                            });
 }
