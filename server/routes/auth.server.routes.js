@@ -27,6 +27,7 @@ module.exports = function(passport) {
                 if (req.user != null) {
                 console.log('ALL GOOD')
                 res.status = 200
+                res.data = req.user.username
                 }
                 else {
                 console.log('ERROR')

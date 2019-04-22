@@ -47,7 +47,6 @@ $scope.submit_authenticate = function(){
                                        window.location =('/clientDashboard.html');
                                        console.log('sucess')
                                        }
-                                       console.log('out of response '+response.status)
                     
     //console.log(response.username);
 	});
