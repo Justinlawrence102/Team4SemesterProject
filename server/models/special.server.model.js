@@ -8,9 +8,10 @@ var mongoose = require('mongoose'),
 var specialsSchema = new Schema({
 	title: {type: String},
 	summary:{type: String},
-	body:{type: String},
+	link:{type: String},
     featured: {type: Number},
     imageURL: {type: String},
+    price:{type: Number},
 });
 console.log('in specialserver model')
 

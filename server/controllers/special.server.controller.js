@@ -14,7 +14,7 @@ var fs = require('fs'),
  */
 
 exports.listSpecials = function(req, res) {
-    console.log('in server controller')
+    console.log('in server controller for specails')
 //    console.log('userName: '+req.params.userName)
     specials.find()
     .exec(function (err, allTrips) {
@@ -28,16 +28,17 @@ exports.createPost = function(req, res){
     var newPost = {
     title: req.body.title,
     summary: req.body.summary,
-    body: req.body.body,
+    link: req.body.link,
     featured: req.body.featured,
     imageURL: req.body.imageURL,
+    price: req.body.price,
     }
     var specialPost = new specials(req.body);
+    console.log("at controller saving link: "+newPost.link)
 
     /* Then save the special post */
     specialPost.save(function(err) {
-         console.log("at controller saving")
-                      
+                     
                       if(err) {
                       console.log(err);
                       res.status(400).send(err);
@@ -50,7 +51,7 @@ exports.createPost = function(req, res){
 exports.editPost = function(req, res){
 
     console.log("at the server.controller with title: " + req.body.title)
-    specials.findOneAndUpdate({ title: req.body.title }, {summary: req.body.summary, body: req.body.body, featured: req.body.featured, imageURL: req.body.imageURL}, function(err, details) {
+    specials.findOneAndUpdate({ title: req.body.title }, {summary: req.body.summary, link: req.body.link, featured: req.body.featured, imageURL: req.body.imageURL, price: req.body.price}, function(err, details) {
                            if (err) throw err;
                            console.log('at details: '+details)
                            });
