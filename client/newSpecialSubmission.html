@@ -29,28 +29,42 @@
 
     </div>
 
-    <div class="topnav">
-      <a href="home.html">Home</a>
-      <a href="#contact">Contact</a>
-      <a href="about.html">About Me</a>
-      <a href="specials.html">Specials</a>
-      <a href="blogs.html">Blog Posts</a>
-      <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
-      <div class="login">
-        <a href="triprequest.html">Trip Request</a>
-        <a href="login.html">Login</a>
-        <a href="signup.html">Sign Up</a>
-      </div>
+    <div class="topnav" ng-controller = "homeController">
+        <a href="home.html">Home</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About Me</a>
+        <a class="active" href="specials.html">Specials</a>
+        <a href="blogs.html">Blog Posts</a>
+        <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
+        
+        <div ng-if="userName !== 'null'">
+            <a style = "float:right" ng-click="logout()">Logout</a>
+            <div ng-if="userName !== 'admin'">
+                <a style="float:right" href="clientDashboard.html">My Dashboard</a>
+            </div>
+            <div ng-if="userName === 'admin'">
+                <a style="float:right" href="adminDashboard.html">My Dashboard</a>
+            </div>
+        </div>
+        
+            <div ng-if="userName !== 'null'">
+              <div ng-if = "userName !== 'admin'">
+                <a href="triprequest.html">Trip Request</a>
+              </div>
+            </div>
+            <div ng-if= "userName === 'null'" class="login">
+            <a href="login.html">Login</a>
+            <a href="signup.html">Sign Up</a>
+        </div>
     </div>
 
-  </div>
-  <div class="container">
+
     <div class="submitForms" ng-controller="specialsController">
       <!--   <form action="#">  -->
 
 
 
-      <div class="specialsSubmissions">
+      <div class="blogSubmissions">
 
 
         <label for="titlePost">Title of Special post:</label><br>
@@ -96,12 +110,11 @@
 
       </div>
 
-      {{isEditing}}
       <div ng-if="isEditing == 0">
-          <center> <input type="submitBlog" value="Submit" ng-click="submitNewPost()"></center>
+          <center> <input type="submitBlog" style = "width:8%" value="Submit" ng-click="submitNewPost()"></center>
       </div>
       <div ng-if="isEditing == 1">
-          <center> <input type="submitBlog" value="Edit post" ng-click="editPost()"></center>
+          <center> <input type="submitBlog" style = "width:9%;" value="Edit post" ng-click="editPost()"></center>
       </div>
 
       <!-- </form>  -->
@@ -130,7 +143,7 @@
 
   <script src="/js/factories/specialsFactory.js"></script>
   <script src="js/controllers/specialsController.js"></script>
-
+  <script src="js/controllers/homeController.js"></script>
 
 
 </body>
