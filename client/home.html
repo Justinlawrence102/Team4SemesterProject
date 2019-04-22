@@ -97,39 +97,8 @@
         </div>
     </div>
 
+
         <div  class="row" ng-controller = "blogsController">
-  <center><h2>Specials</h2></center>
-          
-          <div class="col-lg-4 col-sm-6 panel">
-            <div class="thumbnail" >
-              <img src="homeSample1.jpg"style="width:333px; height:215px;">
-              <h3>Sample header</h3>
-              <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim
-                pellentesque felis.Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim
-                pellentesque felis.Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim
-                pellentesque felis.Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim
-                pellentesque felis.Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim
-                pellentesque felis.</p>
-            </div>
-          </div>
-		 
-          <div class="col-lg-4 col-sm-6 panel">
-            <div class="thumbnail">
-              <img src="homeSample2.jpg" style="width:333px; height:215px;">
-              <h3>Sample header</h3>
-              <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim
-                pellentesque felis.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-sm-6 panel">
-            <div class="thumbnail">
-              <img src="homeSample3.jpg" style="width:333px; height:215px;">
-              <h3>Sample header</h3>
-              <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim
-                pellentesque felis.</p>
-            </div>
-          </div>
-          
         <center><h2>Blog posts</h2></center>
 		<div class="row-eq-height">
           <div class="col-lg-4 col-sm-6 panel" ng-repeat="blog in featuredBlogs" ng-click="viewBlog(blog)" >
@@ -141,6 +110,24 @@
           </div>
         </div>
         </div>
+
+
+        <div  class="row" ng-controller = "specialsController">
+        <center><h2>Special posts</h2></center>
+    <div class="row-eq-height">
+          <div class="col-lg-4 col-sm-6 panel" ng-repeat="special in featuredSpecials" ng-click="viewSpecial(special)" >
+            <div class="thumbnail">
+              <img class = "specials" src={{special.imageURL}}  style ="padding-top:10px; display: block; width:333px; height:215px; ">
+                  <h3>{{special.title}}</h3>
+                  <p>{{special.summary}}</p>
+            </div>
+          </div>
+        </div>
+        </div>
+
+
+
+
 		</div>
       <center>
     <div class="siteAnchor">
@@ -162,6 +149,8 @@
     <script src="js/controllers/clientDashboardController.js"></script>
     <script src="js/factories/blogsFactory.js"></script>
     <script src="js/controllers/blogsController.js"></script>
+    <script src="js/factories/specialsFactory.js"></script>
+    <script src="js/controllers/specialsController.js"></script>
     <script src="js/controllers/homeController.js"></script>
 
 </body>
