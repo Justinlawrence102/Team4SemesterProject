@@ -73,8 +73,9 @@ angular.module('travelAgencyApp').controller('clientDashboardController', ['$sco
 //     });
 
      $scope.firstName = sessionStorage.getItem('CurrentlyLoggedInFirstName')
-
+var loggedInUser = sessionStorage.getItem('CurrentlyLoggedInUserName')
     //call to get all recommendation
+ if (loggedInUser != 'null') {
     Requests.getRecommendation().then(function(response) {
         var getRec = response.data;
         $scope.recNotes = ""
@@ -93,7 +94,10 @@ angular.module('travelAgencyApp').controller('clientDashboardController', ['$sco
     }, function(error){
         console.log('Unable to get recommendations:', error);
     });
-                                                                    
+    }
+   else {
+     window.location =('../home.html');
+     }
     $scope.editTrip = function() {
     console.log('editing listing')
     };

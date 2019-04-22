@@ -44,7 +44,12 @@ $scope.submit_authenticate = function(){
                                        }
                                        else {
                                        sessionStorage.setItem('CurrentlyLoggedInUserName', newAuth.username)
-                                       window.location =('/clientDashboard.html');
+                                       if (newAuth.username == 'admin'){
+                                       window.location =('/adminDashboard.html');
+                                       }
+                                       else {
+                                            window.location =('/clientDashboard.html');
+                                       }
                                        console.log('sucess')
                                        }
                     
