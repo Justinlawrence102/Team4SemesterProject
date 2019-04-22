@@ -8,7 +8,7 @@ angular.module('blogs').controller('blogsController', ['$scope', 'Requests',  fu
          $scope.userName = sessionStorage.getItem('CurrentlyLoggedInUserName');
 $scope.testFeat = "true"
     Requests.getAllBlogs().then(function(response) {
-                    console.log('trying to get blog posts')
+                                console.log('trying to get blog posts: '+response.data)
                      var allBlogs = response.data;
                                 $scope.allBlogs = allBlogs.reverse();
                                 $scope.featuredBlogs = []

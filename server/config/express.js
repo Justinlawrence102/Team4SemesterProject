@@ -27,7 +27,9 @@ module.exports.init = function() {
 
   //initialize app
   var app = express();
-  var authRouter = require('../routes/auth.server.routes.js')(passport);
+    var authRouter = require('../routes/auth.server.routes.js')(passport);
+   // var authRouter = require('../routes/index.routes.js')(passport);
+
   var smtpTransport = nodemailer.createTransport({
     service: "gmail",
     host: "smtp.gmail.com",
@@ -85,6 +87,23 @@ module.exports.init = function() {
     app.use('/api/auth', authRouter);
     app.use('/api/specials', specialsRouter);
 
+    
+    app.get('/', function (req, res) {
+            if (req.user) {
+            res.render('home.html', {});
+            } else {
+            res.render('login.html', {});
+            }
+            });
+    
+    app.use('/api/clients', function(req, res, next) {
+            if (!req.user) {
+            res.redirect('/');
+            } else {
+            next();
+            }
+            })
+            
     app.get('/send', function (req,res) {
       var mailOptions = {
         from: req.query.to,

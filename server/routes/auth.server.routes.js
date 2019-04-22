@@ -13,13 +13,38 @@ console.log("at auth routes");
 //.post(clients.authenticate)
 
 module.exports = function(passport) {
-    router.post('/', passport.authenticate('local', { //express was router
-        failureRedirect: '/login.html',
-        successRedirect: '/home.html',
-        failureFlash: true
-    }), function(req, res) {
-            res.send('test')
-    })
+//    router.post('/', passport.authenticate('local', { //express was router
+//        failureRedirect: '../login.html',
+//        successRedirect: '../clientDashboard.html',
+//        failureFlash: true
+//    }), function(req, res) {
+//            res.redirect('/home.html');
+//    })
+    router.post('/',
+             passport.authenticate('local'),
+             function(req, res) {
+             console.log('at function '+req.user.username)
+                if (req.user != null) {
+                console.log('ALL GOOD')
+                res.status = 200
+                }
+                else {
+                console.log('ERROR')
+                res.status = 401
+                }
+             res.redirect('/');
+             });
+    router.get('user', isValidUser, function(res, req, next) {
+               
+               });
+    function isValidUser(req, res, next){
+        if (req.isAuthenticated()){
+            next();
+        }
+        else {
+            return res.status(401)
+        }
+    }
 	return router;
 
 };
