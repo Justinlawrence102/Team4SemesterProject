@@ -49,22 +49,15 @@ newTrip.save(function(err){
 */
 
 
-var recommendation1 = new recommendation({
-    userName:"JohnDoe",
-    recTitle:"Best recommendation",
-    recFlightName:"Flight to France",
-    recFlightLink: "tripdone",
-    recFlightPrice: "$6000",
-    recHotelName: "Hotel Venice",
-    recHotelLink: "ww",
-    recHotelPrice: "$5000",
-    recDetails: "This is a great deal!",
-    recCruiseName: "cruise to Vegas",
-    recCruiseLink: "www.visitVegas.com",
-    recCruisePrice: "6000",
+var newSpecial = new special({
+    title: "This is a test for special",
+    summary:"This is a summary of the special",
+    body:"this is the best special you will have",
+    featured: 123,
+    imageURL: "https://www.adventurouskate.com/wp-content/uploads/2017/05/DSCF0033.jpg"
 });
 
-recommendation1.save(function(err){
+newSpecial.save(function(err){
     if (err) throw (err);
 });
 

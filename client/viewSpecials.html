@@ -4,7 +4,7 @@
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles/style.css">
-  <title>Blogs</title>
+  <title>Project</title>
   <style>
     body,
     html {
@@ -22,12 +22,16 @@
 </head>
 
 <body ng-app="travelAgencyApp">
+    <!-- facebook integration-->
+    
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=419877092101867&autoLogAppEvents=1"></script>
+    
+    
   <div class="container" style="margin-top: 20px">
     <div class="row1">
 
-        <a href = "home.html"> 
-            <img src="bochitto2.jpg" alt="Logo" href = "home.html" style="float:left;width:200px;height:100px;margin-left:50px;">
-          </a>
+      <img src="bochitto2.jpg" alt="Logo" style="float:left;width:200px;height:100px;margin-left:50px;">
 
 
     </div>
@@ -57,58 +61,39 @@
     </div>
 
     <!--- Santis code-->
-    <div class="specialPage">
+    <div class="specialPage" ng-controller = "specialsController">
+
+    <div ng-if="userName === 'admin'">
+            <center> <input type="submit" value="Edit" ng-click = "goToEditPost()"></center>
+        </form>
+    </div>
+    </div>
+    
+    
+    <div class="specialPage" ng-controller = "specialsController">
 
       <header>
-        <h1 align="center">Special Posts</h1>
+          <h1 align="center">{{title}}</h1>
       </header>
 
-      <div class="specialHeader" ng-controller = "specialsController">
+      <div class="specialHeader" >
 
-        <center><img src="headerBlogTemp.jpeg" alt="specialsHeader" style="max-width: 80%; height: auto; padding-top:10px;">
+            <center><img src={{imageURL}}  style =  "padding-top:10px;width:333px; height:215px;">
+
         </center>
+
 
         <center>
           <div class="specialHeaderText">
             <p>
-
-            Summary/intro to specials: Please view all of my specials to learn about exciting trips you can go on!
+            {{body}}
             </p>
-      <div ng-if="userName === 'admin'">
-      <center> <input type="submit" value="New Post" ng-click = "goToNewPost()"></center>
-      </div>
-      </div>
+
+          </div>
         </center>
-
-    </div>
-
-
-
-
-
-
-      <div class="specialClass" ng-controller="specialsController">
-
-        <!--<p align="right">Insert Date Here </p> -->
-        <div class="repeatSpecialPost" ng-repeat="specials in allSpecials" ng-click="viewSpecial(specials)">
-          <center>
-            <h2>{{specials.title}} </h2>
-          </center><p>
-          <left><img src={{specials.imageURL}} style="display: block; width:250px; height:150px; float:left; padding-right: 10px; padding-bottom: 15px;">
-            <br>
-             {{specials.summary}}</p>
-          </left>
-          <br><br>
-
-        </div>
       </div>
-
-
-
-
-<br><br><br><br>
-  </div>
-
+      <div class="fb-share-button" data-href="https://team4semesterproject.herokuapp.com/specials.html" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fteam4semesterproject.herokuapp.com%2FviewSpecials.html&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+    </div>
   </div>
   <center>
     <div class="siteAnchor">
@@ -124,8 +109,9 @@
   <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
   <script src="js/app.js"></script>
 
-  <script src="js/factories/specialsFactory.js"></script>
+  <script src="/js/factories/specialsFactory.js"></script>
   <script src="js/controllers/specialsController.js"></script>
+  
   <script src="js/controllers/homeController.js"></script>
 
 </body>
