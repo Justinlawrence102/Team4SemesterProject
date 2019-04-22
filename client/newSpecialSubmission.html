@@ -74,7 +74,12 @@
         <br>
         <br>
 
+        <label for="link">Price:</label><br>
+        <textarea id="link" name="link" placeholder="Enter price here.." style="height:100px; width:70%;"
+            ng-model="price"></textarea>
 
+        <br>
+        <br>
 
         <label for="imgPost">Image of new post:</label><br>
         <input type="text" id="ipost" name="imgPost" placeholder="Insert image URL here.." ng-model="imageURL" style="width:70%">
@@ -91,13 +96,13 @@
 
       </div>
 
-
-<!--      <div ng-if="isEditing === 0">-->
-          <center> <input type="submitBlog" style = "width:8%" value="Submit" ng-click="submitNewPost()"></center>
-<!--      </div>-->
-<!--      <div ng-if="isEditing === 1">-->
-<!--          <center> <input type="submitSpecial" value="Edit post" ng-click="editPost()"></center>-->
-<!--      </div>-->
+      {{isEditing}}
+      <div ng-if="isEditing == 0">
+          <center> <input type="submitBlog" value="Submit" ng-click="submitNewPost()"></center>
+      </div>
+      <div ng-if="isEditing == 1">
+          <center> <input type="submitBlog" value="Edit post" ng-click="editPost()"></center>
+      </div>
 
       <!-- </form>  -->
     </div>
