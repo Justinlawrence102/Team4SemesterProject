@@ -21,16 +21,17 @@ angular.module('travelAgencyApp').controller('clientDashboardController', ['$sco
   $scope.recCruiseLink = undefined;
   $scope.recCruisePrice = undefined;
                                                                            
-  var firstName = sessionStorage.getItem('ClientFirstName');
-  var lastName = sessionStorage.getItem('ClientLastName');
-  $scope.fullName = firstName+' '+lastName
+  var firstname = sessionStorage.getItem('ClientFirstName');
+  console.log('Client first name: ' + firstname);
+  var lastname = sessionStorage.getItem('ClientLastName');
+  $scope.fullName = firstname+' '+lastname
 
   //$scope.firstName = sessionStorage.getItem('CurrentlyLoggedInFirstName')    
 
   console.log('getting here in client dashboard controller')
 
   
-      $scope.userName = sessionStorage.getItem('CurrentlyLoggedInUserName')     
+      //$scope.userName = sessionStorage.getItem('CurrentlyLoggedInUserName')     
 
     Requests.getAll().then(function(response) {
      console.log('trying to get all trips')
@@ -47,30 +48,30 @@ angular.module('travelAgencyApp').controller('clientDashboardController', ['$sco
      });
      
      //Call to get Client Info
-//     Requests.getClientInfo().then(function(response) {
-//       console.log('getting info');
-//       var getInfo = response.data;
-//       $scope.userInfo = getInfo;
-//       var userName = sessionStorage.getItem('CurrentlyLoggedInUserName');
-//       for (i = 0; i < $scope.userInfo.length; i++) {
-//         if ($scope.userInfo[i].username == userName) {
-//           num = i;
-//         }
-//       }
-//
-//       $scope.firstName = $scope.userInfo[num].firstname;
-//       sessionStorage.setItem('CurrentlyLoggedInFirstName',$scope.userInfo[num].firstname);
-//       $scope.lastName = $scope.userInfo[num].lastname;
-//       sessionStorage.setItem('CurrentlyLoggedInLastName', $scope.userInfo[num].lastname);
-//       $scope.email = $scope.userInfo[num].email;
-//       sessionStorage.setItem('CurrentlyLoggedInEmail', $scope.userInfo[num].email);
-//       $scope.tphone = $scope.userInfo[num].tphone;
-//       sessionStorage.setItem('CurrentlyLoggedInPhone', $scope.userInfo[num].tphone);
-//       console.log('userinfo: ' + JSON.stringify($scope.userInfo[num].firstname));
-//     }, function(error){
-//       console.log('Unable to get client info:', error);
-//
-//     });
+     /*Requests.getClientInfo().then(function(response) {
+       console.log('getting info');
+       var getInfo = response.data;
+       $scope.userInfo = getInfo;
+       var userName = sessionStorage.getItem('CurrentlyLoggedInUserName');
+       for (i = 0; i < $scope.userInfo.length; i++) {
+         if ($scope.userInfo[i].username == userName) {
+           num = i;
+         }
+       }
+       
+       $scope.firstName = $scope.userInfo[num].firstname;
+       sessionStorage.setItem('CurrentlyLoggedInFirstName',$scope.userInfo[num].firstname);
+       $scope.lastName = $scope.userInfo[num].lastname;
+       sessionStorage.setItem('CurrentlyLoggedInLastName', $scope.userInfo[num].lastname);
+       $scope.email = $scope.userInfo[num].email;
+       sessionStorage.setItem('CurrentlyLoggedInEmail', $scope.userInfo[num].email);
+       $scope.tphone = $scope.userInfo[num].tphone;
+       sessionStorage.setItem('CurrentlyLoggedInPhone', $scope.userInfo[num].tphone);
+       console.log('userinfo: ' + JSON.stringify($scope.userInfo[num].firstname));
+     }, function(error){
+       console.log('Unable to get client info:', error);
+      
+     });*/
 
      $scope.firstName = sessionStorage.getItem('CurrentlyLoggedInFirstName')
 

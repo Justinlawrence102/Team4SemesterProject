@@ -6,8 +6,9 @@ angular.module('clients').controller('ClientController', ['$scope', 'Clients',
                                                             $scope.lastname = undefined;
                                                             $scope.email = undefined;
                                                             $scope.tphone = undefined;
+                                                            $scope.holder = 'Username';
 
-                                                            
+                                            console.log("Current username: " + $scope.username);                
                                                             
 
 $scope.submit_user_request = function(){
@@ -52,11 +53,11 @@ $scope.submit_authenticate = function(){
 	});
 };
 
-$scope.firstName = sessionStorage.getItem('CurrentlyLoggedInFirstName');
-console.log('firstname: ' + JSON.stringify($scope.firstName));
+//$scope.firstName = sessionStorage.getItem('CurrentlyLoggedInFirstName');
+//console.log('firstname: ' + JSON.stringify($scope.firstName));
 
 
-$scope.username = sessionStorage.getItem('CurrentlyLoggedInUserName')
+//$scope.username = sessionStorage.getItem('CurrentlyLoggedInUserName')
 //Clients.getAll().then(function(response) {
    //console.log('trying to get all clients')
   // $scope.userRequest = response.data;

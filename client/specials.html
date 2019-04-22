@@ -29,32 +29,37 @@
             <img src="bochitto2.jpg" alt="Logo" href = "home.html" style="float:left;width:200px;height:100px;margin-left:50px;">
           </a>
 
-
     </div>
-
-    <div class="topnav" ng-controller = "homeController">
-        <a href="home.html">Home</a>
-        <a href="contact.html">Contact</a>
-        <a href="about.html">About Me</a>
-        <a href="specials.html">Specials</a>
-        <a class="active" href="blogs.html">Blog Posts</a>
-        <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
-        <div ng-if="userName !== 'null'">
-            <a style = "float:right" ng-click="logout()">Logout</a>
-            <a style="float:right" href="clientDashboard.html">My Dashboard</a>
-        </div>
-        <div ng-if="userName === 'admin'">
-            <a href="adminDashboard.html">Admin Dashboard</a>
-        </div>
-        
-            <div ng-if="userName !== 'null'">
-                <a href="triprequest.html">Trip Request</a>
+    
+  <div class="topnav" ng-controller = "homeController">
+      <a href="home.html">Home</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About Me</a>
+      <a class="active" href="specials.html">Specials</a>
+      <a href="blogs.html">Blog Posts</a>
+      <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
+      
+      <div ng-if="userName !== 'null'">
+          <a style = "float:right" ng-click="logout()">Logout</a>
+          <div ng-if="userName !== 'admin'">
+              <a style="float:right" href="clientDashboard.html">My Dashboard</a>
+          </div>
+          <div ng-if="userName === 'admin'">
+              <a style="float:right" href="adminDashboard.html">My Dashboard</a>
+          </div>
+      </div>
+      
+          <div ng-if="userName !== 'null'">
+            <div ng-if = "userName !== 'admin'">
+              <a href="triprequest.html">Trip Request</a>
             </div>
-            <div ng-if= "userName === 'null'" class="login">
-            <a href="login.html">Login</a>
-            <a href="signup.html">Sign Up</a>
-        </div>
-    </div>
+          </div>
+          <div ng-if= "userName === 'null'" class="login">
+          <a href="login.html">Login</a>
+          <a href="signup.html">Sign Up</a>
+      </div>
+  </div>
+
 
     <!--- Santis code-->
     <div class="specialPage">
