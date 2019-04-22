@@ -6,8 +6,7 @@ angular.module('clients').controller('ClientController', ['$scope', 'Clients',
                                                             $scope.lastname = undefined;
                                                             $scope.email = undefined;
                                                             $scope.tphone = undefined;
-                                                            $scope.holder = 'Username';
-
+                                                        
                                             console.log("Current username: " + $scope.username);                
                                                             
 

@@ -62,17 +62,20 @@
   </div>
 <div class ="container">
   <div class="submitForms" ng-controller="TripRequestController">
+    
+    <img src =  "homeSample5.jpg" style = "float:left; width:100px;height:100px;margin-left:25px;">
+    <img src =  "homeSample4.jpg" style = "float:right; width:100px;height:100px;margin-right:15px;">
     <!--   <form action="#">  -->
 
-  <div class="containerListInfo">
-    <h3>Contact Information</h3>
+  <div class="containerListInfo" style = "border:solid;">
+    <h3 style = "color:darkorchid">Contact Information</h3>
       <label for="name">Name</label>
       <input type="text" id="name" name="name" placeholder="Full name" >
 
       <label for="usremail">Email</label>
       <input type="email" id="to" name="email" placeholder="Email" >
 
-    <h3>Listing Information</h3>
+    <h3 style = "color:darkorchid">Listing Information</h3>
       <label for="departure">Departure</label>
       <br>
       <input id="dept" type="Origin" name="dept" ng-model="origin">
@@ -132,8 +135,8 @@
       </div>
     </div>
 
-    <div class="containerComments">
-      <h3>Additional comments</h3>
+    <div class="containerComments" style = "border:solid;">
+      <h3 style = "color:darkorchid">Additional comments</h3>
       <textarea id="comments" name="comments" placeholder="Write something.." style="height:100px; width:300px;"
         ng-model="notes"></textarea>
 </div>
