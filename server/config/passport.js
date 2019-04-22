@@ -9,34 +9,33 @@ module.exports = function (passport) {
 	passport.deserializeUser(function(user, done) {
 		done(null, user)
 	})
-	
-	passport.use(new localStrategy(function(username, password, done){
-		console.log('at passport with: ' + username + ' pass: ' + password);
+    passport.use(new localStrategy(function(username, password, done){
+        console.log('at passport with: ' + username + ' pass: ' + password);
 
-		client.findOne({username: username}, function(err, user){
-			if (err) {
+        client.findOne({username: username}, function(err, user){
+            if (err) {
                        console.log('ERROR')
-				return done(err)
-			}
-			else {
-				if (user) {
-					if (user.comparePassword(password, user.password)) {
+                return done(err)
+            }
+            else {
+                if (user) {
+                    if (user.comparePassword(password, user.password)) {
                        console.log('success')
-						return done(null, {
-							username: user.username,
-							id: user._id
-						})
-					}
-					else {
+                        return done(null, {
+                            username: user.username,
+                            id: user._id
+                        })
+                    }
+                    else {
                        console.log('Wrong password')
-						return done(null, false)
-					}
-				}
-				else {
+                        return done(null, false)
+                    }
+                }
+                else {
                        console.log('email doesnt exist!')
-					return done(null, false)
-				}
-			}
-		})
-	}))
-}  
+                    return done(null, false)
+                }
+            }
+        })
+    }))
+}

@@ -2,18 +2,36 @@
 var mongoose = require('mongoose'), 
     Schema = mongoose.Schema;
 
-
-
 /*
-	Schema for specials
+	Schema for trips
 */
-var specialSchema = new Schema({
+var specialsSchema = new Schema({
 	title: {type: String},
-	link:{type: String},
-	summary:{type: String}
-}, {collection: 'special'});
+	summary:{type: String},
+	body:{type: String},
+    featured: {type: Number},
+    imageURL: {type: String},
+});
+console.log('in specialserver model')
+
+/* Use your schema to instantiate a Mongoose model */
+specialsSchema.pre('save', function(next) {
+        console.log("at specialmodel saving")
+        var currentTime = new Date;
+        this.updated_at = currentTime;
+        if(!this.created_at)
+                           {
+                           this.created_at = currentTime;
+                           }
+                           next();
+
+                           });
+
+var specials = mongoose.model('specials', specialsSchema);
 
 
-var special = mongoose.model('special',specialSchema);
+/* Export the model to make it avaiable to other parts of your Node application */
 
-module.exports = special;
+
+module.exports = specials;
+

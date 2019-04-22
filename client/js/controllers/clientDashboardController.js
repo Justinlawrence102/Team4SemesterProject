@@ -73,11 +73,12 @@ angular.module('travelAgencyApp').controller('clientDashboardController', ['$sco
       
      });*/
 
-     //$scope.firstName = sessionStorage.getItem('CurrentlyLoggedInFirstName')
+     $scope.firstName = sessionStorage.getItem('CurrentlyLoggedInFirstName')
 
     //call to get all recommendation
     Requests.getRecommendation().then(function(response) {
         var getRec = response.data;
+        $scope.recNotes = ""
         $scope.tempRec = getRec.sort((a, b) => (a.departDate < b.departDate) ? 1 : -1)
         $scope.userRec = []
         var latestDepartDate = $scope.tempRec[0].departDate
@@ -86,6 +87,9 @@ angular.module('travelAgencyApp').controller('clientDashboardController', ['$sco
              break
           }
         $scope.userRec.push($scope.tempRec[i])
+        if ($scope.tempRec[i].otherDetails != undefined) {
+            $scope.recNotes += $scope.tempRec[i].otherDetails
+        }
         }
     }, function(error){
         console.log('Unable to get recommendations:', error);

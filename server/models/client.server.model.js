@@ -25,12 +25,12 @@ var clientSchema = new Schema({
 
 
 //this is pre function to hash the passwords(encrypt the plain password)
-/*
+
 clientSchema.pre('save', function(next){
-	this.password = bcryptjs.hashSync(this.password, 10);
-	next();
+    this.password = bcryptjs.hashSync(this.password, 10);
+    next();
 });
-*/
+
 
 clientSchema.methods.hashPassword = function(password) {
 	console.log('received password: ' + password)

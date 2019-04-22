@@ -10,6 +10,7 @@
     tripRequestRouter = require('../routes/tripRequest.server.routes.js'),
     clientRouter = require('../routes/client.server.routes.js'),
     blogsRouter = require('../routes/blogs.server.routes.js'),
+    specialsRouter = require('../routes/special.server.routes.js'),
     indexRouter = require('../routes/index.routes.js'),
     nodemailer = require("nodemailer"),
     flash = require('connect-flash'),
@@ -26,7 +27,9 @@ module.exports.init = function() {
 
   //initialize app
   var app = express();
-  var authRouter = require('../routes/auth.server.routes.js')(passport);
+    var authRouter = require('../routes/auth.server.routes.js')(passport);
+   // var authRouter = require('../routes/index.routes.js')(passport);
+
   var smtpTransport = nodemailer.createTransport({
     service: "gmail",
     host: "smtp.gmail.com",
@@ -82,7 +85,25 @@ module.exports.init = function() {
     app.use('/api/blogs',blogsRouter);
     app.use('/api/clientRecommendations', clientRecommendationsRouter);
     app.use('/api/auth', authRouter);
+    app.use('/api/specials', specialsRouter);
 
+    
+    app.get('/', function (req, res) {
+            if (req.user) {
+            res.render('home.html', {});
+            } else {
+            res.render('login.html', {});
+            }
+            });
+    
+    app.use('/api/clients', function(req, res, next) {
+            if (!req.user) {
+            res.redirect('/');
+            } else {
+            next();
+            }
+            })
+            
     app.get('/send', function (req,res) {
       var mailOptions = {
         from: req.query.to,
