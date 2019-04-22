@@ -31,32 +31,43 @@
 
     </div>
 
-    <div class="topnav">
-        <a href="home.html">Home</a>
-        <a href="#contact">Contact</a>
-        <a href="about.html">About Me</a>
-        <a href="specials.html">Specials</a>
-        <a href= "blogs.html">Blog Posts</a>
-        <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
-     <!--   <a href = "clientDashboard.html">Client Dashboard</a> -->
-        <a class = "active" a href= "adminDashboard.html">Admin Dashboard</a>
-        <div class="login">
-        <!--    <a href="triprequest.html">Trip Request</a> -->
-            <a href="login.html">Login</a>
-            <a href="signup.html">Sign Up</a>
+    <div class="topnav" ng-controller = "homeController">
+            <a href="home.html">Home</a>
+            <a href="contact.html">Contact</a>
+            <a href="about.html">About Me</a>
+            <a href="specials.html">Specials</a>
+            <a href="blogs.html">Blog Posts</a>
+            <a href="http://bochitto.paycationonline.com/index.asp" target="_blank"> Self-Booking</a>
+            
+            <div ng-if="userName !== 'null'">
+                <a style = "float:right" ng-click="logout()">Logout</a>
+                <div ng-if="userName !== 'admin'">
+                    <a style="float:right" href="clientDashboard.html">My Dashboard</a>
+                </div>
+                <div ng-if="userName === 'admin'">
+                    <a class="active" style="float:right" href="adminDashboard.html">My Dashboard</a>
+                </div>
+            </div>
+            
+                <div ng-if="userName !== 'null'">
+                  <div ng-if = "userName !== 'admin'">
+                    <a href="triprequest.html">Trip Request</a>
+                  </div>
+                </div>
+                <div ng-if= "userName === 'null'" class="login">
+                <a href="login.html">Login</a>
+                <a href="signup.html">Sign Up</a>
+            </div>
         </div>
-
-    </div>
-
-
 
     <div class="submitForms">
       <!--   <form action="#">  -->
 
       <div class="containerAdminView">
+          <div class = "top" ng-controller = "clientDashboardController">
 <h1> Admin Dashboard</h1>
 <h2> {{fullName}} </h2>
-
+</div>
 
  
 
@@ -227,9 +238,10 @@
     <script src="js/controllers/clientNotesController.js"></script>
     <script src="js/factories/adminViewDBFactory.js"></script>
     <script src="js/controllers/adminViewDBController.js"></script>
-    <script src="js/controllers/clientDashboardController.js"></script>
     <script src="js/factories/clientDashboardFactory.js"></script>
+    <script src="js/controllers/clientDashboardController.js"></script>
     <script src="js/factories/clientNotesFactory.js"></script>
+    <script src="js/controllers/homeController.js"></script>
 
 </body>
 
