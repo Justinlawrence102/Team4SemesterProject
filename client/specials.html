@@ -65,20 +65,16 @@
     <div class="specialPage">
 
       <header>
-        <h1 align="center">Special Posts</h1>
+        <h1 align="center">Specials</h1>
       </header>
 
       <div class="specialHeader" ng-controller = "specialsController">
 
-        <center><img src="headerBlogTemp.jpeg" alt="specialsHeader" style="max-width: 80%; height: auto; padding-top:10px;">
+        <center><img src="beach.jpg" style="width: 80%; height: 300px; padding-top:10px;">
         </center>
 
         <center>
           <div class="specialHeaderText">
-            <p>
-
-            Summary/intro to specials: Please view all of my specials to learn about exciting trips you can go on!
-            </p>
       <div ng-if="userName === 'admin'">
       <center> <input type="submit" value="New Post" ng-click = "goToNewPost()"></center>
       </div>
@@ -92,20 +88,20 @@
 
 
 
-      <div class="specialClass" ng-controller="specialsController">
 
         <!--<p align="right">Insert Date Here </p> -->
-        <div class="repeatSpecialPost" ng-repeat="specials in allSpecials" ng-click="viewSpecial(specials)">
-          <center>
-            <h2>{{specials.title}} </h2>
-          </center><p>
-          <left><img src={{specials.imageURL}} style="display: block; width:250px; height:150px; float:left; padding-right: 10px; padding-bottom: 15px;">
-            <br>
-             {{specials.summary}}</p>
-          </left>
-          <br><br>
 
-        </div>
+        <div style = "margin-bottom:100px;padding-top: 30px;width:75%;margin-left:13%;" ng-controller="specialsController">
+            <table class="table table-striped table-hover" style = "border:solid;">
+                    <tr ng-repeat="specials in allSpecials" ng-click = "viewSpecial(specials)">
+                        <td><center><b>{{specials.title}} - ${{specials.price}}</b></center>
+                      
+                        <div> <center>{{specials.link}}</center></div>
+                        </td>
+                        </tr>
+                </table>
+    
+        
       </div>
 
 
