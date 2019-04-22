@@ -39,16 +39,22 @@ $scope.submit_authenticate = function(){
 	console.log("past newAuth of: " + newAuth.username);
 
 	Clients.authenticate(newAuth).then(function(response){
-                                       if (response.status == 401){
-                                       res.send(401);
-                                       console.log('failed login')
-                                       }
-                                       else {
-                                       sessionStorage.setItem('CurrentlyLoggedInUserName', newAuth.username)
-                                       window.location =('/clientDashboard.html');
-                                       console.log('sucess')
-                                       }
-                    
+		console.log("reached");
+       if (response.status == 401){
+         res.send(401);
+         console.log('failed login')
+       }
+       else {
+         console.log('sucess');
+       }
+         //console.log('out of newAuth '+ response.username);
+         //console.log('out of newAuth '+ response.session.passport.user.username);
+         window.location =('/home.html');
+         sessionStorage.setItem('CurrentlyLoggedInUserName', newAuth.username)
+         
+         //window.location =('/clientDashboard.html');
+         console.log('sucess')
+  }
     //console.log(response.username);
 	});
 };

@@ -21,6 +21,17 @@ module.exports = function (passport) {
                 if (user) {
                     if (user.comparePassword(password, user.password)) {
                        console.log('success')
+          /* ---Testing
+						return done(null, {
+							username: user.username,
+							id: user._id,
+							firstname: user.firstname,
+							lastname: user.lastname,
+							email: user.email
+						})
+					}
+					else {
+          */
                         return done(null, {
                             username: user.username,
                             id: user._id

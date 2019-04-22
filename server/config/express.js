@@ -86,7 +86,6 @@ module.exports.init = function() {
     app.use('/api/clientRecommendations', clientRecommendationsRouter);
     app.use('/api/auth', authRouter);
     app.use('/api/specials', specialsRouter);
-
     
     app.get('/', function (req, res) {
             if (req.user) {
@@ -103,7 +102,7 @@ module.exports.init = function() {
             next();
             }
             })
-            
+
     app.get('/send', function (req,res) {
       var mailOptions = {
         from: req.query.to,
