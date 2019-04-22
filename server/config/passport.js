@@ -24,7 +24,10 @@ module.exports = function (passport) {
                        console.log('success')
 						return done(null, {
 							username: user.username,
-							id: user._id
+							id: user._id,
+							firstname: user.firstname,
+							lastname: user.lastname,
+							email: user.email
 						})
 					}
 					else {

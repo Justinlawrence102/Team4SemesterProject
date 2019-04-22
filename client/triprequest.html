@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles/style.css">
   <title>Project</title>
@@ -11,9 +12,9 @@
       
         /* Center and scale the image nicely */
       background-position: center center;
-			background-repeat:  no-repeat;
-			background-attachment: fixed;
-			background-size:  cover;
+      background-repeat:  no-repeat;
+      background-attachment: fixed;
+      background-size:  cover;
       background-color: #999;
       margin-bottom:20px;
       }
@@ -25,9 +26,7 @@
   <div class="container" style="margin-top: 20px" ng-controller="TripRequestController">
     <div class="row1">
 
-        <a href = "home.html"> 
-            <img src="bochitto2.jpg" alt="Logo" href = "home.html" style="float:left;width:200px;height:100px;margin-left:50px;">
-          </a>
+      <img src="bochitto2.jpg" alt="Logo" style="float:left;width:200px;height:100px;margin-left:50px;">
 
     </div>
 
@@ -50,48 +49,27 @@
   <div class="submitForms" ng-controller="TripRequestController">
     <!--   <form action="#">  -->
 
+  <div class="containerListInfo">
+    <h3>Contact Information</h3>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Full name" >
 
+      <label for="usremail">Email</label>
+      <input type="email" id="to" name="email" placeholder="Email" >
 
-    <div class="containerListInfo">
-      <h3>Listing Information</h3>
+    <h3>Listing Information</h3>
       <label for="departure">Departure</label>
       <br>
-      <select id="departure" name="dept" ng-model="origin">
-        <option value="Miami International">MIA</option>
-        <option value="Gainesville Airport">GNV</option>
-        <option value="Orlando International">ORL</option>
-      </select>
+  
+      <input id="dept" type="Origin" name="dept" ng-model="origin">
+      <br><br>
 
-      <br>
       <label for="departure-date">Departure date</label>
       <br>
-      <input type="date" name="dept-date" ng-model="departDate" style=" width:30%;">
-      <br>
+      <input id="dept-date" type="date" name="dept-date" ng-model="departDate" style=" width:30%;">
+      <br><br>  
 
-
-
-
-<!--
-      <label for="destination">Destination</label>
-      <br>
-      <select id="departure" name="dept" ng-model="destination">
-        <option value="Miami International">MIA</option>
-        <option value="Gainesville Airport">GNV</option>
-        <option value="Orlando International">ORL</option>
-      </select>
-
-      <br>
-      <label for="return-date">Return date</label>
-      <br>
-
-      <input type="date" name="ret-date" ng-model="returnDate" style=" width:30%;">
-
--->
-
-
-
-
-       <br>  <button ng-click="addNewStop()">Add stop</button>
+      <button ng-click="addNewStop()">Add stop</button>
 
         <table>
           <tr ng-repeat="stops in tableStops track by $id(stops)">
@@ -100,11 +78,8 @@
               <div class="test">
               <label for="destination"> Stops</label>
               <br>
-              <select id="departure" name="dept" ng-model="stops.stopLocation" style=" width:100%;">
-                <option value="Miami International">MIA</option>
-                <option value="Gainesville Airport">GNV</option>
-                <option value="Orlando International">ORL</option>
-              </select>
+        
+        <input id="destination" type="departure" name="dept" ng-model="stops.stopLocation">
         
               <br>
               <label for="return-date">Date to Arrive at Stop</label>
@@ -114,57 +89,69 @@
 
               </div>
 
-
-
-
             </td>
             <td>
-              <button ng-click="removeStop($index)" type="button">
-               
+              <button ng-click="removeStop($index)" type="button" >
+               Remove Stop
               </button>
             <td>
           </tr>
         </table>
 
       <br>
-      <br>
       
-      
-      <label for="destination">Destination</label>
-      <br>
       <label for="return-date">Return date</label>
       <br>
       
-      <input type="date" name="ret-date" ng-model="returnDate" style=" width:30%;">
+      <input id="ret-date" type="date" name="ret-date" ng-model="returnDate" style=" width:30%;">
           
-          <br>
-          <br>
+      <br>
+      <br>
           
       <div class="numInput">
         <label for="quantity">Number of people</label>
         <br>
-        <input type="number" name="quantity" ng-model="numPeople">
+        <input id="numpeople" type="number" name="quantity" ng-model="numPeople">
 
         <br>
         <label for="maxBudget"> Max budget</label>
         <br>
-        <input type="number" name="maxBudget" ng-model="budget">
+        <input id="maxbudget" type="number" name="maxBudget" ng-model="budget">
         <br>
 
       </div>
     </div>
 
-
     <div class="containerComments">
       <h3>Additional comments</h3>
       <textarea id="comments" name="comments" placeholder="Write something.." style="height:100px; width:300px;"
         ng-model="notes"></textarea>
-    </div>
+</div>
 
-
-
-    <center> <input type="submit" value="Submit" ng-click="submitRequest()"></center>
+    <center> <input id="send_email" type="submit" value="Submit" ng-click="submitRequest()"></center>
     <!-- </form>  -->
+
+      <script>
+        $(document).ready(function() {
+            var from, to, subject, text, name, message;
+
+            $("#send_email").click(function() {
+              to=$("#to").val();
+              subject="NEW TRIP REQUEST";
+              text="Departing From: " + $("#dept").val() + "\nDeparture Date: " + $("#dept-date").val() + "\nDestination(s): " + $("#destination").val() + "\nReturn Date: " + $("#ret-date").val() + "\nNumber of People: " + $("#numpeople").val() + "\nMax Budget: " + $("#maxbudget").val() + "\nAdditional comments: " + $("#comments").val();
+              name=$("#name").val();
+
+            $.get("/send", {to: to, subject: subject, text: text, name: name}, function(data){
+              if (data =="sent")
+              {
+                 window.location =('/clientDashboard.html');
+              }
+               else console.log('email not sent.');
+             });
+          });
+        });
+    </script>
+
   </div>
 </div>
 <center>
@@ -176,14 +163,6 @@
 
     </div>
   </center>
-   
-
-
-
-
-
-
-
 
   <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
   <script src="js/app.js"></script>

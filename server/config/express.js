@@ -83,6 +83,23 @@ module.exports.init = function() {
     app.use('/api/clientRecommendations', clientRecommendationsRouter);
     app.use('/api/auth', authRouter);
 
+    app.get('/api/user_data', function(req,res) {
+
+      if (req.username === undefined) {
+        res.json({});
+        console.log('undefined at get /user_data');
+      } else {
+        res.json({
+          username: req.user.username,
+          firstname : req.user.firstname,
+          lastname : req.user.lastname,
+          email : req.user.email
+        });
+
+        console.log('got a user though at get /user_data')
+      }
+    });
+
     app.get('/send', function (req,res) {
       var mailOptions = {
         from: req.query.to,
