@@ -97,7 +97,15 @@
           </div>
         </center>
       </div>
-      <div class="fb-share-button" data-href="https://team4semesterproject.herokuapp.com/blogs.html" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fteam4semesterproject.herokuapp.com%2FviewBlogs.html&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+
+      <!--script to set facebook share URL to current<-->
+      <script type="text/javascript">
+        jQuery(document).ready(function($) {
+          $("fb_share").attr("data-href") = encodeURIComponent(window.location);
+        });
+      </script>
+
+      <div name="fb_share" class="fb-share-button" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fteam4semesterproject.herokuapp.com%2FviewBlogs.html&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
     </div>
   </div>
   <center>
