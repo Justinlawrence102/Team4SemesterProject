@@ -29,14 +29,26 @@ $scope.testFeat = "true"
                                                     
     $scope.viewBlog = function(blogPost) {
           console.log("clicked!")
+
           sessionStorage.setItem('tempBlogTitle', blogPost.title)
           sessionStorage.setItem('tempBlogSummary', blogPost.summary)
           sessionStorage.setItem('tempBlogBody', blogPost.body)
           sessionStorage.setItem('tempBlogImageURL', blogPost.imageURL)
           sessionStorage.setItem('tempBlogfeatured', blogPost.featured)
                                                        
-          window.location =('/viewBlogs.html');
+          console.log('HERE ' + blogPost.title);
+
+          //Added to fix facebook sharing
+          Requests.getBlog(blogPost).then(function(response) {
+            console.log('reached get blog in blogs ctrl');
+             window.location =('/api/blogs/ ' + blogPost.title + 'viewBlogs.html');
+        //      console.log('reached return of get blog in view blog with title = ' + response.blog.title);
+          });
+
+          //Previous method, loading page without blog title in URL
+         // window.location =('/viewBlogs.html');
      }
+
      $scope.goToNewPost = function() {
          sessionStorage.setItem('tempBlogTitle', "")
          sessionStorage.setItem('tempBlogSummary', "")

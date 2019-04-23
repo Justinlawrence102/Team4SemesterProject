@@ -1,5 +1,6 @@
  var path = require('path'),
     express = require('express'), 
+    params = require('express-params');
     mongoose = require('mongoose'),
     morgan = require('morgan'),
     bodyParser = require('body-parser')
@@ -28,7 +29,6 @@ module.exports.init = function() {
   //initialize app
   var app = express();
     var authRouter = require('../routes/auth.server.routes.js')(passport);
-   // var authRouter = require('../routes/index.routes.js')(passport);
 
   var smtpTransport = nodemailer.createTransport({
     service: "gmail",
@@ -52,14 +52,14 @@ module.exports.init = function() {
   /**TODO
   Serve static files */
   app.use(express.static('client'));
-    
   console.log("dirset it "+__dirname);
-  app.use(express.static('client'));
+  //app.use(express.static('client'));
+
 
   //initialize passport
   app.use(passport.initialize());
   app.use(passport.session());
-  //not sure if need this or not
+
   app.use(session({
     secret: 'test',
     saveUninitialized: false,
@@ -67,7 +67,7 @@ module.exports.init = function() {
   }))
 
 
-  //flash messages --testing
+  //flash messages --testing/future implementation, not currently used
   app.use(flash());
   app.use(function (req, res, next) {
     res.locals.messages = require('express-messages')(req, res);

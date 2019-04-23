@@ -1,27 +1,50 @@
 
 /* Dependencies */
 var fs = require('fs'),
+        //need path for res.sendFile() in getBlog function to work correctly without an absolute path
+        path = require('path'),
         mongoose = require('mongoose'),
         blogs = require('../models/blogs.server.model.js'),
         config = require('../config/config.js');
-/*
-  In this file, you should use Mongoose queries in order to retrieve/add/remove/update listings.
-  On an error you should send a 404 status code, as well as the error message. 
-  On success (aka no error), you should send the listing(s) as JSON in the response.
 
-  HINT: if you are struggling with implementing these functions, refer back to this tutorial 
-  from assignment 3 https://scotch.io/tutorials/using-mongoosejs-in-node-js-and-mongodb-applications
- */
 
 exports.listBlogs = function(req, res) {
     console.log('in server controller')
-//    console.log('userName: '+req.params.userName)
     blogs.find()
     .exec(function (err, allTrips) {
           if (err) { return next(err); }
           res.json(allTrips)
           })
 
+};
+
+exports.getBlog = function(req, res) {
+   var blog = req.params;
+
+   console.log("FETCHING " + blog.title);
+   
+    var fetched =
+    blogs.findOne({ title: blog.title }, function(err, details) {
+                           if (err) {
+                           console.log("ERROR FINDING BLOG!")
+                           throw err;
+                           }
+                           });
+
+    res.blog = fetched;
+    res.sendFile(path.resolve('client/viewBlogs.html'));  
+};
+
+exports.blogsByID = function(req, res, next, id) {
+  blogs.findById(id).exec(function(err, blog) {
+    if(err) {
+      res.status(400).send(err);
+    } else {
+      req.blog = blog;
+      console.log('fetched blog in blogsByID: ' + req.blog.title);
+      next();
+    }
+  });
 };
 
 exports.createPost = function(req, res){
