@@ -3,12 +3,12 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 /*
-	Schema for trips
+  Schema for trips
 */
 var blogSchema = new Schema({
-	title: {type: String},
-	summary:{type: String},
-	body:{type: String},
+  title: {type: String},
+  summary:{type: String},
+  body:{type: String},
     featured: {type: Number},
     imageURL: {type: String},
 });
@@ -34,4 +34,3 @@ var blog = mongoose.model('blogs', blogSchema);
 
 
 module.exports = blog;
-

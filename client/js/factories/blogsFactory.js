@@ -8,6 +8,12 @@ angular.module('blogs', []).factory('Requests', function($http) {
     createBlog: function(newPost) {
      return $http.post('/api/blogs', newPost);
      },
+
+     //Test
+     getBlog: function(blog) {
+      return $http.get('/api/blogs/'+blog.title);
+     },
+     //end test
                                     
     editBlog: function(updatedBlog){
                                     console.log('at factory!')
